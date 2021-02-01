@@ -1,0 +1,77 @@
+[
+    {
+        "value": "KBANK",
+        "label": "Kasikornthai Bank",
+        "bankCode": "004"
+    },
+    {
+        "value": "BAY",
+        "label": "Krungsri Ayutthaya",
+        "bankCode": "025"
+    },
+    {
+        "value": "BBL",
+        "label": "Bualuang Bank",
+        "bankCode": "002"
+    },
+    {
+        "value": "KTB",
+        "label": "Krungthai Bank",
+        "bankCode": "006"
+    },
+    {
+        "value": "SCB",
+        "label": "Siam Commercial Bank",
+        "bankCode": "014"
+    },
+    {
+        "value": "TBANK",
+        "label": "Thanachart Bank",
+        "bankCode": "065"
+    },
+    {
+        "value": "TMB",
+        "label": "TMB Bank",
+        "bankCode": "011"
+    },
+    {
+        "value": "KKP",
+        "label": "Kiatnakin Bank",
+        "bankCode": "069"
+    },
+    {
+        "value": "CIMB",
+        "label": "CIMB Bank",
+        "bankCode": "022"
+    },
+    {
+        "value": "GSB",
+        "label": "Government Saving Bank",
+        "bankCode": "030"
+    },
+    {
+        "value": "SC",
+        "label": "Standard Chartered Bank",
+        "bankCode": "020"
+    },
+    {
+        "value": "UOB",
+        "label": "United Overseas Bank",
+        "bankCode": "024"
+    },
+    {
+        "value": "TISCO",
+        "label": "Tisco Bank",
+        "bankCode": "067"
+    },
+    {
+        "value": "ICBC",
+        "label": "Industrial and Commercial Bank Of China",
+        "bankCode": "070"
+    },
+    {
+        "value": "Mega-ICBC",
+        "label": "Mega ICB",
+        "bankCode": "026"
+    }
+]

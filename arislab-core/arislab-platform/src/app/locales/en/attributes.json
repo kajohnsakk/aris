@@ -1,0 +1,23 @@
+{
+	"color": "Color",
+	"size": "Size",
+		"clothes": {
+		"washing-method": "Washing Method",
+    "pocket": "Pocket",
+    "neck-type": "Neck Type",
+		"shirt-shape": "Shape",
+		"sleeves-type": "Sleeves Type",
+		"texture": "Texture",
+		"collar-type": "Collar Type",
+		"pants-shape": "Shape",
+		"waist-height": "Waist Height",
+		"leg-length-type": "Leg Length Type",
+		"pant-style": "Pant Style",
+		"warmth": "Warmth",
+		"pattern": "Pattern",
+		"sleeve-type": "Sleeve Type",
+		"occasion": "Occasion",
+		"dress-type": "Dress Type",
+		"skirt-type": "Skirt Type"
+    }
+}

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  client:
+    image: logistic-label-generator:1.1.3-0712200653
+    container_name: "logistic-label-generatore"
+    build: ./
+    ports:
+      - "3000:3000"

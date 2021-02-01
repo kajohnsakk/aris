@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+			
+    <link rel="stylesheet" href="/static/css/vertical-overlay.css">
+</head>
+<body>
+<div class="container-fluid">
+	<div class="mask-container">
+		<div class="flex w-full justify-end mb-4">
+			<div class="flex w-1/6 justify-end">
+				<div class="w-2/4">
+					<img class='rounded-full' src="{{data.storeLogo}}"/>
+				</div>
+			</div>
+		</div>
+		<div class="flex w-full justify-between mb-2">
+			<div class="w-4/5">
+				{{#if data.selectedProduct}}
+					{{#if data.selectedProduct.productInfo.enableProductImage}}
+						<div class="flex flex-col w-2/4">
+							<img class='shadow-xl w-full h-auto object-contain' src="{{data.selectedProduct.productInfo.productImage}}"/>
+						</div>
+					{{else}}
+						<div class="flex max-w-xl z-20 overflow-hidden whitespace-no-wrap rounded-r-full">
+							<div class="shadow-xl font-medium bg-white p-4 pr-6 rounded-r-full">{{data.selectedProduct.productInfo.productName}}</div>
+						</div>
+					{{/if}}
+					<div class="flex max-w-xl z-10 overflow-hidden whitespace-no-wrap rounded-r-full">
+						<div class="flex shadow-xl font-medium bg-white p-4 rounded-r-full hashtag items-center">
+							<div class="flex">สั่งซื้อพิมพ์ </div><div class="flex text-5xl font-bold mx-3">#{{data.selectedProduct.productInfo.productHashtag}}</div>
+						</div>
+					</div>
+					<div class="flex max-w-xl z-10 overflow-hidden whitespace-no-wrap rounded-r-full">
+						<div class="shadow-xl font-medium bg-white p-4 pr-6 rounded-r-full text-red-700">{{numberToString data.selectedProduct.minPrice}} Baht</div>
+					</div>
+				{{/if}}
+			</div>
+			<div class="w-1/5">
+				<img src="/static/img/powered-by-aris.png"/>
+			</div>
+		</div>
+		<div class="flex flex-col flex-1">
+			{{#if data.selectedProduct}}
+				{{#if data.selectedProduct.productInfo.enableSizeTable}}
+					<div class="shadow-xl flex flex-col flex-1 object-cover">
+						<img class='w-full h-auto' src="{{data.selectedProduct.productInfo.sizeTableImage}}" />
+					</div>
+				{{/if}}
+			{{/if}}
+		</div>
+		
+	</div>
+
+</div>
+</body>
+</html>

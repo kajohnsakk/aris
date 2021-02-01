@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card mt-4" style="box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1); margin-bottom: 35vh;">
+            <div class="card-body">
+                <h5 class="card-title">Returning user?</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Order ID : {{ data.orderID }}</h6>
+
+                <ul class="list-unstyled">
+                    <div class="card my-4">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            <h5 class="card-title">
+                                                Hello, {{ data.userInfo.firstName }} {{ data.userInfo.lastName }}
+                                            </h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">
+                                                We noticed that you're a returning customer. In order to save time,
+                                                would you like to use the following info to proceed with the payment?
+                                            </h6>
+                                            <form>
+                                                <div class="form-group row">
+                                                    <label for="staticName" class="col-sm-4 col-form-label">Your
+                                                        name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" readonly class="form-control-plaintext"
+                                                            id="staticName"
+                                                            value={{ data.paymentInfo.gbPaymentDetails.customerName }}>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="staticEmail" class="col-sm-4 col-form-label">Your
+                                                        email</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" readonly class="form-control-plaintext"
+                                                            id="staticEmail"
+                                                            value={{ data.paymentInfo.gbPaymentDetails.customerEmail }}>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="staticAddress" class="col-sm-4 col-form-label">Your
+                                                        address</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" readonly class="form-control-plaintext"
+                                                            id="staticAddress"
+                                                            value={{ data.paymentInfo.gbPaymentDetails.customerAddress }}>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="staticPhoneNo" class="col-sm-4 col-form-label">Your
+                                                        phone number</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" readonly class="form-control-plaintext"
+                                                            id="staticPhoneNo"
+                                                            value={{ data.paymentInfo.gbPaymentDetails.customerTelephone }}>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <a href="#" class="btn btn-primary btn-block">
+                                                            No
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <a href="#" class="btn btn-primary btn-block">
+                                                            Yes
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>

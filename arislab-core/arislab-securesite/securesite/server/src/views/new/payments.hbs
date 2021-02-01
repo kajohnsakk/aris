@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Your shopping cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/new/tailwind.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/new/new-basket.css?v={{ timestamp }}" />
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+</head>
+
+<body class="h-full">
+    <div class="m-auto w-full md:w-1/2 mb-8 leading-normal basket-container basket font-light text-sm sm:text-base">
+        <div class="flex py-6 mb-px basket-sticky-top">
+            <div class="logo ml-4 lg:ml-0">
+                <img src="../img/svg/logo.svg" />
+            </div>
+            <div class="flex items-center ml-4 sm:ml-6 whitespace-no-wrap">ระบบการขายผ่านไลฟ์สด</div>
+        </div>
+        <div class="border w-full">
+            <div class="hidden sm:flex flex-col items-center mt-8 mb-10">
+                <img src="../img/svg/cart.svg" alt="">
+                <div class="font-medium text-lg mt-2">เลือกช่องทางชำระเงิน</div>
+                <div>
+                    <span class="text-grey-dark">
+                        รวมราคาทั้งสิ้น {{ cartDetails.summary.grandTotal }} บาท
+                    </span>
+                </div>
+            </div>
+
+            <div class="px-2 sm:px-4 pt-4 sm:pt-0 sm:px-12 pb-4 font-normal">
+                {{!-- <div class="flex justify-between mb-2">
+                    {{#unless isPaidOrder}}
+                        <span class="font-medium">ที่อยู่จัดส่งสินค้า</span>
+                    {{else}}
+                        <span class="font-medium">จัดส่งไปที่</span>
+                    {{/unless}}
+                    {{#unless isPaidOrder}}
+                        {{#if isCustomerExists }}
+                            <button class="red btnEditDeliveryInfo">แก้ไขที่อยู่</button>
+                        {{/if}}
+                    {{/unless}}
+                </div> --}}
+
+                {{!-- <ul class="list-reset flex border-b">
+                    <li class="-mb-px mr-1">
+                        <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-dark font-semibold"
+                            href="#">Active</a>
+                    </li>
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#">Tab</a>
+                    </li>
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-blue hover:text-blue-darker font-semibold" href="#">Tab</a>
+                    </li>
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-grey-light font-semibold" href="#">Tab</a>
+                    </li>
+                </ul> --}}
+
+                <div class="border-t py-4">
+                    {{!-- <div class="flex items-center"> --}}
+                    <ul class="list-reset border-b flex">
+                        <li class="flex-1 mr-2">
+                            <a class="payment_tabLink paymentMethodItem text-center block border border-white rounded text-blue py-2 px-4"
+                                href="#" data-tabtarget="payment_qrcode" onClick="setPaymentMethod(event, 'qrcode')"
+                                id="defaultOpen">ชำระผ่าน QR Code</a>
+                        </li>
+                        <li class="flex-1 mr-2">
+                            <a class="payment_tabLink paymentMethodItem text-center block border border-white rounded text-blue py-2 px-4"
+                                href="#" data-tabtarget="payment_credit_debit_card"
+                                onClick="setPaymentMethod(event, 'credit_debit_card')">บัตรเดบิต/บัตรเครดิต</a>
+                        </li>
+                        <li class="flex-1 mr-2">
+                            <a class="payment_tabLink paymentMethodItem text-center block border border-white rounded text-blue py-2 px-4"
+                                href="#" data-tabtarget="payment_cod"
+                                onClick="setPaymentMethod(event, 'cod')">เก็บเงินปลายทาง</a>
+                        </li>
+                        <li class="text-center flex-1">
+                            <a class="block py-2 px-4 text-grey-light cursor-not-allowed" href="#">Disabled Item</a>
+                        </li>
+                    </ul>
+
+                    <div class="payment_tabContent" id="qrcode">
+                        <h3>payment_qrcode</h3>
+                        <span>ท่านสามารถบันทึกภาพเพื่อนำไปจ่ายในแอพธนาคารได้ทุกธนาคาร</span>
+                        <h3><img src="data:image/png;base64,{{ qrcodeInfo }}" /></h3>
+                    </div>
+                    <div class="payment_tabContent" id="credit_debit_card">
+                        <h3>payment_credit_debit_card</h3>
+                        <span>กรุณากดชำระเงินเพื่อดำเนินการต่อ</span>
+                        {{!-- <form id="checkout-form" action="handleChargeCard" method="POST">
+                                <div id="gb-form" style="height: 600px;"></div>
+                            </form> --}}
+                    </div>
+                    <div class="payment_tabContent" id="cod">
+                        <h3>payment_cod</h3>
+                        <span>กดชำระเงินเพื่อสั่งซื้อ และรอรับสินค้าที่บ้านได้เลย</span>
+                    </div>
+
+                    {{!-- </div> --}}
+                </div>
+
+
+            </div>
+
+            <div
+                class="flex justify-between items-center border-t py-4 px-2 sm:px-4 sm:px-12 leading-tight basket-sticky">
+                <div class="flex text-grey-dark">
+                    <div class="mr-2 sm:mr-4">
+                        <div class="flex flex-row justify-between"><span class="mr-4">รวม
+                                ({{ cartDetails.summary.totalQuantity }})</span><span
+                                class="text-left">฿{{ cartDetails.summary.totalPrice }}</span></div>
+                        <div class="flex flex-row justify-between"><span>ค่าจัดส่ง</span><span
+                                class="text-left">฿{{ cartDetails.summary.totalDeliveryCost }}</span></div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="btnCod py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                        ยกเลิก
+                    </button>
+                    <button class="btnPay py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                        สั่งสินค้า
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden flex-1 flex-col h-full items-center justify-center loading-container">
+        <div class="mb-2 text-highlight">กำลังประมวลผลคำสั่งซื้อ.....</div>
+        <div class="text-highlight">Processing your order.....</div>
+    </div>
+    <div class="hidden flex-1 flex-col h-full items-center justify-center redirect-container">
+        <div class="mb-2 text-highlight">กำลังนำท่านไปยังหน้าชำระเงิน.....</div>
+        <div class="text-highlight">Redirect to Payment Page.....</div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{{!-- <script type="text/javascript" src="../js/GBPrimePay.js?v={{ timestamp }}"></script> --}}
+<script type="text/javascript" src="../js/cart.js?v={{ timestamp }}"></script>
+<script type="text/javascript" src="../js/payment.js?v={{ timestamp }}"></script>
+
+{{#if storeConfig}}
+{{#if storeConfig.useCashOnDelivery}}
+<script type="text/javascript" src="../js/cod.js?v={{ timestamp }}"></script>
+{{/if}}
+{{/if}}
+
+<script>
+    const HOST = window.location.origin;
+    const URL_PARAMS = new URLSearchParams(window.location.search);
+
+    const CART_ID = URL_PARAMS.get('cartID');
+
+    // GBPrimePay public key
+    // publicKey for production
+    // yB459gGohiOWbsulSWXxmd92hGjtpmRH
+    // publicKey for testing
+    // QnlexEQDVeUd41p4uO9xjfXbwYtJMp2C
+    // new GBPrimePay({
+    //     publicKey: 'QnlexEQDVeUd41p4uO9xjfXbwYtJMp2C',
+    //     gbForm: '#gb-form',
+    //     merchantForm: '#checkout-form',
+    //     amount: 1.00,
+    //     enableRememberCard: true,
+    //     customStyle: {
+    //         backgroundColor: 'transparent'
+    //     },
+    //     env: 'test' // default prd | optional: test, prd
+    // });
+
+    // hideAllPaymentMethodContent();
+
+    document.getElementById("defaultOpen").click();
+</script>
+
+</html>

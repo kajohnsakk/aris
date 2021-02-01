@@ -1,0 +1,17 @@
+/* .main-font {
+    font-family: "Kanit", Muli, Roboto, Helvetica Neue, Arial, sans-serif !important;
+} */
+
+.business-profile-button {
+    box-shadow: none;
+    background-color: #e81790;
+    color: white;
+    height: 4rem;
+    text-transform: none;
+    font-weight: 400;
+    font-family: "Kanit", Muli, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.business-profile-button:hover {
+    background-color: #ff48b3;
+}

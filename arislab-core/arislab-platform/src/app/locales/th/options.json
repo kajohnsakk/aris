@@ -1,0 +1,188 @@
+{
+	"color": {
+		"black": "สีดำ",
+		"white": "สีขาว",
+		"gray": "สีเทา",
+		"beige": "สีเบจ",
+		"nude": "สีนู้ด",
+		"red": "สีแดง",
+		"green": "สีเขียว",
+		"dark-blue": "สีน้ำเงิน",
+		"blue": "Blue",
+		"navy": "สีกรมท่า",
+		"light-blue": "สีฟ้า",
+		"yellow": "สีเหลือง",
+		"purple": "สีม่วง",
+		"pink": "สีชมพู",
+		"orange": "สีส้ม",
+		"brown": "สีน้ำตาล",
+		"off-white": "สีออฟไวท์",
+		"cream": "สีครีม",
+		"khaki": "สีกากี",
+		"denim": "สียีนส์",
+		"gold": "สีทอง",
+		"silver": "สีเงิน",
+		"crimson": "สีเลือดหมู",
+		"colorful": "หลากสี",
+		"other": "อื่นๆ"	
+	},
+	"size": {
+		"xs": "XS",
+		"s": "S",
+		"m": "M",
+		"l": "L",
+		"xl": "XL",
+		"freesize": "ฟรีไซส์"
+	},
+	"washing-method": {
+		"machine-wash": "ซักเครื่อง",
+		"hand-wash": "ซักมือ",
+		"dry-wash": "ซักแห้ง",
+		"other": "อื่นๆ"
+	},
+	"pocket": {
+		"yes": "มี",
+		"no": "ไม่มี"
+	},
+	"neck-type": {
+		"round-neck": "คอกลม", 
+		"v-neck": "คอวี", 
+		"henry": "คอกระดุม", 
+		"polo": "คอปกโปโล", 
+		"shirt-collar": "คอปกเชิ้ต", 
+		"high-neck": "คอสูง",
+		"turtle-neck": "คอเต่า",
+		"scoop": "คอกว้าง",
+		"mandarin-neck": "คอจีน",
+		"square-neck": "คอสี่เหลี่ยม",
+		"club-collar": "คอบัว",
+		"hooded": "ฮู้ด",
+		"other": "อื่นๆ"
+	},
+	"shirt-shape": {
+		"regular": "มาตรฐาน",
+		"oversized": "โอเวอร์ไซส์",
+		"slim": "เข้ารูป",
+		"skinny": "รัดรูป",
+		"longline": "ตัวยาว"
+	},
+	"sleeves-type": {
+		"short-sleeves": "แขนสั้น",
+		"long-sleeves": "แขนยาว",
+		"3-4-sleeves": "แขนสามส่วน",
+		"sleeveless": "ไม่มีแขน"
+	},
+	"texture": {
+		"cotton": "ผ้าฝ้าย",
+		"jersey": "ผ้ายืด",
+		"linen": "ผ้าลินิน",
+		"denim": "ผ้ายีนส์",
+		"chino": "ผ้าชิโน",
+		"polyester": "ผ้าโพลีเอสเตอร์",
+		"nylon-fabric": "ผ้าไนลอน",
+		"mesh": "ผ้าตาข่าย",
+		"corduroy": "ผ้าลูกฟูก",
+		"pu-leather": "หนังเทียม",
+		"leather-suede": "หนังแท้/หนังกลับ",
+		"fleece": "ผ้าฟลีส/ผ้าสำลี",
+		"wool": "ขนสัตว์",
+		"acrylic-wool": "ขนสัตว์เทียม",
+		"cashmier": "แคชเมียร์",
+		"crochet": "ไหมพรม",
+		"felt": "ผ้าสักกะหลาด",
+		"velvet-fabric": "ผ้ากำมะหยี่",
+		"viscose": "ผ้าวิสคอส",
+		"chiffon": "ผ้าชีฟอง",
+		"lace-fabric": "ผ้าลูกไม้",
+		"satin-fabric": "ผ้าซาติน",
+		"silk": "ผ้าไหม",
+		"spandex": "สแปนเด็กซ์",
+		"hanako": "ผ้าฮานาโกะ",
+		"lace": "ผ้ายืด",
+		"leather": "หนัง",
+		"sheep-wool": "ขนแกะ",
+		"satin": "ซาติน",
+		"velvet": "กำมะหยี่",
+		"other": "อื่นๆ"
+	},
+	"collar-type": {
+		"standard-collar": "ปกมาตราฐาน",
+		"button-down-collar": "ปกติดกระดุม",
+		"spread-collar": "ปกคอกว้าง",
+		"mandarin-collar": "ปกคอจีน",
+		"club-collar": "ปกคอบัว",
+		"wing-tip-collar": "ปกสามเหลี่ยมเล็ก",
+		"other": "อื่นๆ"
+	},
+	"pants-shape": {
+		"regular": "มาตรฐาน",
+		"skinny": "สกินนี่",
+		"straight": "ขากระบอก",
+		"wide": "ขากว้าง"
+	},
+	"waist-height": {
+		"high-waist": "เอวสูง",
+		"midi-waist": "เอวกลาง",
+		"low-waist": "เอวต่ำ"
+	},
+	"leg-length-type": {
+		"ankle": "ข้อเท้า",
+		"high-top-ankle": "คลุมข้อเท้า",
+		"five-part": "ห้าส่วน"
+	},
+	"pant-style": {
+		"casual-pants": "กางเกงลำลอง",
+		"formal-pants": "กางเกงทางการ",
+		"workout-pants": "กางเกงออกกำลังกาย",
+		"camouflage-pants": "กางเกงลายพราง",
+		"other": "อื่นๆ"
+	},
+	"warmth": {
+		"normal": "อบอุ่นปกติ",
+		"extra-warm": "อบอุ่นมาก",
+		"ultra-warm": "อบอุ่นพิเศษ"
+	},
+	"pattern": {
+		"leather-print": "ลายหนังสัตว์",
+		"camouflage": "ลายพราง",
+		"chess": "ลายหมากรุก",
+		"floral": "ลายดอก",
+		"geometric": "ลายเรขาคณิต",
+		"plaid": "ลายสก็อต",
+		"graphic-pattern": "ลายกราฟฟิก",
+		"letter-print": "ลายตัวหนังสือ",
+		"solid-color": "สีพื้น",
+		"polka-dot": "ลายจุด",
+		"striped-pattern": "ลายทาง"
+	},
+	"occasion": {
+		"evening-party": "งานกลางคืน",
+		"party": "งานเลี้ยง",
+		"casual": "ลำลอง",
+		"work": "ทำงาน"
+	},
+	"dress-type": {
+		"a-line-dress": "เดรสทรงเอ",
+		"ruffle-dress": "เดรสระบาย",
+		"babydoll-dress": "เดรสทรงตุ๊กตา",
+		"jumper-dress": "เดรสจั๊มเอว",
+		"asymmetrical-hem-dress": "เดรสชายไม่เท่ากัน",
+		"pencil-dress": "เดรสทรงดินสอ",
+		"straight-dress": "เดรสทรงตรง",
+		"shirt-dress": "เดรสเชิ๊ต",
+		"knitted-dress": "เดรสไหมพรม",
+		"tent-dress": "เดรสทรงปล่อย",
+		"sheath-dress": "เดรสทรงสอบ",
+		"wedding-dress": "เดรสแต่งงาน",
+		"wrap-dress": "เดรสแบบผูก"
+	},
+	"skirt-type": {
+		"a-line-skirts": "กระโปรงทรงเอ",
+		"irregular-skirts": "กระโปรงชายไม่เท่ากัน",
+		"ruffle-skirts": "กระโปรงระบาย",
+		"wrap-skirts": "กระโปรงแบบผูก",
+		"pencil-skirts": "กระโปรงทรงดินสอ",
+		"pleated-skirts": "กระโปรงพลีท",
+		"circular-skirts": "กระโปรงทรงกลม"
+	}
+}

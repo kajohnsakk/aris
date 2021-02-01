@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: alpha
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: platform
+    app: aris
+  name: platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: platform
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 ()
+      creationTimestamp: null
+      labels:
+        io.kompose.service: platform
+        app: aris
+    spec:
+      containers:
+        - image: 217564844566.dkr.ecr.ap-southeast-1.amazonaws.com/arislab-platform:1.0.14-alpha
+          name: arislab-platform
+          ports:
+            - containerPort: 3000
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

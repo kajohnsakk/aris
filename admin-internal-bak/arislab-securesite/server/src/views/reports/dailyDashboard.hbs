@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Frequency Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+</head>
+
+<body>
+    <div class="flex chart-container relative w-full h-full" style="">
+        <canvas id="dashboard"></canvas>
+    </div>
+    <input type="hidden" id="xLabelList" value="{{xLabelList}}" />
+    <input type="hidden" id="lineChartData" value="{{lineChartData}}" />
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+
+<script type="text/javascript">
+    
+    let xLabelList = JSON.parse( document.getElementById('xLabelList').value );
+    let lineChartData = JSON.parse( document.getElementById('lineChartData').value );
+    let xLabel = [];
+    let xLabelTag = [];
+    let chartData = [];
+    
+    for(let i = 0; i < xLabelList.length; i++) {
+        xLabel.push(xLabelList[i].label);
+        xLabelTag.push(xLabelList[i].tag);
+    }
+
+    for(let reportDate in lineChartData) {
+        let data = [];
+        for(let i = 0; i < xLabelTag.length; i++) {
+            let tag = xLabelTag[i];
+            data.push(lineChartData[reportDate][tag]);
+        }
+
+        let dataObj = {
+            label: reportDate,
+            data: data,
+            borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
+            fill: false,
+            lineTension: 0
+        };
+        chartData.push(dataObj);
+    }
+    
+    var ctx = document.getElementById('dashboard').getContext('2d');
+    var dashboard = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xLabel,
+            datasets: chartData
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            },
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: Math.round,
+                    color: 'blue'
+                }
+            }
+        }
+    });
+
+</script>
+
+</html>

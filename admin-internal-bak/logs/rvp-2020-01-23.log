@@ -1,0 +1,37 @@
+2020-1-23 17:31:59 DEBUG [] [RVP] Servers configuration: 
+2020-1-23 17:31:59 DEBUG [] [RVP] Securesite: {"host":"localhost","port":"1380"}
+2020-1-23 17:31:59 DEBUG [] starting https server with ssl mode undefined
+2020-1-23 17:31:59 DEBUG [] RVP ready, listening at 80
+2020-1-23 17:31:59 DEBUG [] RVP HTTPS ready, listening at 1843
+2020-1-23 17:35:50 DEBUG [] redirecting to securesite service
+2020-1-23 17:36:23 DEBUG [] redirecting to securesite service
+2020-1-23 17:36:26 DEBUG [] redirecting to securesite service
+2020-1-23 17:38:53 DEBUG [] redirecting to securesite service
+2020-1-23 17:41:14 DEBUG [] [RVP] Servers configuration: 
+2020-1-23 17:41:14 DEBUG [] [RVP] Securesite: {"host":"localhost","port":"1380"}
+2020-1-23 17:41:14 DEBUG [] starting https server with ssl mode undefined
+2020-1-23 17:41:14 DEBUG [] RVP ready, listening at 80
+2020-1-23 17:41:14 DEBUG [] RVP HTTPS ready, listening at 1843
+2020-1-23 17:41:16 DEBUG [] redirecting to securesite service
+2020-1-23 17:41:31 DEBUG [] [RVP] Servers configuration: 
+2020-1-23 17:41:31 DEBUG [] [RVP] Securesite: {"host":"localhost","port":"1380"}
+2020-1-23 17:41:31 DEBUG [] starting https server with ssl mode undefined
+2020-1-23 17:41:31 DEBUG [] RVP ready, listening at 80
+2020-1-23 17:41:31 DEBUG [] RVP HTTPS ready, listening at 1843
+2020-1-23 17:41:34 DEBUG [] redirecting to securesite service
+2020-1-23 17:43:24 DEBUG [] [RVP] Servers configuration: 
+2020-1-23 17:43:24 DEBUG [] [RVP] Securesite: {"host":"localhost","port":"1380"}
+2020-1-23 17:43:24 DEBUG [] starting https server with ssl mode undefined
+2020-1-23 17:43:24 DEBUG [] RVP ready, listening at 80
+2020-1-23 17:43:24 DEBUG [] RVP HTTPS ready, listening at 1843
+2020-1-23 17:43:30 DEBUG [] redirecting to securesite service
+2020-1-23 17:44:36 DEBUG [] redirecting to securesite service
+2020-1-23 17:45:56 DEBUG [] [RVP] Servers configuration: 
+2020-1-23 17:45:56 DEBUG [] [RVP] Securesite: {"host":"localhost","port":"1380"}
+2020-1-23 17:45:56 DEBUG [] starting https server with ssl mode undefined
+2020-1-23 17:45:56 DEBUG [] RVP ready, listening at 80
+2020-1-23 17:45:56 DEBUG [] RVP HTTPS ready, listening at 1843
+2020-1-23 17:46:35 DEBUG [] redirecting to securesite service
+2020-1-23 17:46:45 DEBUG [] redirecting to securesite service
+2020-1-23 17:46:52 DEBUG [] redirecting to securesite service
+2020-1-23 17:46:54 DEBUG [] redirecting to securesite service

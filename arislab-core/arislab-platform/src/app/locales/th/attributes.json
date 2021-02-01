@@ -1,0 +1,23 @@
+{
+	"color": "สี",
+	"size": "ขนาด",
+    "clothes": {
+		"washing-method": "วิธีซัก",
+        "pocket": "กระเป๋าเสื้อ",
+        "neck-type": "ประเภทคอ",
+		"shirt-shape": "ทรงเสื้อ",
+		"sleeves-type": "ประเภทแขน",
+		"texture": "เนื้อผ้า",
+		"collor-type": "ประเภทปก",
+		"pants-shape": "ทรงกางเกง",
+		"waist-height": "ระดับเอว",
+		"leg-length-type": "ความยาวขา",
+		"pant-style": "สไตล์",
+		"warmth": "ระดับความอบอุ่น",
+		"pattern": "ลวดลาย",
+		"sleeve-type": "ความยาวแขน",
+		"occasion": "การใช้งาน",
+		"dress-type": "รูปแบบ",
+		"skirt-type": "รูปแบบ"
+    }
+}

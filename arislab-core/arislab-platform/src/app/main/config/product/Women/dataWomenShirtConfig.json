@@ -1,0 +1,38 @@
+[
+    {
+        "value": "women_shirt_set",
+        "label": "ชุดเข้าเซ็ท"
+    },
+    {
+        "value": "women_shirt_tShirt",
+        "label": "เสื้อยืด"
+    },
+    {
+        "value": "women_shirt_shoulderCoat",
+        "label": "เสื้อปาดไหล่"
+    },
+    {
+        "value": "women_shirt_cropTop",
+        "label": "เสื้อครอป ท็อป"
+    },
+    {
+        "value": "women_shirt_bigShirt",
+        "label": "เสื้อทรงใหญ่"
+    },
+    {
+        "value": "women_shirt_chest",
+        "label": "เกาะอก"
+    },
+    {
+        "value": "women_shirt_vest",
+        "label": "เสื้อกล้าม/สายเดี่ยว"
+    },
+    {
+        "value": "women_shirt_shirt",
+        "label": "เสื้อเชิ๊ต"
+    },
+    {
+        "value": "women_shirt_polo",
+        "label": "เสื้อโปโล"
+    }
+]

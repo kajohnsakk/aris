@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d5c28386.chunk.css",
+    "main.js": "/static/js/main.3c9a4733.chunk.js",
+    "main.js.map": "/static/js/main.3c9a4733.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.1b8b5446.chunk.js": "/static/js/2.1b8b5446.chunk.js",
+    "static/js/2.1b8b5446.chunk.js.map": "/static/js/2.1b8b5446.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e4ef1fe1617756f8201f360c356a38f0.js": "/precache-manifest.e4ef1fe1617756f8201f360c356a38f0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.d5c28386.chunk.css.map": "/static/css/main.d5c28386.chunk.css.map",
+    "static/media/App.css": "/static/media/BGpinkTop.8bc91d00.png",
+    "static/media/Brochure_ARIS-3-cr-01.png": "/static/media/Brochure_ARIS-3-cr-01.d8feaa79.png",
+    "static/media/Brochure_ARIS-3-cr-02.png": "/static/media/Brochure_ARIS-3-cr-02.8bb3cbbe.png",
+    "static/media/KV-banner.png": "/static/media/KV-banner.737d3863.png",
+    "static/media/KV_OurSolutions.png": "/static/media/KV_OurSolutions.6935cde0.png",
+    "static/media/logo.png": "/static/media/logo.d9fb43f2.png"
+  }
+}

@@ -1,0 +1,143 @@
+@media only screen and (max-width: 576px) {
+    .main-product input::-webkit-outer-spin-button,
+    .main-product input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    .main-product input[type=number] {
+        -moz-appearance: textfield;
+    }
+}
+
+#product-table {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+#product-table table {
+    font-family: "kanit";
+}
+
+#product-table thead tr {
+    background: #f6f6f6;
+    height: 0px;
+}
+
+/* #product-table tr:last-child {
+    max-height: 0;
+    border: none;
+} */
+
+#product-table tr:last-child th,
+#product-table tr:last-child td {
+    border: none;
+    border-bottom: none;
+}
+
+#border-red {
+    border-color: #ef5753;
+}
+
+#product-overflow-visible {
+    overflow: visible !important;
+}
+
+#product-font {
+    font-family: inherit;
+}
+
+.new-product-card {
+    width: 100%;
+    height: calc(100%);
+    background: white;
+}
+
+.new-product-new-image {
+    max-width: 290px;
+    max-height: 290px;
+}
+
+.tab-sticky {
+    position: sticky;
+    top: 0;
+}
+
+.hidden-table {
+    animation: hidden 0.3s;
+}
+
+.appear-table {
+    animation: appear 0.3s;
+}
+
+@-webkit-keyframes appear {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: min-content;
+    }
+}
+@keyframes appear {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: min-content;
+    }
+}
+
+@-webkit-keyframes hidden {
+    0% {
+        height: min-content;
+    }
+    100% {
+        height: 0;
+    }
+}
+@keyframes hidden {
+    0% {
+        height: min-content;
+    }
+    100% {
+        height: 0;
+    }
+}
+
+.product-error-color > input,
+.product-error-color fieldset {
+    border-color: #e3342f !important;
+}
+
+.product-input > input {
+    width: 100%;
+}
+
+#whitespace-normal {
+    white-space: normal !important;
+}
+
+#price {
+    background-color: white;
+    color: linear-gradient(to right, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 84, 1) 50%, rgba(252, 177, 78, 1) 100%);
+    border: 2px solid white;
+    border-radius: 20px 200px 200px 20px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+#order {
+    color: white;
+    background: linear-gradient(to right, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 84, 1) 50%, rgba(252, 177, 78, 1) 100%);
+    border: linear-gradient(to right, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 84, 1) 50%, rgba(252, 177, 78, 1) 100%) solid white;
+    border-radius: 20px 200px 200px 20px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+#name {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 20px 200px 200px 20px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}

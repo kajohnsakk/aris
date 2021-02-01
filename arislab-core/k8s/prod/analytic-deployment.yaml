@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: production
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 ()
+  labels:
+    io.kompose.service: analytic
+    app: aris
+  name: analytic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: analytic
+      app: aris
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 ()
+      labels:
+        io.kompose.service: analytic
+        app: aris
+    spec:
+      containers:
+        - env:
+            - name: db_index
+              valueFrom:
+                configMapKeyRef:
+                  key: db_index
+                  name: env-configmap
+            - name: nes
+              valueFrom:
+                configMapKeyRef:
+                  key: nes
+                  name: env-configmap
+            - name: npwd
+              valueFrom:
+                configMapKeyRef:
+                  key: npwd
+                  name: env-configmap
+            - name: nuser
+              valueFrom:
+                configMapKeyRef:
+                  key: nuser
+                  name: env-configmap
+            - name: ANALYTIC_SERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: ANALYTIC_SERVICE_HOST
+                  name: env-configmap
+            - name: ANALYTIC_SERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: ANALYTIC_SERVICE_PORT
+                  name: env-configmap
+            - name: RAPID7_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: RAPID7_TOKEN
+                  name: env-configmap
+            - name: ROOLING
+              value: "0"
+          image: 217564844566.dkr.ecr.ap-southeast-1.amazonaws.com/analytic-service:1.0.0
+          name: arislab-api
+          ports:
+            - containerPort: 3003
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+status: {}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Report - Order by product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            // height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            // height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1>Report - Order by product</h1>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Total Orders</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Order List</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>
+                                <img src="{{productInfo.productImage}}" class="img-thumbnail"
+                                    style="width: 150px; height; 150px" />
+                            </td>
+                            <td>{{productInfo.productName}}</td>
+                            <td>{{productInfo.individualProductType}}</td>
+                            <td>
+                                {{#if hasOrder}}
+                                <p>{{orderInfo.orderCount}}</p>
+                                {{else}}
+                                <p>0</p>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if hasOrder}}
+                                <p>{{orderInfo.orderTotal}}</p>
+                                {{else}}
+                                <p>0</p>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if hasOrder}}
+                                <button type="button" class="btn btn-primary btnOrderModal" data-toggle="modal"
+                                    data-storeid="{{storeID}}" data-productid="{{productInfo.productID}}"
+                                    data-target="#orderModal">
+                                    View
+                                </button>
+                                {{else}}
+                                <button type="button" class="btn btn-primary" disabled="true">
+                                    View
+                                </button>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4">
+                                <p class="text-right">
+                                    Grand Total Price:
+                                </p>
+                            </th>
+                            <th colspan="2">{{sumOrderGrandTotal}}</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Order modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center" id="loading">
+                        <img src="http://giphygifs.s3.amazonaws.com/media/gA3bwDbIuXBf2/giphy.gif"
+                            class="img-responsive" />
+                    </div>
+                    <table class="table table-responsive" id="ordertable">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Customer Info</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">GBPay Refno</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).on('click', '.btnOrderModal', (e) => {
+        $('#ordertable').hide();
+        $("#ordertable tbody").empty();
+        $("#ordertable tfoot").empty();
+
+        let storeID = $(e.currentTarget).data('storeid');
+        let productID = $(e.currentTarget).data('productid');
+
+        $.post(`http://console.cb-beta.arislab.ai:1780/api/order/findProductIDInOrder`, { storeID: storeID, productID: productID }, (data) => {
+            let sumProductPrice = Number(0);
+
+            $.each(data, (index, order) => {
+                let FBName = `${order['userInfo']['firstName']} ${order['userInfo']['lastName']}` || "-";
+                let customerName = order['paymentInfo']['gbPaymentDetails']['customerName'] || "-";
+                let customerEmail = order['paymentInfo']['gbPaymentDetails']['customerEmail'] || "-";
+                let customerAddress = order['paymentInfo']['gbPaymentDetails']['customerAddress'] || "-";
+                let customerTelephone = order['paymentInfo']['gbPaymentDetails']['customerTelephone'] || "-";
+
+                let selectedProductDetails = {};
+
+                let gbPayRefNo = order['paymentInfo']['details']
+
+                $.each(order['selectedProduct'], (index, product) => {
+                    selectedProductDetails['color'] = product['productValue']['color'] || "-";
+                    selectedProductDetails['size'] = product['productValue']['size'] || "-";
+                    selectedProductDetails['price'] = product['productValue']['price'];
+
+                    sumProductPrice += Number(product['productValue']['price']);
+                });
+
+                let trBody = `<tr>`
+                trBody += `<td><p>${Number(index + 1)}</p></td>`
+                trBody += `<td><p>${moment.unix(Number(order['orderDate'])).format('YYYY-MM-DD H:mm:ss')}</p></td>`
+                trBody += `<td>`
+                trBody += `<p>FB: ${FBName}</p>`
+                trBody += `<p>${customerName}</p>`
+                trBody += `<p>${customerEmail}</p>`
+                trBody += `<p>${customerAddress}</p>`
+                trBody += `<p>${customerTelephone}</p>`
+                trBody += `</td>`
+                trBody += `<td><p>${selectedProductDetails['color']}</p></td>`
+                trBody += `<td><p>${selectedProductDetails['size']}</p></td>`
+                trBody += `<td><p>${selectedProductDetails['price']}</p></td>`
+                trBody += `<td><p>${gbPayRefNo}</p></td>`
+                trBody += `</tr>`
+
+                $('#ordertable > tbody').append(trBody);
+            });
+
+            let trFoot = `<tr>`
+            trFoot += `<th colspan="5">Total Price</th>`
+            trFoot += `<th colspan="2">${sumProductPrice}</th>`
+            trFoot += `</tr>`
+
+            $('#ordertable > tfoot').append(trFoot)
+
+            $('#loading').hide();
+            $('#ordertable').show();
+        });
+    });
+</script>
+
+</html>

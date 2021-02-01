@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store Package Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Store Package</h1>
+				
+				<div class="flex flex-col mb-5">
+					<div class="flex flex-row items-center mb-3">
+						<div class="flex w-40 font-bold">Store ID:</div>
+						<div class="flex flex-row items-center">{{ storeInfo.storeID }}</div>
+					</div>
+					<div class="flex flex-row items-center mb-3">
+						<div class="flex w-40 font-bold">Email:</div>
+						<div class="flex flex-row items-center">{{ storeInfo.email }}</div>
+					</div>
+					<div class="flex flex-row items-center mb-3">
+						<div class="flex w-40 font-bold">Business Email:</div>
+						<div class="flex flex-row items-center">{{ storeInfo.storeInfo.businessProfile.businessEmail }}</div>
+					</div>
+					<div class="flex flex-row items-center mb-3">
+						<div class="flex w-40 font-bold">Facebook Page:</div>
+						<div class="flex flex-row items-center"><b>{{ storeInfo.storeInfo.businessProfile.accountDetails.businessName }}</b></div>
+					</div>
+					<div class="flex flex-row item-center">
+						<div class="mr-4">
+							<a href="javascript:redirectToPackageInfo('{{ storeInfo.storeID }}', 'new');" class="btn btn-primary">
+								New package
+							</a>
+						</div>
+						<div>
+							<a href="javascript:redirectToPackageList();" class="btn btn-danger">
+								Back
+							</a>
+						</div>
+					</div>
+                </div>
+				
+				<table class="table table-bordered">
+                    <thead>
+                        <tr>
+							<th width="150">#</th>
+                            <th>Package Name</th>
+							<th width="150">Active Date</th>
+							<th width="150">Expiry Date</th>
+							<th width="200">Status</th>
+							<th width="200">Note</th>
+                            <th width="150">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each storePackageList}}
+                            <tr class="{{#if summaryObj.isExpirySoon}}bg-warning{{/if}}">
+								<td>{{ storePackageID }}</td>
+                                <td class="text-break">{{ packageInfo.name }}</td>
+								<td>{{ summaryObj.activeDate }}</td>
+                                <td>{{ summaryObj.expiryDate }}</td>
+								<td class="{{#if summaryObj.isActive}}text-primary{{else}}text-danger{{/if}}"><b>{{ status }}</b></td>
+								<td>
+									{{#if summaryObj.isExpirySoon}}
+										ใกล้หมดอายุ
+                                    {{else}}
+										-
+									{{/if}}
+								</td>
+                                <td>
+									<div class="dropdown">
+										<button class="btn {{#if summaryObj.isActive }}btn-primary{{else}}btn-danger{{/if}} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">
+											Action
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											{{#if summaryObj.isActive }}
+												<a class="dropdown-item" href="javascript:redirectToPackageInfo('{{ ../storeInfo.storeID }}', '{{storePackageID}}');">แก้ไข</a>
+											{{/if}}
+											<a class="dropdown-item" href="javascript:deleteStorePackage('{{ ../storeInfo.storeID }}', '{{storePackageID}}');">ลบ</a>
+										</div>
+									</div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+	
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+	function deleteStorePackage(selectedStoreID, storePackageID) {
+		var secretCode = prompt("กรุณาพิมพ์รหัสเพื่อลบข้อมูล", "");
+		const storeID = selectedStoreID;
+		if ( secretCode === "DELETE" ) {
+			if( confirm("จะลบข้อมูลแล้วนะ") ) {
+				const hostname = location.origin;
+				const deleteURL = hostname + "/api/storePackage/"+storePackageID+"/delete";
+				//alert(deleteURL);
+				
+				$.get(deleteURL, function( result ) {
+					//$( ".result" ).html( result );
+					//alert(result);
+					setTimeout(() => {
+						window.location.href = hostname + "/storePackage/store/"+storeID;
+					}, 1500);
+				});
+				
+			}
+		} else {
+			alert("รหัสไม่ถูกต้อง ไม่สามารถลบข้อมูลได้");
+		}
+		
+	}
+	
+	function redirectToPackageInfo(storeID, storePackageID) {
+		const hostname = location.origin;
+		window.location.href = hostname + "/storePackage/store/"+storeID+"/storePackageID/"+storePackageID;
+	}
+	
+	function redirectToPackageList() {
+		const hostname = location.origin;
+		window.location.href = hostname + "/storePackage";
+	}
+</script>
+
+
+</html>

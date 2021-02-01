@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+			
+    <link rel="stylesheet" href="/static/css/mask.css">
+</head>
+<body>
+<div class="container-fluid">
+    <!--
+	<ul class="product-carousel col-md-12 text-center">
+        {{#each data.products}}
+            <li class="col-md-3 {{#if selected}}active{{/if}}">
+                <div class="col-md-12">
+                    <div class="row product-name-container">#{{productInfo.productHashtag}}</div>
+                    <div class="row product-image-container"><img class='img-fluid' src="{{productInfo.productImage}}"/></div>
+                    <div class="row product-desc-container">฿ <span class="product-price">{{numberToString minPrice}}</span>
+                        <div class="product-color-container text-right">
+                            {{#each productInfo.productVariations}}
+                                <div class="product-color-badge color-{{color}}"></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+	-->
+	
+	
+	
+	<!--
+	<div class="product-carousel row text-center">
+        {{#each data.products}}
+            <div class="item col-md-3 {{#if selected}}active{{/if}}">
+                <div class="row product-name-container">#{{productInfo.productHashtag}}</div>
+                <div class="row product-image-container"><img class='img-fluid' src="{{productInfo.productImage}}"/></div>
+				<div class="row product-desc-container">฿ <span class="product-price">{{numberToString minPrice}}</span>
+					<div class="product-color-container text-right">
+						{{#each productInfo.productVariations}}
+							<div class="product-color-badge color-{{color}}"></div>
+						{{/each}}
+					</div>
+				</div>
+            </div>
+        {{/each}}
+    </div>
+	-->
+	
+	{{#if data.storeLogo}}
+		<div class="col-1 logo-container">
+			<div class="row">
+				<div class="col-12 logo-image">
+					<img class='img-fluid rounded-circle' src="{{data.storeLogo}}"/>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+	
+	{{#if data.selectedProduct}}
+		<div class="col-4 product-container">
+			<div class="item active">
+				<div class="product-name-container">#{{data.selectedProduct.productInfo.productHashtag}}</div>
+				<div class="product-image-container"><img class='img-fluid' src="{{data.selectedProduct.productInfo.productImage}}"/></div>
+				<div class="product-desc-container">&#3647; <span class="product-price">{{numberToString data.selectedProduct.minPrice}}</span>
+					{{!-- <div class="product-color-container text-right">
+						{{#each data.selectedProduct.productInfo.productVariations}}
+							<div class="product-color-badge color-{{color}}"></div>
+						{{/each}}
+					</div> --}}
+				</div>
+			</div>
+		</div>
+	{{/if}}
+	
+	{{#if data.closeup}}
+		<div class="col-3 closeup-container">
+			<div class="row">
+				{{#each data.closeup}}
+					{{#if image1}}
+						<div class="col-12 mb-4 closeup-image">
+							<img class='img-fluid' src="{{image1}}"/>
+						</div>
+					{{/if}}
+					{{#if image2}}
+						<div class="col-12 mb-4 closeup-image">
+							<img class='img-fluid' src="{{image2}}"/>
+						</div>
+					{{/if}}
+					{{#if image3}}
+						<div class="col-12 closeup-image">
+							<img class='img-fluid' src="{{image3}}"/>
+						</div>
+					{{/if}}
+				{{/each}}
+			</div>
+		</div>
+	{{/if}}
+	
+	<!--
+	<div class="row product-carousel mb-3">
+
+		{{#each data.products}}
+			<div class="col-4 {{#if invisible}}invisible{{/if}}">
+				<div class="item {{#if selected}}active{{/if}}" >
+					<div class="product-name-container">#{{productInfo.productHashtag}}</div>
+					<div class="product-image-container"><img class='img-fluid' src="{{productInfo.productImage}}"/></div>
+					<div class="product-desc-container">&#3647; <span class="product-price">{{numberToString minPrice}}</span>
+						<div class="product-color-container text-right">
+							{{#each productInfo.productVariations}}
+								<div class="product-color-badge color-{{color}}"></div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+			
+	</div>
+	-->
+</div>
+</body>
+</html>

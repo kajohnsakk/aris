@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Inspector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Order Inspector</h1>
+				
+				<div class="flex flex-col">
+					<div class="flex flex-row flex-1 align-items-center">
+						<div class="flex w-auto mr-2">Order ID:</div>
+						<div class="flex w-40 mr-2"><input id="order-id" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></div>
+						<div class="flex">
+							<button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full" id="search-btn">ค้นหา</button>
+							<img id="spinner" class="ml-4 w-8 hidden" src="https://www.ims-expertservices.com/wp-content/plugins/unyson/framework/extensions/forms/static/img/ajax-loader.gif" />
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+		
+		<div id="result" class="card mt-4 hidden">
+			<div class="card-body">
+				<div id="result-data"></div>
+			</div>
+		</div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+	const HOST = window.location.origin;
+	
+	$('#search-btn').on('click', () => {
+		$('#search-btn').hide();
+		$('#spinner').show();
+		$('#result').hide();
+		$('#result-data').html('');
+		
+		const orderID = $('#order-id').val();
+		if( orderID.length > 0 ) {
+			const getOrderUrl = `${HOST}/api/order/orderID/${orderID}`;
+			
+			axios.get(getOrderUrl, { headers: { 'content-type': 'application/json' } }).then((response) => {
+				//console.log('Result is ', response.data);
+				const orderList = response.data;
+				
+				if( orderList.length > 0 ) {
+					let displayTable;
+					displayTable = '<div class="mb-3 text-lg">ผลการค้นหา</div>';
+					displayTable+= '<table class="table">';
+					
+					displayTable+= '<tr>';
+					displayTable+= '<th>#</th>';
+					displayTable+= '<th>Page</th>';
+					displayTable+= '<th>ผู้สั่งซื้อ</th>';
+					displayTable+= '<th>วันที่ทำการสั่งซื้อ</th>';
+					displayTable+= '<th>วันที่ทำการชำระเงิน</th>';
+					displayTable+= '<th>สถานะรายการสั่งซื้อ</th>';
+					displayTable+= '<th>Action</th>';
+					displayTable+= '</tr>';
+					
+					for(let i=0; i<orderList.length; i++) {
+						const orderInfo = orderList[i];
+						const isSuccess = orderInfo['paymentInfo']['status'] === "SUCCESS" ? true : false ;
+						const detailUrl = `${HOST}/orderInspector/orderDocID/${orderInfo['orderDocID']}`;
+						const facebookPage = ( orderInfo.hasOwnProperty('channel') && orderInfo['channel'].hasOwnProperty('name') ) ? orderInfo['channel']['name'] : 'N/A' ;
+						
+						displayTable+= '<tr>';
+						displayTable+= '<td>'+(i+1)+'</td>';
+						displayTable+= '<td>'+orderInfo['channel']['name']+'</td>';
+						displayTable+= '<td>'+( orderInfo['userInfo']['firstName'] + ' ' + orderInfo['userInfo']['lastName'] )+'</td>';
+						displayTable+= '<td>'+convertToDate(orderInfo['orderDate'])+'</td>';
+						displayTable+= '<td>'+( isSuccess ? convertToDate(orderInfo['paymentInfo']['paymentCompletedOn']) : 'N/A' )+'</td>';
+						displayTable+= '<td class="font-bold '+( isSuccess ? 'text-blue-600' : 'text-red-600' )+'">'+orderInfo['paymentInfo']['status']+'</td>';
+						displayTable+= '<td><a class="underline" href="'+detailUrl+'">>> ดูรายละเอียด <<</a></td>';
+						displayTable+= '</tr>';
+					}
+					
+					displayTable+= '</table>';
+					
+					$('#result-data').html(displayTable);
+				} else {
+					$('#result-data').html('<div class="text-danger">ไม่พบข้อมูลรายการสั่งซื้อ: '+orderID+'</div>');
+				}
+				
+				$('#result').show();
+				$('#search-btn').show();
+				$('#spinner').hide();
+				
+            });
+		} else {
+			alert('กรุณาใส่ order id ก่อน');
+		}
+	});
+	
+	function convertToDate(timestamp) {
+		return moment(timestamp).format('HH:mm')+' น.<br />'+moment(timestamp).format('DD/MM/YYYY');
+	}
+</script>
+
+</html>

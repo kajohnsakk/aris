@@ -1,0 +1,98 @@
+[
+    {
+        "value": "black",
+        "label": "ดำ"
+    },
+    {
+        "value": "white",
+        "label": "ขาว"
+    },
+    {
+        "value": "gray",
+        "label": "เทา"
+    },
+    {
+        "value": "beige",
+        "label": "เบจ"
+    },
+    {
+        "value": "nude",
+        "label": "นู้ด"
+    },
+    {
+        "value": "red",
+        "label": "แดง"
+    },
+    {
+        "value": "green",
+        "label": "เขียว"
+    },
+    {
+        "value": "blue",
+        "label": "น้ำเงิน"
+    },
+    {
+        "value": "navy",
+        "label": "กรมท่า"
+    },
+    {
+        "value": "sky",
+        "label": "ฟ้า"
+    },
+    {
+        "value": "yellow",
+        "label": "เหลือง"
+    },
+    {
+        "value": "purple",
+        "label": "ม่วง"
+    },
+    {
+        "value": "pink",
+        "label": "ชมพู"
+    },
+    {
+        "value": "orange",
+        "label": "ส้ม"
+    },
+    {
+        "value": "brown",
+        "label": "น้ำตาล"
+    },
+    {
+        "value": "offWhite",
+        "label": "ออฟไวท์"
+    },
+    {
+        "value": "cream",
+        "label": "ครีม"
+    },
+    {
+        "value": "khaki",
+        "label": "กากี"
+    },
+    {
+        "value": "jeans",
+        "label": "ยีนส์"
+    },
+    {
+        "value": "gold",
+        "label": "ทอง"
+    },
+    {
+        "value": "silver",
+        "label": "เงิน"
+    },
+    {
+        "value": "scarlet",
+        "label": "เลือดหมู"
+    },
+    {
+        "value": "multipleColors",
+        "label": "หลากสี"
+    },
+    {
+        "value": "other",
+        "label": "อื่นๆ"
+    }
+]

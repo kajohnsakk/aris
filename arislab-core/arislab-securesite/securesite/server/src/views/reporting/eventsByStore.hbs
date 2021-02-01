@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Report - Event by store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            //height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            //height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1>Report - Event by store</h1>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Is Logged In</th>
+                            <th scope="col">Is Passed Stepper</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col"># of Live Event(s)</th>
+                            <th scope="col">Live Events List</th>
+                            <th scope="col">Product List</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>
+                                {{#if isVisited}}
+                                <p>✅</p>
+                                {{else}}
+                                <p>❌</p>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if isPassedStepper}}
+                                <p>✅</p>
+                                {{else}}
+                                <p>❌</p>
+                                {{/if}}
+                            </td>
+                            <td>{{storeInfo.name}}</td>
+                            <td>{{storeInfo.email}}</td>
+                            <td>
+                                {{#if hasLiveEvent}}
+                                {{eventInfo.eventCount}}
+                                {{else}}
+                                0
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if hasLiveEvent}}
+                                <button type="button" class="btn btn-primary btnEventModal" data-toggle="modal"
+                                    data-storeid="{{storeInfo.storeID}}" data-target="#eventModal">
+                                    View
+                                </button>
+                                {{else}}
+                                <button type="button" class="btn btn-primary" disabled="true">
+                                    View
+                                </button>
+                                {{/if}}
+                            </td>
+                            <td>
+                                <a href="orderByProduct?storeID={{storeInfo.storeID}}" class="btn btn-success">View</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Event modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center" id="loading">
+                        <img src="http://giphygifs.s3.amazonaws.com/media/gA3bwDbIuXBf2/giphy.gif"
+                            class="img-responsive" />
+                    </div>
+
+                    <table class="table table-responsive" id="eventtable">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Event name</th>
+                                <th scope="col">Event desc</th>
+                                <th scope="col">Orientation</th>
+                                <th scope="col">Created on</th>
+                                <th scope="col">Event Start</th>
+                                <th scope="col">Event End</th>
+                                <th scope="col">Duration (Minutes)</th>
+                                <th scope="col">Products</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).on('click', '.btnEventModal', (e) => {
+        $('#eventtable').hide();
+        let currentStoreID = $(e.currentTarget).data('storeid');
+        $('#storeid').text(currentStoreID);
+
+        $.get(`http://console.cb-beta.arislab.ai:1780/api/event/storeID/${currentStoreID}`, (data) => {
+            $("#eventtable tbody").empty();
+
+            $.each(data, (index, event) => {
+                let eventStartAt = (event['eventStartAt']) ? moment.unix(Number(event['eventStartAt'] / 1000)).format('YYYY-MM-DD H:mm:ss') : "-";
+                let eventEndAt = (event['eventEndAt']) ? moment.unix(Number(event['eventEndAt'] / 1000)).format('YYYY-MM-DD H:mm:ss') : "-";
+                let minutes = "-";
+                if (event['eventStartAt'] && event['eventEndAt']) {
+                    let unixStartAt = moment(event['eventStartAt']);
+                    let unixEndAt = moment(event['eventEndAt']);
+
+                    let duration = moment.duration(unixEndAt.diff(unixStartAt));
+                    minutes = parseFloat(duration.asMinutes()).toFixed(2);
+                }
+
+                let trElem = `<tr>`;
+                trElem += `<td><p>${Number(index + 1)}</p></td>`
+                trElem += `<td><p>${event['name']}</p></td>`
+                trElem += `<td><p>${event['description']}</p></td>`
+                trElem += `<td><p>${event['videoOrientation']}</p></td>`
+                trElem += `<td><p>${moment.unix(Number(event['createAt'] / 1000)).format('YYYY-MM-DD H:mm:ss')}</p></td>`
+                trElem += `<td><p>${eventStartAt}</p></td>`
+                trElem += `<td><p>${eventEndAt}</p></td>`
+                trElem += `<td><p>${minutes}</p></td>`
+                trElem += `<td><p>${event['products'].length}</p></td>`
+                trElem += `</tr>`
+                $('#eventtable > tbody').append(trElem);
+            });
+
+            $('#loading').hide();
+            $('#eventtable').show();
+        });
+    });
+</script>
+
+</html>

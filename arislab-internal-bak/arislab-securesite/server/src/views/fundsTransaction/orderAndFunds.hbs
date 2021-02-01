@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funds list</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+				
+				<div class="mb-5">
+					<h1 class="mb-4 text-2xl font-extrabold">Funds List</h1>
+					<table class="table">
+						<thead>
+							<tr>
+								{{!-- <td>Store ID</td> --}}
+								<td>Store</td>
+								<td>Count Order/Deposit/Withdraw</td>
+								<td>Sum Order</td>
+								{{!-- <td>Sum Deposit</td> --}}
+								<td>Sum Fee</td>
+								<td>Sum Actual Deposit</td>
+								<td>Sum Withdraw</td>
+								{{!-- <td>Sum Actual Withdraw</td> --}}
+								<td>Remaining Balance</td>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each result}}
+							<tr>
+								{{!-- <td>{{ storeID }}</td> --}}
+								<td>{{ businessName }}</td>
+								<td>{{ summaryObj.countOrder }}/{{ summaryObj.countDepositFunds }}/{{ summaryObj.countWithdrawFunds }}</td>
+								<td>{{ summaryObj.sumOrder }}</td>
+								{{!-- <td>{{ summaryObj.sumDepositFunds }}</td> --}}
+								<td>{{ summaryObj.sumDepositFee }}</td>
+								<td>{{ summaryObj.sumActualDepositFunds }}</td>
+								<td>{{ summaryObj.sumWithdrawFunds }}</td>
+								{{!-- <td>{{ summaryObj.sumActualWithdrawFunds }}</td> --}}
+								<td>{{ summaryObj.remainBalance }}</td>
+							</tr>
+							{{/each}}
+							<tr>
+								{{!-- <td></td> --}}
+								<td align="right">รวม</td>
+								<td>{{ totalSummary.countOrder }}/{{ totalSummary.countDepositFunds }}/{{ totalSummary.countWithdrawFunds }}</td>
+								<td>{{ totalSummary.sumOrder }}</td>
+								{{!-- <td>{{ totalSummary.sumDepositFunds }}</td> --}}
+								<td>{{ totalSummary.sumDepositFee }}</td>
+								<td>{{ totalSummary.sumActualDepositFunds }}</td>
+								<td>{{ totalSummary.sumWithdrawFunds }}</td>
+								{{!-- <td>{{ totalSummary.sumActualWithdrawFunds }}</td> --}}
+								<td>{{ totalSummary.remainBalance }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

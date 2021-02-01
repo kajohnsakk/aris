@@ -1,0 +1,145 @@
+html {
+    font-family: 'Kanit', sans-serif;
+}
+
+.modal {
+    transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+
+.basket-container {
+    min-width: 320px;
+}
+
+
+/* Small (sm) */
+@media (min-width: 576px) {
+    .delivery-container {
+        min-width: 520px;
+    }
+}
+
+/* Medium (md) */
+@media (min-width: 768px) {
+    .basket-container {
+        min-width: 768px;
+    }
+}
+
+.basket input {
+    margin-top: 0.3em;
+    padding: 0.5em;
+}
+
+.basket-btn {
+    color: white;
+    background: rgb(237, 53, 144);
+    background: linear-gradient(90deg, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 85, 1) 50%, rgba(252, 176, 78, 1) 100%);
+}
+
+.basket-btn:disabled {
+    background: #b8c2cc;
+}
+
+.loading {
+    display: none;
+    margin: 0 auto
+}
+
+.txt-content {
+    margin: 0 auto
+}
+
+.btn-reserve-product,
+.btnPay {
+    color: white;
+    background: rgb(237, 53, 144);
+    background: linear-gradient(90deg, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 85, 1) 50%, rgba(252, 176, 78, 1) 100%);
+    margin: 2px;
+}
+
+.btn-reserve-product:hover {
+    background: rgb(238, 56, 147);
+    background: linear-gradient(90deg, rgb(236, 19, 128) 0%, rgb(245, 110, 121) 50%, rgb(240, 178, 98) 100%);
+}
+
+.btnPay:disabled {
+    background: #b8c2cc;
+}
+
+.btnCod,
+.btnSecondary {
+    border: 2px solid #EF3F6d;
+    margin: 2px;
+    color: #EB5757;
+}
+
+.red {
+    color: #F14655;
+}
+
+.basket-img>img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+.basket-content {
+    min-height: 16rem;
+}
+
+.basket-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background: white;
+}
+
+.basket-sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+button {
+    color: #000;
+    font-weight: bold;
+}
+
+button:disabled {
+    font-weight: normal;
+    color: #ccc;
+    cursor: default;
+}
+
+.text-highlight {
+    color: rgb(237, 53, 144);
+}
+
+.payment_tabContent {
+    display: none;
+    padding: 5%;
+}
+
+.payment_tabLink {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.payment_tabLink.active {
+    border-bottom: 3px solid rgb(237, 53, 144);
+}
+
+.payment_tabLink.active>span {
+    background: linear-gradient(#eee, #333);
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    /* color: linear-gradient(90deg, rgba(237,53,144,1) 0%, rgba(241,70,85,1) 50%, rgba(252,176,78,1) 100%); */
+}

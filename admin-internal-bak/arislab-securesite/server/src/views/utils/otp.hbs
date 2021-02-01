@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OTP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <a href="/" class="btn btn-primary">⬅️ Back</a>
+
+                <h1>Find OTP Code by ref no</h1>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="otp_refCode">SMS Reference Code</label>
+                        <input type="text" class="form-control" name="otp_refCode" autocomplete="off" required="true"
+                            value="" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+                </form>
+
+                {{#if resultFindByRefCode.found}}
+                    <div>
+                        <span>OTP: <kbd>{{resultFindByRefCode.result.otpCode}}</kbd></span>
+                    </div>
+                {{else}}
+                    <h2>Refcode not found</h2>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arislab.ai</title>
+    <meta name="description" content="LIVE-Commerce">
+    <meta name="keywords" content="Arislab,LIVE-Commerce">
+    <meta name="author" content="Withinpixels">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P7JB4DT');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="icon" href="./public/img/logo.png">
+    {{!-- <link rel="manifest" href="../../../arislab-platform/platform_2/public/manifest.json"> --}}
+    {{!-- <link rel="shortcut icon" href="../../../arislab-platform/platform_2/public/aris-iconv.png"> --}}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0/9.11.3/auth0.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- <script src="/cordova-auth0-plugin.js"></script> -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '335772327368511');
+        fbq('track', 'Login PageView');
+    </script>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=335772327368511&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <style>
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: visible !important;
+        }
+    </style>
+    <script type="text/javascript">
+        function HTMLConsole(options) {
+            this.ele = $(options.selector);
+            this.data = [];
+            var _this = this;
+            var data;
+            if ((data = localStorage.getItem('consoleData'))) {
+                data = JSON.parse(data);
+                data.forEach(function (d) {
+                    _this.dumpCallback(d.error ? d : null, d.error ? null : d);
+                });
+            }
+        }
+
+        HTMLConsole.prototype.clear = function () {
+            this.data = [];
+            this.ele.html('');
+            localStorage.removeItem('consoleData');
+        };
+
+        HTMLConsole.prototype.dumpCallback = function (err, data) {
+            if (err) {
+                return this.dump(err, 'error');
+            }
+            if (data && data.error) {
+                return this.dump(data, 'error');
+            }
+            if (data) {
+                return this.dump(data);
+            }
+        };
+
+        HTMLConsole.prototype.dump = function (o, className) {
+            className = className || '';
+
+            this.data.push(o);
+            localStorage.setItem('consoleData', JSON.stringify(this.data));
+
+            function replacer(key, value) {
+                if (typeof value === 'object') {
+                    return value;
+                }
+                return '<span>' + value + '</span>';
+            }
+
+            var plainStr = JSON.stringify(o).substr(0, 50);
+            var str = JSON.stringify(o, replacer, 4);
+            var html =
+                '<details class="' +
+                className +
+                '">' +
+                '<summary>' +
+                plainStr +
+                '</summary>' +
+                '<p>' +
+                str +
+                '</p>' +
+                '</details>';
+
+            this.ele.append(html);
+
+            this.ele.find('details').removeAttr('open');
+            this.ele
+                .find('details')
+                .last()
+                .attr('open', true);
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7JB4DT" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="login-container flex flex-col items-center justify-center h-full w-full">
+        <div class="login-box lg:w-1/5 sm:mx-0">
+            <div class="login-header pt-16 pb-4">
+                <div class="flex justify-center mb-2 h-1/5">
+                    <a><img src="../public/img/aris-logo.png" width="220" height="220"/></a>
+                </div>
+                <form onsubmit="return false;" method="post">
+                    <div class="button-container text-center flex flex-col mb-12 mt-12">
+                        <button id="btn-facebook"
+                            class="login-facebook login-button flex justify-center item-centers py-2">
+                            <img class="mr-3 self-center" width="26" height="26" src="../public/img/login/facebook.svg" />
+                            <span class="text-xl">Login DotAris</span>
+                        </button>
+                    </div>
+                    <div class="px-4 text-center font-light en">By signing up you are agreeing to Arislab.ai's
+                    </div>
+                    <div class="flex justify-center"><a class="modal-open login-a en" href="#">terms & conditions</a></div>
+                    <div class="flex justify-center h-full mt-4">
+                        <div class="progress-container flex">
+                            <div class="login-step-active">
+                                <div>1</div>
+                                <div class="login-step-massege">เข้าสู่ระบบ</div>
+                            </div>
+                            <div class="login-step-line"></div>
+                            <div class="login-step">
+                                <div>2</div>
+                                <div class="login-step-massege">ลงทะเบียน</div>
+                            </div>
+                            <div class="login-step-line"></div>
+                            <div class="login-step">
+                                <div>3</div>
+                                <div class="login-step-massege">ตั้งรหัส</div>
+                            </div>
+                            <div class="login-step-line"></div>
+                            <div class="login-step">
+                                <div>4</div>
+                                <div class="login-step-massege">ยืนยันรหัส</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!--Modal-->
+    <div class="tailwind-modal hidden pointer-events-none fixed w-full h-full top-0 left-0 items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+        <div class="modal-container bg-white w-11/12 md:max-w-2xl mt-8 mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+            <div
+                class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+                <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                    </path>
+                </svg>
+                <span class="text-sm">(Esc)</span>
+            </div>
+
+            <!-- Add margin if you want to see some of the overlay behind the modal-->
+            <div class="modal-content py-4 text-left px-6">
+                <!--Title-->
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">Terms & Conditions</p>
+                    <div class="modal-close cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 18 18">
+                            <path
+                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!--Body-->
+                <div class="overflow-auto text-justify" style="height: 32rem;">
+                    {{{PRIVACY_POLICY}}}
+                </div>
+
+                <!--Footer-->
+                <div class="flex justify-end pt-2">
+                    <button class="modal-close px-4 p-3 rounded-lg">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const HOST = window.location.origin;
+        const URL_PARAMS = new URLSearchParams(window.location.search);
+
+        const ref = URL_PARAMS.get('ref');
+
+        if (ref) {
+            localStorage.setItem('ref_source', ref);
+        }
+
+        dataLayer.push({ 'event': 'ARIS', 'pageAction': 'View', 'pageCategory': "Login Page", 'pageLabel': "Initial login page", 'pageUser': 'Anonymous' });
+
+        var htmlConsole = new HTMLConsole({
+            selector: '#console'
+        });
+
+        var https = window.location.origin.replace('http:', 'https:')
+        var REDIRECT_URL = https + '/login/assert?dotplay=true';
+        var DOMAIN = "{{domain}}"
+        var CLIENT_ID = "{{clientID}}"
+        var webAuth;
+
+        function setConfig() {
+            // console.log('setting config');
+            webAuth = new auth0.WebAuth({
+                domain: DOMAIN,
+                redirectUri: REDIRECT_URL,
+                clientID: CLIENT_ID,
+                responseType: 'token id_token',
+                responseMode: 'form_post'
+            });
+            // console.log('webauth config is ', webAuth);
+        }
+
+        setConfig();
+
+        webAuth.parseHash(function (err, data) {
+            // console.log('Parsing hash with data: ', data, ' err: ', err);
+            if (err) {
+                return htmlConsole.dumpCallback(err);
+            }
+
+            // if (data) {
+            //     console.log('data found, revealing data: ', data);
+            //     $.ajax({
+            //         type: "POST",
+            //         url: REDIRECT_URL + '/login/assert',
+            //         data: data,
+            //         success: function(data) {
+            //             console.log('posted to /assert, response data is: ', data);
+            //         }
+            //     });
+            //     
+            //     htmlConsole.dumpCallback(null, data);
+            //     if (data.accessToken) {
+            //         webAuth.client.userInfo(
+            //             data.accessToken,
+            //             htmlConsole.dumpCallback.bind(htmlConsole)
+            //         );
+            //         window.location.href = REDIRECT_URL
+            //     }
+            // }
+            window.location.hash = '';
+        });
+
+        $('.login-facebook').click(function (e) {
+            fbq('track', 'Click facebook login button');
+            fbq('track', 'CompleteRegistration');
+
+            dataLayer.push({ 'event': 'ARIS', 'pageAction': 'Click', 'pageCategory': "Login Page", 'pageLabel': "Login with facebook in initial login page", 'pageUser': 'Anonymous' });
+            e.preventDefault();
+            webAuth.authorize({
+                connection: 'facebook',
+            });
+        });
+
+        $('.login-line').click(function (e) {
+            fbq('track', 'Click line login button');
+            fbq('track', 'CompleteRegistration');
+            dataLayer.push({ 'event': 'ARIS', 'pageAction': 'Click', 'pageCategory': "Login Page", 'pageLabel': "Login with line in initial login page", 'pageUser': 'Anonymous' });
+            e.preventDefault();
+            webAuth.authorize({ connection: 'line' });
+        });
+
+
+        var openmodal = document.querySelectorAll('.modal-open')
+        for (var i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                toggleModal();
+            })
+        }
+
+        const overlay = document.querySelector('.modal-overlay')
+        overlay.addEventListener('click', toggleModal)
+
+        var closemodal = document.querySelectorAll('.modal-close')
+        for (var i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener('click', toggleModal)
+        }
+
+        document.onkeydown = function (evt) {
+            evt = evt || window.event;
+            var isEscape = false;
+            if ("key" in evt) {
+                isEscape = (evt.key === "Escape" || evt.key === "Esc");
+            } else {
+                isEscape = (evt.keyCode === 27);
+            }
+            if (isEscape && document.body.classList.contains('modal-active')) {
+                toggleModal();
+            }
+        };
+
+
+        function toggleModal() {
+            const body = document.querySelector('body')
+            const modal = document.querySelector('.tailwind-modal')
+            modal.classList.toggle('hidden')
+            modal.classList.toggle('pointer-events-none')
+            body.classList.toggle('modal-active')
+        }
+    </script>
+</body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</html>

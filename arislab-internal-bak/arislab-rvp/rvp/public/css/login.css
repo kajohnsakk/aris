@@ -1,0 +1,7 @@
+#login-loading{
+    display:none;
+}
+#login-loading>img{
+    height: 205px;
+    margin-top: -1px;
+}

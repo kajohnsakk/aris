@@ -1,0 +1,774 @@
+[
+    {
+        "attributeLabel": "สี",
+        "attributeName": "color",
+        "showOnFAQ": false,
+        "attributeType": "text",
+        "attributeValue": [
+            {
+                "value": "black",
+                "label": "ดำ"
+            },
+            {
+                "value": "white",
+                "label": "ขาว"
+            },
+            {
+                "value": "gray",
+                "label": "เทา"
+            },
+            {
+                "value": "beige",
+                "label": "เบจ"
+            },
+            {
+                "value": "nude",
+                "label": "นู้ด"
+            },
+            {
+                "value": "red",
+                "label": "แดง"
+            },
+            {
+                "value": "green",
+                "label": "เขียว"
+            },
+            {
+                "value": "blue",
+                "label": "น้ำเงิน"
+            },
+            {
+                "value": "navy",
+                "label": "กรมท่า"
+            },
+            {
+                "value": "sky",
+                "label": "ฟ้า"
+            },
+            {
+                "value": "yellow",
+                "label": "เหลือง"
+            },
+            {
+                "value": "purple",
+                "label": "ม่วง"
+            },
+            {
+                "value": "pink",
+                "label": "ชมพู"
+            },
+            {
+                "value": "orange",
+                "label": "ส้ม"
+            },
+            {
+                "value": "brown",
+                "label": "น้ำตาล"
+            },
+            {
+                "value": "offWhite",
+                "label": "ออฟไวท์"
+            },
+            {
+                "value": "cream",
+                "label": "ครีม"
+            },
+            {
+                "value": "khaki",
+                "label": "กากี"
+            },
+            {
+                "value": "jeans",
+                "label": "ยีนส์"
+            },
+            {
+                "value": "gold",
+                "label": "ทอง"
+            },
+            {
+                "value": "money",
+                "label": "เงิน"
+            },
+            {
+                "value": "pigBlood",
+                "label": "เลือดหมู"
+            },
+            {
+                "value": "multiColor",
+                "label": "หลากสี"
+            },
+            {
+                "value": "other",
+                "label": "อื่นๆ"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "วิธีซัก",
+        "attributeName": "washingMethod",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ซักเครื่อง",
+                "value": "machine"
+            },
+            {
+                "label": "ซักมือ",
+                "value": "hand"
+            },
+            {
+                "label": "ซักแห้ง",
+                "value": "drywash"
+            },
+            {
+                "label": "อื่นๆ",
+                "value": "other"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "กระเป๋าเสื้อ",
+        "attributeName": "pocket",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "มี",
+                "value": "yes"
+            },
+            {
+                "label": "ไม่มี",
+                "value": "no"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ขนาด",
+        "attributeName": "size",
+        "showOnFAQ": false,
+        "attributeType": "text",
+        "attributeValue": [
+            {
+                "label": "XS",
+                "value": "xs"
+            },
+            {
+                "label": "S",
+                "value": "s"
+            },
+            {
+                "label": "M",
+                "value": "m"
+            },
+            {
+                "label": "L",
+                "value": "l"
+            },
+            {
+                "label": "XL",
+                "value": "xl"
+            },
+            {
+                "label": "ฟรีไซส์",
+                "value": "freesize"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ประเภทคอ",
+        "attributeName": "neckType",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "คอกลม",
+                "value": "roundNeck"
+            },
+            {
+                "label": "คอวี",
+                "value": "VNeck"
+            },
+            {
+                "label": "คอกระดุม",
+                "value": "neckButton"
+            },
+            {
+                "label": "คอปกโปโล",
+                "value": "poloCollar"
+            },
+            {
+                "label": "คอปกเชิ้ต",
+                "value": "collar"
+            },
+            {
+                "label": "คอสูง",
+                "value": "highNeck"
+            },
+            {
+                "label": "คอเต่า",
+                "value": "turtleNeck"
+            },
+            {
+                "label": "คอกว้าง",
+                "value": "wideNeck"
+            },
+            {
+                "label": "คอจีน",
+                "value": "chineseCollar"
+            },
+            {
+                "label": "คอสี่เหลี่ยม",
+                "value": "squareNeck"
+            },
+            {
+                "label": "คอบัว",
+                "value": "crouch"
+            },
+            {
+                "label": "ฮู้ด",
+                "value": "hood"
+            },
+            {
+                "label": "อื่นๆ",
+                "value": "other"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ทรงเสื้อ",
+        "attributeName": "shirtShape",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "มาตรฐาน",
+                "value": "standard"
+            },
+            {
+                "label": "โอเวอร์ไซส์",
+                "value": "oversize"
+            },
+            {
+                "label": "เข้ารูป",
+                "value": "fit"
+            },
+            {
+                "label": "รัดรูป",
+                "value": "tight"
+            },
+            {
+                "label": "ตัวยาว",
+                "value": "longBody"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ประเภทแขน",
+        "attributeName": "armType",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "แขนสั้น",
+                "value": "shortArm"
+            },
+            {
+                "label": "แขนยาว",
+                "value": "longArm"
+            },
+            {
+                "label": "แขนสามส่วน",
+                "value": "threeArms"
+            },
+            {
+                "label": "ไม่มีแขน",
+                "value": "withoutArm"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "เนื้อผ้า",
+        "attributeName": "texture",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ผ้าฝ้าย",
+                "value": "cotton"
+            },
+            {
+                "label": "ผ้ายืด",
+                "value": "stretchFabrics"
+            },
+            {
+                "label": "ผ้าลินิน",
+                "value": "linen"
+            },
+            {
+                "label": "ผ้ายีนส์",
+                "value": "jeans"
+            },
+            {
+                "label": "ผ้าชิโน",
+                "value": "sinoFabric"
+            },
+            {
+                "label": "ผ้าโพลีเอสเตอร์",
+                "value": "polyesterFabric"
+            },
+            {
+                "label": "ผ้าไนลอน",
+                "value": "nylonFabric"
+            },
+            {
+                "label": "ผ้าตาข่าย",
+                "value": "meshFabric"
+            },
+            {
+                "label": "ผ้าลูกฟูก",
+                "value": "corduroy"
+            },
+            {
+                "label": "หนังเทียม",
+                "value": "leatherette"
+            },
+            {
+                "label": "หนังแท้/หนังกลับ",
+                "value": "genuineLeatherSuede"
+            },
+            {
+                "label": "ผ้าฟลีส/ผ้าสำลี",
+                "value": "fleetFabricLint"
+            },
+            {
+                "label": "ขนสัตว์",
+                "value": "wool"
+            },
+            {
+                "label": "ขนสัตว์เทียม",
+                "value": "artificialFur"
+            },
+            {
+                "label": "แคชเมียร์",
+                "value": "kashmir"
+            },
+            {
+                "label": "ไหมพรม",
+                "value": "yarn"
+            },
+            {
+                "label": "ผ้าสักกะหลาด",
+                "value": "cloth"
+            },
+            {
+                "label": "ผ้ากำมะหยี่",
+                "value": "flannel"
+            },
+            {
+                "label": "ผ้าวิสคอส",
+                "value": "viscose"
+            },
+            {
+                "label": "ผ้าชีฟอง",
+                "value": "chiffonFabric"
+            },
+            {
+                "label": "ผ้าลูกไม้",
+                "value": "laceFabric"
+            },
+            {
+                "label": "ผ้าซาติน",
+                "value": "satin"
+            },
+            {
+                "label": "ผ้าไหม",
+                "value": "silk"
+            },
+            {
+                "label": "สแปนเด็กซ์",
+                "value": "spandex"
+            },
+            {
+                "label": "อื่นๆ",
+                "value": "other"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ประเภทปก",
+        "attributeName": "coverType",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ปกมาตราฐาน",
+                "value": "standardCollar"
+            },
+            {
+                "label": "ปกติดกระดุม",
+                "value": "buttonedCollar"
+            },
+            {
+                "label": "ปกคอกว้าง",
+                "value": "wideCollar"
+            },
+            {
+                "label": "ปกคอจีน",
+                "value": "chineseCollar"
+            },
+            {
+                "label": "ปกคอบัว",
+                "value": "lotusCollar"
+            },
+            {
+                "label": "ปกสามเหลี่ยมเล็ก",
+                "value": "smallTriangleCollar"
+            },
+            {
+                "label": "อื่นๆ",
+                "value": "other"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ทรงกางเกง",
+        "attributeName": "pantsShape",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "มาตรฐาน",
+                "value": "standard"
+            },
+            {
+                "label": "สกินนี่",
+                "value": "skinny"
+            },
+            {
+                "label": "ขากระบอก",
+                "value": "cylinder"
+            },
+            {
+                "label": "ขากว้าง",
+                "value": "wideLeg"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ระดับเอว",
+        "attributeName": "waistLevel",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "เอวสูง",
+                "value": "highWaist"
+            },
+            {
+                "label": "เอวกลาง",
+                "value": "midWaist"
+            },
+            {
+                "label": "เอวต่ำ",
+                "value": "lowWaist"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ความยาว",
+        "attributeName": "pantsLength",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ข้อเท้า",
+                "value": "ankle"
+            },
+            {
+                "label": "คลุมข้อเท้า",
+                "value": "ankleCover"
+            },
+            {
+                "label": "ห้าส่วน",
+                "value": "fiveParts"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "สไตล์",
+        "attributeName": "style",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "กางเกงลำลอง",
+                "value": "casualPants"
+            },
+            {
+                "label": "กางเกงทางการ",
+                "value": "formalPants"
+            },
+            {
+                "label": "กางเกงออกกำลังกาย",
+                "value": "exercisePants"
+            },
+            {
+                "label": "กางเกงลายพราง",
+                "value": "camouflagePants"
+            },
+            {
+                "label": "อื่นๆ",
+                "value": "other"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ระดับความอบอุ่น",
+        "attributeName": "warmthLevel",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "อบอุ่นปกติ",
+                "value": "normalWarm"
+            },
+            {
+                "label": "อบอุ่นมาก",
+                "value": "veryWarm"
+            },
+            {
+                "label": "อบอุ่นพิเศษ",
+                "value": "extraWarm"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ลวดลาย",
+        "attributeName": "pattern",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ลายหนังสัตว์",
+                "value": "animalSkinPattern"
+            },
+            {
+                "label": "ลายพราง",
+                "value": "camouflage"
+            },
+            {
+                "label": "ลายหมากรุก",
+                "value": "checkeredPattern"
+            },
+            {
+                "label": "ลายดอก",
+                "value": "flowerPattern"
+            },
+            {
+                "label": "ลายเรขาคณิต",
+                "value": "geometricPattern"
+            },
+            {
+                "label": "ลายสก็อต",
+                "value": "scottishPattern"
+            },
+            {
+                "label": "ลายกราฟฟิก",
+                "value": "graphic"
+            },
+            {
+                "label": "ลายตัวหนังสือ",
+                "value": "letterPattern"
+            },
+            {
+                "label": "สีพื้น",
+                "value": "floorColor"
+            },
+            {
+                "label": "ลายจุด",
+                "value": "dot"
+            },
+            {
+                "label": "ลายทาง",
+                "value": "stripe"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ความยาวแขน",
+        "attributeName": "armLength",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "แขนยาว",
+                "value": "longArm"
+            },
+            {
+                "label": "แขนสั้น",
+                "value": "shortArm"
+            },
+            {
+                "label": "สายเดี่ยว",
+                "value": "singleLine"
+            },
+            {
+                "label": "ไม่มีแขน",
+                "value": "withoutArms"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "การใช้งาน",
+        "attributeName": "usage",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "งานกลางคืน",
+                "value": "nightWork"
+            },
+            {
+                "label": "งานเลี้ยง",
+                "value": "party"
+            },
+            {
+                "label": "ลำลอง",
+                "value": "casual"
+            },
+            {
+                "label": "ทำงาน",
+                "value": "work"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "รูปแบบ",
+        "attributeName": "format",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "เดรสทรงเอ",
+                "value": "dressAShape"
+            },
+            {
+                "label": "เดรสระบาย",
+                "value": "drainDress"
+            },
+            {
+                "label": "เดรสทรงตุ๊กตา",
+                "value": "dollDress"
+            },
+            {
+                "label": "เดรสจั๊มเอว",
+                "value": "waistJumpDress"
+            },
+            {
+                "label": "เดรสชายไม่เท่ากัน",
+                "value": "dressWithUnequalHem"
+            },
+            {
+                "label": "เดรสทรงดินสอ",
+                "value": "pencilDress"
+            },
+            {
+                "label": "เดรสทรงตรง",
+                "value": "straightDress"
+            },
+            {
+                "label": "เดรสเชิ๊ต",
+                "value": "dress"
+            },
+            {
+                "label": "เดรสไหมพรม",
+                "value": "yarnDress"
+            },
+            {
+                "label": "เดรสทรงปล่อย",
+                "value": "dresdenReleased"
+            },
+            {
+                "label": "เดรสทรงสอบ",
+                "value": "dress"
+            },
+            {
+                "label": "เดรสแต่งงาน",
+                "value": "weddingDresses"
+            },
+            {
+                "label": "เดรสแบบผูก",
+                "value": "tieDress"
+            },
+            {
+                "label": "กระโปรงทรงเอ",
+                "value": "skirtAShape"
+            },
+            {
+                "label": "กระโปรงชายไม่เท่ากัน",
+                "value": "skirtWithUnequalHem"
+            },
+            {
+                "label": "กระโปรงระบาย",
+                "value": "ventSkirt"
+            },
+            {
+                "label": "กระโปรงแบบผูก",
+                "value": "tieSkirt"
+            },
+            {
+                "label": "กระโปรงทรงดินสอ",
+                "value": "pencilSkirt"
+            },
+            {
+                "label": "กระโปรงพลีท",
+                "value": "pleatedSkirt"
+            },
+            {
+                "label": "กระโปรงทรงกลม",
+                "value": "roundSkirt"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ความสูงเอว",
+        "attributeName": "waistHeight",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "เอวสูง",
+                "value": "highWaist"
+            },
+            {
+                "label": "เอวกลาง",
+                "value": "midWaist"
+            },
+            {
+                "label": "เอวต่ำ",
+                "value": "lowWaist"
+            }
+        ]
+    },
+    {
+        "attributeLabel": "ความยาวขา",
+        "attributeName": "legLength",
+        "showOnFAQ": true,
+        "attributeType": "select",
+        "attributeValue": [
+            {
+                "label": "ขาสั้น",
+                "value": "shortLeg"
+            },
+            {
+                "label": "ขายาว",
+                "value": "longLeg"
+            },
+            {
+                "label": "เดรส",
+                "value": "dresses"
+            }
+        ]
+    }
+]

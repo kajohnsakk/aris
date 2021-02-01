@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="/static/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/mask.css">
+</head>
+<body>
+<div class="mask-container">
+    <ul class="product-carousel col-md-12 text-center">
+        {{#each data.products}}
+            <li class="col-md-3 {{#if selected}}active{{/if}}">
+                <div class="col-md-12">
+                    <div class="row product-name-container">#{{productInfo.productHashtag}}</div>
+                    <div class="row product-image-container"><img src="https://picsum.photos/500/300?image=30"/></div>
+                    <div class="row product-desc-container">฿ <span class="product-price">{{numberToString minPrice}}</span>
+                        <div class="product-color-container text-right">
+                            {{#each productInfo.productVariations}}
+                                <div class="product-color-badge color-{{color}}"></div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+</body>
+</html>

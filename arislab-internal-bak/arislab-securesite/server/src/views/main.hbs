@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1>Store list</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>UID</td>
+                            <td>Store ID</td>
+                            <td>Line or Facebook email</td>
+                            <td>Email</td>
+                            <td>Tel</td>
+                            <td>Page</td>
+                            <td>Register Date</td>
+                            {{!-- <td>GBPay Token</td>
+                            <td>GBPay Token Validation</td> --}}
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                            <tr>
+                                <td>
+                                    {{#if auth0_uid}}
+                                        {{ auth0_uid }}
+                                    {{/if}}
+                                </td>
+                                <td>{{ storeID }}</td>
+                                <td>{{ email }}</td>
+                                <td>
+                                    {{#if storeInfo}}
+                                        {{ storeInfo.businessProfile.businessEmail }}
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if storeInfo}}
+                                        {{ storeInfo.businessProfile.businessPhoneNo }}
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if channelInfo}}
+                                        <a href="https://www.facebook.com/{{ channelInfo.id }}" target="_blank">{{ channelInfo.name }}</a>
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if channelInfo}}
+                                        {{ channelInfo.dateCreated }}
+                                    {{/if}}
+                                </td>
+                                {{!-- <td>
+                                    {{#if storeInfo.paymentInfo }}
+                                        <kbd>{{ storeInfo.paymentInfo.gbPayInfo.token }}</kbd>
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if verifyGBTokenInfo }}
+                                        {{ verifyGBTokenInfo }}
+                                    {{/if}}
+                                </td> --}}
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/product/add?storeID={{ storeID }}">Add product</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="/store?showAll=true" class="btn btn-primary">Show All</a>
+                    </div>
+                    <div class="col-md-6">
+                        <nav id="navPage" class="d-none">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" id="prevBtn" href="/store?from=0">Previous</a></li>
+                                <li class="page-item"><a class="page-link" id="nextBtn" href="/store?from=0">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    const setHref = (element, href) => {
+        $(element).attr('href', href);
+    }
+
+    $(document).ready(function () {
+        let urlParams = new URLSearchParams(window.location.search);
+        let fromVal = Number(urlParams.get('from'));
+
+        let prevFromVal = Number(0);
+        let nextFromVal = Number(0);
+
+        if (!fromVal) {
+            prevFromVal = Number(0);
+            nextFromVal = Number(20);
+        } else {
+            prevFromVal = Number(fromVal - 20);
+            nextFromVal = Number(fromVal + 20);
+        }
+
+        if (prevFromVal < 0) {
+            prevFromVal = Number(0);
+        }
+
+        setHref('#prevBtn', `/store?from=${prevFromVal}`)
+        setHref('#nextBtn', `/store?from=${nextFromVal}`)
+
+        $('#navPage').removeClass('d-none');
+    });
+</script>
+</html>

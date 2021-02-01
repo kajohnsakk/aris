@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Summary Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+		
+		.custome-table {
+			
+		}
+		
+		.custome-table tr td, .custome-table tr th {
+			border: 1px solid #333;
+			padding: 5px 0px;
+			text-align: center;
+		}
+		.custome-table tr:nth-child(even) {background: #CCC}
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Summary Report</h1>
+
+                <div class="flex flex-col">
+                    <div class="flex flex-col md:flex-row mb-3">
+                        <div class="flex flex-row items-center w-full md:w-1/2">
+                            <div class="font-bold w-20">Start:</div>
+                            <div class="w-auto"><input id="start-date" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+                        </div>
+                        <div class="flex flex-row items-center w-full md:w-1/2">
+                            <div class="font-bold w-20">End:</div>
+                            <div class="w-auto"><input id="end-date" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+                        </div>
+						<div>
+							<button id="view-btn" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full">
+								View
+							</button>
+							<img id="spinner" class="ml-4 w-8 hidden" src="https://www.ims-expertservices.com/wp-content/plugins/unyson/framework/extensions/forms/static/img/ajax-loader.gif" />
+						</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+		
+		<div id="result" class="card mt-4 hidden">
+			<div class="card-body">
+				<div id="result-data"></div>
+			</div>
+		</div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+	let startDate = moment().subtract('days', 7).format('DD/MM/YYYY');
+	let endDate = moment().format('DD/MM/YYYY');
+
+    $('#start-date').datepicker({
+        format: 'dd/mm/yyyy'
+    }).datepicker('setDate', startDate );
+
+    $('#end-date').datepicker({
+        format: 'dd/mm/yyyy',
+        endDate: endDate
+    }).datepicker('setDate', endDate );
+
+    $('#view-btn').on('click', async () => {
+		$('#view-btn').hide();
+		$('#spinner').show();
+		$('#result').hide();
+		$('#result-data').html('');
+		
+        var startDate = $('#start-date').val() + " 00:00:00";
+        var endDate = $('#end-date').val() + " 23:59:59";
+
+        const HOST = window.location.origin;
+		
+		const allStoreList = await getStoreList(HOST, '', '');
+		
+		const storeList = await getStoreList(HOST, startDate, endDate);
+		console.log('storeList ===> ', storeList);
+		if( !storeList ) return false;
+		const orderList = await getOrderList(HOST, startDate, endDate);
+		console.log('orderList ===> ', orderList);
+		if( !orderList ) return false;
+		
+		
+		var verifyStore = await getVerifyStore(storeList);
+		console.log('verifyStore ===> ', verifyStore);
+		var connectedFacebookPageStore = await getConnectedFacebookPageStore(storeList);
+		console.log('connectedFacebookPageStore ===> ', connectedFacebookPageStore);
+		var activeNewStore = await getActiveNewStore(storeList, orderList);
+		console.log('activeNewStore ===> ', activeNewStore);
+		
+		var activeStore = await getUniqueStoreID(orderList);
+		console.log('activeStore ===> ', activeStore);
+		var orderPaymentType = await countOrderPaymentType(orderList);
+		console.log('orderPaymentType ===> ', orderPaymentType);
+		
+		let displayOrderPaymentType = "";
+		let allTotalAmount = 0;
+		for (var key in orderPaymentType) {
+			if (orderPaymentType.hasOwnProperty(key)) {
+				
+				if( displayOrderPaymentType.length > 0 ) {
+					displayOrderPaymentType+= `<div class="ml-4">${key} = ${orderPaymentType[key]['count']}, total amount = ${orderPaymentType[key]['amount'].toLocaleString()}</div>`;
+				} else {
+					displayOrderPaymentType = `<div class="ml-4">${key} = ${orderPaymentType[key]['count']}, total amount = ${orderPaymentType[key]['amount'].toLocaleString()}</div>`;
+				}
+				allTotalAmount += orderPaymentType[key]['amount'];
+			}
+		}
+		
+		let displayStoreOrder = "";
+		for(var i=0; i<allStoreList.length; i++) {
+			var processStore = allStoreList[i];
+			var storeID = processStore['storeID'];
+			if( activeStore.indexOf(storeID) > -1 ) {
+				var storeObj = {};
+				var storeOrderData = await getStoreOrderData(storeID, orderList);
+				
+				// storeObj.storeID = storeID;
+				// storeObj.email = processStore['email'];
+				// storeObj.businessName = processStore['storeInfo']['businessProfile']['accountDetails']['businessName'];
+				// storeObj.countOrder = storeOrderData['countOrder'];
+				// storeObj.totalAmount = storeOrderData['amount'];
+				
+				displayStoreOrder+= "<tr>"+
+									"<td>"+storeID+"</td>"+
+									"<td>"+processStore['email']+"</td>"+
+									"<td>"+processStore['storeInfo']['businessProfile']['accountDetails']['businessName']+"</td>"+
+									"<td>"+ ( storeOrderData['startDate'] > 0 ? moment(storeOrderData['startDate']).format('hh:mm น.<br>DD/MM/YYYY') : '-' ) +"</td>"+
+									"<td>"+ ( storeOrderData['endDate'] > 0 ? moment(storeOrderData['endDate']).format('hh:mm น.<br>DD/MM/YYYY') : '-' ) +"</td>"+
+									"<td>"+storeOrderData['countOrder']+"</td>"+
+									"<td>"+(storeOrderData['amount'].toLocaleString())+"</td>"+
+									"</tr>";
+			}
+		}
+		
+		var reportData = "<div>";
+		reportData += "<div class='text-lg font-bold mb-2'>New Stores Report</div>";
+		reportData += "<div><b>New Store</b>: "+storeList.length+"</div>";
+		reportData += "<div><b>Verify Store</b>: "+verifyStore.length+"</div>";
+		reportData += "<div><b>Connected Facebook Page Store</b>: "+connectedFacebookPageStore.length+"</div>";
+		reportData += "<div><b>Active New Store</b>: "+activeNewStore.length+"</div>";
+		reportData += "<hr class='my-4'>";
+		reportData += "<div class='text-lg font-bold mb-2'>Daily Report</div>";
+		reportData += "<div><b>Active Store</b>: "+activeStore.length+"</div>";
+		reportData += "<div class='mb-3'><b>Count Order</b>: "+orderList.length+" ("+ allTotalAmount.toLocaleString() +")<br />"+ displayOrderPaymentType +"</div>";
+		reportData += ("<div><table class=\"table\"><tr>"+
+						"<th>Store ID</th>"+
+						"<th>Email</th>"+
+						"<th>BusinessName</th>"+
+						"<th>Start Order</th>"+
+						"<th>End Order</th>"+
+						"<th>Count Order</th>"+
+						"<th>Total Amount</th>"+
+						"</tr>"+
+						displayStoreOrder+
+						"</table></div>");
+		reportData += "</div>";
+		
+		$('#view-btn').show();
+		$('#spinner').hide();
+		$('#result').show();
+		$('#result-data').html(reportData);
+		
+		
+		
+    });
+	
+	function getStoreList(HOST, startDate, endDate) {
+		return new Promise((resolve, reject) => {
+			var url = `${HOST}/api/store/getStoreList`;
+			if( startDate.length > 0 && endDate.length > 0 ) {
+				url = `${HOST}/api/store/getStoreList?startDate=${toTimestamp(startDate, 10)}&endDate=${toTimestamp(endDate, 10)}`;
+			}
+
+			$.ajax({ 
+				url: url, 
+				success: resolve,
+				error: function(jqXHR, status, errorThrown) {
+     				reject();
+					alert("Error");
+  				} 
+			});
+		});
+	}
+	
+	function getOrderList(HOST, startDate, endDate) {
+		return new Promise((resolve, reject) => {
+			const url = `${HOST}/api/order/getAllOrder?selectedStatus=SUCCESS&startDate=${toTimestamp(startDate, 13)}&endDate=${toTimestamp(endDate, 13)}`;
+			console.log('Get all order ==========> ', url);
+			
+			$.ajax({ 
+				url: url, 
+				success: resolve,
+				error: function(jqXHR, status, errorThrown) {
+     				reject();
+					alert("Error");
+  				} 
+			});
+		});
+	}
+	
+	function getVerifyStore(storeList) {
+		return new Promise((resolve, reject) => {
+			var verifyStore = [];
+			for(let i=0; i<storeList.length; i++) {
+				let nowStore = storeList[i];
+				if( nowStore.hasOwnProperty('verifyInfo') ) {
+					if( nowStore['verifyInfo']['isVerified'] && nowStore['verifyInfo']['pinCode'].length > 0 ) {
+						verifyStore.push(nowStore);
+					}
+				}
+			}
+			resolve(verifyStore);
+		});
+	}
+	
+	function getConnectedFacebookPageStore(storeList) {
+		return new Promise((resolve, reject) => {
+			var connectedFacebookPageStore = [];
+			for(let i=0; i<storeList.length; i++) {
+				let nowStore = storeList[i];
+				if( nowStore['storeInfo']['businessProfile']['accountDetails']['businessName'].length > 0 ) {
+					connectedFacebookPageStore.push(nowStore);
+				}
+			}
+			resolve(connectedFacebookPageStore);
+		});
+	}
+	
+	function getActiveNewStore(storeList, orderList) {
+		return new Promise(async (resolve, reject) => {
+			var activeStore = [];
+			
+			var uniqueStoreID = await getUniqueStoreID(orderList);
+			//console.log('uniqueStoreID ===> ', uniqueStoreID);
+			
+			for(let i=0; i<storeList.length; i++) {
+				let processStore = storeList[i];
+				let processStoreID = processStore['storeID'];
+				if( uniqueStoreID.indexOf(processStoreID) > -1 ) {
+					activeStore.push(processStore);
+				}
+			}
+			
+			resolve(activeStore);
+		});
+	}
+	
+	function getUniqueStoreID(orderList) {
+		return new Promise((resolve, reject) => {
+			var flags = [], uniqueStoreID = [], l = orderList.length, i;
+			for( i=0; i<l; i++) {
+				if( flags[orderList[i]['storeID']]) continue;
+				flags[orderList[i]['storeID']] = true;
+				
+				uniqueStoreID.push(orderList[i]['storeID']);
+				//uniqueStoreID[orderList[i]['storeID']] = true;
+			}
+
+			resolve(uniqueStoreID);
+		});	
+		
+	}
+	
+	function countOrderPaymentType(orderList) {
+		return new Promise(async (resolve, reject) => {
+			var orderType = [];
+			
+			for(let i=0; i<orderList.length; i++) {
+				let processOrder = orderList[i];
+				let paymentMethod = processOrder['paymentInfo']['method'];
+				
+				//let amount = await getOrderAmount(processOrder);
+				let amount = processOrder['summary']['grandTotal'];
+				
+				if( typeof orderType[paymentMethod] !== 'undefined' ) {
+					orderType[paymentMethod]['count']++;
+					orderType[paymentMethod]['amount']+= amount;
+				} else {
+					orderType[paymentMethod] = { 'count': 1, 'amount': amount };
+				}
+			}
+			
+			resolve(orderType);
+		});
+	}
+	
+	function getOrderAmount(processOrder) {
+		return new Promise(async (resolve, reject) => {
+			var amount = 0;
+			
+			let selectedProduct = processOrder['selectedProduct'];
+			let firstDelivery = processOrder['orderAdditionalDetails']['delivery']['firstPiece'];
+			let nextDelivery = processOrder['orderAdditionalDetails']['delivery']['nextPiece'];
+			
+			for(let i=0; i<selectedProduct.length; i++) {
+				let product = selectedProduct[i];
+				let availableQuantity = ( typeof product['availableQuantity'] === 'undefined' ) ? 1 : product['availableQuantity'];
+				let price = product['productValue']['price'];
+				
+				let deliveryCharge = ( i === 0 ) ? firstDelivery : nextDelivery;
+				
+				
+				amount = (availableQuantity * price) + deliveryCharge;
+			}
+			
+			if( processOrder.hasOwnProperty('discount') ) {
+				let totalDeliveryCost = 0;
+				if( processOrder.discount.hasOwnProperty('totalDeliveryCost') ) {
+					totalDeliveryCost = processOrder.discount.totalDeliveryCost;
+				}
+				amount = amount - totalDeliveryCost;
+			}
+			
+			resolve(amount);
+		});
+	}
+	
+	function getStoreOrderData(storeID, orderList) {
+		return new Promise(async (resolve, reject) => {
+			var countOrder = 0;
+			var amount = 0;
+			var endDate = 0;
+			var startDate = 9999999999999999999999;
+			
+			for(let i=0; i<orderList.length; i++) {
+				var processOrder = orderList[i];
+				if( storeID === processOrder['storeID'] ) {
+					/*
+					let selectedProduct = processOrder['selectedProduct'];
+					let firstDelivery = processOrder['orderAdditionalDetails']['delivery']['firstPiece'];
+					let nextDelivery = processOrder['orderAdditionalDetails']['delivery']['nextPiece'];
+					
+					for(let j=0; j<selectedProduct.length; j++) {
+						let product = selectedProduct[j];
+						let availableQuantity = product['availableQuantity'];
+						let price = product['productValue']['price'];
+						
+						let deliveryCharge = ( j === 0 ) ? firstDelivery : nextDelivery;
+						
+						amount+= ( (availableQuantity * price) + deliveryCharge );
+						
+						if( storeID === 'f828b2a6-f79a-4994-85c5-fd1a962d2cb5' ) {
+							console.log(`${availableQuantity} ===> ${price} (${deliveryCharge}) ==============> ${amount}`);
+						}
+					}
+					*/
+					//amount += await getOrderAmount(processOrder);
+					amount += processOrder['summary']['grandTotal'];
+					countOrder++;
+
+					endDate = Math.max(endDate, processOrder['orderDate']);
+					startDate = Math.min(startDate, processOrder['orderDate']);
+				}
+				
+			}
+			
+			
+			
+			resolve({ 'countOrder': countOrder, 'amount': amount, 'startDate': startDate, 'endDate': endDate});
+		});
+	}
+	
+	
+
+    function toTimestamp(strDate, timeLength=13){
+        var strDateTimeList = strDate.split(' ');
+        var strDateList = strDateTimeList[0].split('/');
+        var newFormat = strDateList[2]+'-'+strDateList[1]+'-'+strDateList[0]+' '+strDateTimeList[1];
+        var datum = Date.parse(newFormat);
+
+        // return datum/1000;
+		return datum.toString().substr(0, timeLength);
+    }
+
+</script>
+
+</html>

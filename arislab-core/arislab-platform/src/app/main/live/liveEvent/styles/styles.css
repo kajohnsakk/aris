@@ -1,0 +1,14 @@
+:root {
+    --pink: #e83490;
+    --grey: #e6eaed;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    background-color: var(--grey);
+    min-width: 320px;
+}
+
+.modal-content {
+    padding: 1.5rem;
+}

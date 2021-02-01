@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout Complete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card mt-4" style="box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1); margin-bottom: 35vh;">
+            <div class="card-body">
+                <div class="text-center">
+                    <p class="text-success">
+                        <i class="fa fa-check-circle fa-7x"></i>
+                    </p>
+                    <h1 class="card-title">Checkout complete!</h1>
+                    <h2 class="card-subtitle mb-4 text-muted">Your Order ID is: <kbd>{{ data.orderID }}</kbd></h2>
+                </div>
+
+                <table class="table table-bordered w-50 mx-auto">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Order Summary</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                <div class="text-right">Total</div>
+                            </th>
+                            <td>
+                                <div class="text-right">{{ data.summary.totalPrice }} THB</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="text-right">Delivery</div>
+                            </th>
+                            <td>
+                                <div class="text-right">{{ data.summary.totalDeliveryCost }} THB</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="text-right">Discount</div>
+                            </th>
+                            <td>
+                                <div class="text-right">0 THB</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="text-right">Grand Total</div>
+                            </th>
+                            <td>
+                                <div class="text-right">{{ data.summary.grandTotal }} THB</div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Your shopping cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css?v={{ timestamp }}" rel="stylesheet">
+    <link rel="stylesheet" href="../css/new/new-basket.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/new/status.css?v={{ timestamp }}" />
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+</head>
+
+<body class="h-full">
+    <div class="flex flex-col m-auto h-full w-full md:w-1/2 mb-8 items-center qrcode-container">
+        <div class="flex mt-8 sm:mt-2 mb-4 text-red-700 text-2xl lg:text-4xl">
+            <div>กรุณาชำระเงินภายใน: <span id="expiresAt">00:00:00</span></div>
+        </div>
+        <div class="flex">
+            <img src="data:image/png;base64,{{ qrcodeImg }}" />
+        </div>
+        <div class="flex mt-2">
+            <button
+                class="btnPayWithQRCodeTutorial btnPay py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                วิธีการชำระเงินด้วย QRCode
+            </button>
+        </div>
+    </div>
+
+    <input type="hidden" id="qrcodeCreatedAt" value={{ timestamp }} />
+
+    <div class="hidden flex-col m-auto h-full w-full md:w-1/2 items-center justify-center qrcode-expired">
+        <div class="flex text-red-700 text-2xl lg:text-4xl">
+            <div class="text-center">ขณะนี้ QRCode ได้หมดอายุการชำระเงินแล้ว กรุณาทำรายการใหม่</div>
+        </div>
+        <div class="flex mt-4 items-center justify-center">
+            <button class="btnBackToCart btnPay py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                กลับไปที่ตะกร้า
+            </button>
+        </div>
+    </div>
+
+    <div class="hidden flex-1 flex-col h-full items-center justify-center redirect-container">
+        <div class="mb-2 text-highlight">กำลังนำท่านกลับไปยังหน้าตะกร้าสินค้า.....</div>
+        <div class="text-highlight">Redirect to Cart Info Page.....</div>
+    </div>
+
+    <div class="hidden flex-1 flex-col h-full items-center justify-center qrcode-tutorial-container">
+        <div
+            class="btnCloseQRCodeTutorial absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+            <img src="../img/svg/close-back.svg" />
+        </div>
+        <div class="w-5/6 sm:w-5/6 md:w-5/6 lg:w-2/3 xl:w-1/3 xl:max-w-xl">
+            <span class="mb-4 flex text-xl font-bold">วิธีการชำระเงินด้วย QRCode</span>
+            <div class="flex flex-col">
+                <img src="../img/qrcode_tutorial.jpg" />
+            </div>
+            <div class="flex mt-2 items-center justify-center">
+                <button
+                    class="btnCloseQRCodeTutorial btnSecondary py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                    ย้อนกลับ
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    const toggleQRCodeTutorial = () => {
+        $('.qrcode-container').toggleClass('hidden');
+        $('.qrcode-tutorial-container').toggleClass('hidden').toggleClass('flex');
+        changeToggleQRCodeTutorialText();
+    };
+
+    const backToCart = () => {
+        window.history.back();
+    }
+
+    const changeToggleQRCodeTutorialText = () => {
+        $('.btnCloseQRCodeTutorial').text('ย้อนกลับ');
+        if (!localStorage.getItem('is_closed_qrcode_tutorial')) {
+            $('.btnCloseQRCodeTutorial').text('ถัดไป');
+        }
+    }
+
+    $(document).ready(function () {
+        if (!localStorage.getItem('is_closed_qrcode_tutorial')) {
+            // Trigger QRCOde tutorial for first time visitor
+            toggleQRCodeTutorial();
+        }
+        const qrCreatedAt = Number($('#qrcodeCreatedAt').val());
+        const qrExpiresAt = qrCreatedAt + (60 * 15 * 1000);
+        let countdown = setInterval(function () {
+            let now = Date.now();
+            let distance = qrExpiresAt - now;
+            let hours = Math.floor(distance / (3600 * 1000));
+            distance = distance % (3600 * 1000)
+            let mins = Math.floor(distance / (60 * 1000));
+            distance = distance % (60 * 1000)
+            let secs = Math.floor(distance / 1000)
+            let countDownText = formatDigit(hours) + ":" + formatDigit(mins) + ":" + formatDigit(secs);
+            $('#expiresAt').text(countDownText);
+            if (distance < 0) {
+                clearInterval(countdown);
+                $('.qrcode-container').toggleClass('hidden');
+                $('.qrcode-expired').toggleClass('hidden').toggleClass('flex');
+            }
+        }, 1000)
+    });
+
+    const formatDigit = (digit) => {
+        let formatDigit = digit + 100 + ""
+        return formatDigit.substring(1, 3)
+    }
+
+    $(document).on('click', '.btnCloseQRCodeTutorial', function (e) {
+        e.preventDefault();
+        toggleQRCodeTutorial();
+        localStorage.setItem('is_closed_qrcode_tutorial', true);
+    });
+
+    $(document).on('click', '.btnPayWithQRCodeTutorial', function (e) {
+        e.preventDefault();
+        toggleQRCodeTutorial();
+    });
+
+    $(document).on('click', '.btnBackToCart', function (e) {
+        e.preventDefault();
+        backToCart();
+        $('.qrcode-expired').toggleClass('hidden');
+        $('.redirect-container').toggleClass('hidden').toggleClass('flex');
+    })
+</script>
+
+</html>

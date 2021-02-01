@@ -1,0 +1,18 @@
+[
+    {
+        "value": "women_skirt_short",
+        "label": "กระโปรงสั้น"
+    },
+    {
+        "value": "women_skirt_long",
+        "label": "กระโปรงยาว"
+    },
+    {
+        "value": "women_skirt_jean",
+        "label": "กระโปรงยีนส์"
+    },
+    {
+        "value": "women_skirt_asShort",
+        "label": "กระโปรงกางเกง"
+    }
+]

@@ -1,0 +1,55 @@
+
+<!-- Login Container -->
+<div id="login-container" class="animation-fadeIn">
+    <!-- Login Title -->
+    <div class="login-title text-center">
+        <img src="/login/img/convolab_banner.png" style="
+    width: 100%;
+    padding: 0px 60px;
+"> <h1 style="
+    margin-top: 0px;
+">
+        <small>Please <strong>Login</strong> to access your Chatbot Console</small>
+    </h1>
+    </div>
+    <!-- END Login Title -->
+
+    <!-- Login Block -->
+    <div class="block push-bit">
+        <div id="login-loading" class="text-center"><img src="/login/img/loading.gif"></div>
+        <!-- Login Form -->
+        <form action="" method="post" id="form-login"
+              class="form-horizontal form-bordered form-control-borderless">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                        <input type="text" id="login-email" name="login-email" class="form-control input-lg"
+                               placeholder="Email" autocomplete="off" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                        <input type="password" id="login-password" name="login-password" autocomplete="off" class="form-control input-lg"
+                               placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <div class="col-xs-12 text-right">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-lock"></i> Login to Chatbot Console
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <script src="login/js/pages/login.js"></script>
+    <script>$(function () {
+        Login.init();
+    });</script>
+</div>

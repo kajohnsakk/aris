@@ -1,0 +1,213 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#login-page {
+    font-family: 'Kanit', sans-serif;
+    /* width: 100%;
+    height: 100%; */
+    /*use multiple background-images first is highest z-order*/
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/239518/birds1.svg"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/239518/birds2.svg"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/239518/clouds.svg"), linear-gradient(to bottom,  rgba(255,255,255,0), 40%,rgba(255,255,255,1) 60%), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/239518/BG2.svg"); */
+    /* background-color: black; */
+    background-image: url(../img/login/mini-circle.svg), url(../img/login/white-triangle.svg), url(../img/login/white-triangle.svg), url(../img/login/blue-triangle.svg) ,url(../img/login/dark-purple-triangle.svg), url(../img/login/purple-triangle.svg), url(../img/login/dots.svg), url(../img/login/dots.svg), url(../img/login/small-circle.svg), url(../img/login/big-circle.svg);
+    /* background-size: 20%, 20%, 100%, 100%, 50px; */
+    background-size: 50px, 30px, 30px, 40px, 30px, 75px, 6%, 6%, 20rem, 30rem;
+    background-repeat: no-repeat;
+    background-position: 85% 85% ,95% 50%, 53% 87%, 10% 85%, 37% 85%, 42% 30%, 80% 5%, 48% 75%, 50% 100%, top -50% right -20%;
+}
+
+.en {
+    font-family: 'Roboto', 'Kanit', sans-serif;
+}
+
+.login-text-dark-grey {
+    color: #696969;
+}
+
+.login-text-grey {
+    color: #929292;
+}
+
+.login-text-light-grey {
+    color: #9B9B9B;
+}
+
+.login-a, .login-a:hover {
+    color: #F1548C;
+}
+
+.login-box {
+    /* height: 438.09px; */
+    display: flex;
+    justify-content: center;
+    background: #ffffffbf;
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    height: min-content;
+}
+
+.login-logo {
+    width: 100px;
+    height: 37px;
+}
+
+.login-button {
+    color: white;
+    background-color: #4466BD;
+    width: 80%;
+    padding: 0.6rem 0;
+    border-radius: 60px;
+    margin: auto;
+}
+
+.progress-container {
+    width: 65%;
+    display: flex;
+    position: relative;
+    height: min-content;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.login-step {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(200, 200, 200);
+    background-color: white;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+.login-step-active {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FB8785;
+    background-color: white;
+    border: 2px solid #FB8785;
+}
+
+.login-step-line {
+    /* position: absolute; */
+    flex: 1;
+    margin: auto;
+    height: 1px;
+    background-color: rgb(200, 200, 200);
+    /* border: 1px solid #FB8785; */
+}
+
+.login-step-line-active {
+    /* position: absolute; */
+    flex: 1;
+    margin: auto;
+    height: 1px;
+    background-color: #FB8785;
+    /* border: 1px solid #FB8785; */
+}
+
+.login-step-massege {
+    position: absolute;
+    bottom: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    .login-box {
+        border-radius: 20px;
+    }
+
+    .login-right-container {
+        display: flex;
+        align-items: center;
+    }
+
+    #login-page {
+        /* background-image: url(../img/login/mini-circle.svg), url(../img/login/white-triangle.svg), url(../img/login/white-triangle.svg), url(../img/login/blue-triangle.svg) ,url(../img/login/dark-purple-triangle.svg), url(../img/login/purple-triangle.svg), url(../img/login/dots.svg), url(../img/login/dots.svg), url(../img/login/small-circle.svg), url(../img/login/big-circle.svg); */
+        /* background-color: black; */
+        background-size: 50px, 30px, 30px, 40px, 30px, 75px, 5rem, 3rem, 20rem, 25rem;
+        background-repeat: no-repeat;
+        background-position: 85% 85% ,95% 50%, 53% 87%, 40px 30px, 40% 20px, 42% 30%, 64% 2%, bottom 20px left 20px, -100px 120%, 170px -100px;
+    }
+    
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    #login-page {
+        /* background-image: url(../img/login/mini-circle.svg), url(../img/login/white-triangle.svg), url(../img/login/white-triangle.svg), url(../img/login/blue-triangle.svg) ,url(../img/login/dark-purple-triangle.svg), url(../img/login/purple-triangle.svg), url(../img/login/dots.svg), url(../img/login/dots.svg), url(../img/login/small-circle.svg), url(../img/login/big-circle.svg); */
+        background-size: 50px, 30px, 30px, 40px, 30px, 75px, 6%, 6%, 20rem, 30rem;
+        background-repeat: no-repeat;
+        background-position: 85% 85% ,95% 50%, 53% 87%, 10% 85%, 37% 85%, 42% 30%, 80% 5%, 48% 75%, 50% 100%, 130% 0%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .login-box {
+        min-width: 430px;
+    }
+}
+
+.btn-facebook {
+    background-color: rgb(66, 103, 178);
+    color: #ffffff !important;
+    display: flex;
+    width: 100%;
+}
+
+.btn-google {
+    background-color: #ffffff;
+    color: #000000 !important;
+    display: flex;
+    width: 100%;
+}
+
+.btn-social-logo {
+    margin-right: 0.5em;
+}
+
+.btn-text {
+    display: flex;
+    margin: 0 auto;
+}
+
+.social-divider {
+    min-width: 1px;
+    width: 100%;
+    flex: 1 1 0%;
+    margin: 0px 8px;
+    border-bottom: 1px solid rgb(221, 223, 226);
+}
+
+.social-login-divider {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    padding: 8px 0px;
+}
+
+.btn-login-submit {
+    color: #ffffff;
+    border: 0px;
+    background: linear-gradient(to right, rgba(237,53,144,1) 0%, rgba(241,70,84,1) 50%, rgba(252,177,78,1) 100%);
+    text-transform: none;
+}
+
+.btn-login-submit:hover {
+    background: linear-gradient(to right, rgb(245 95 169) 0%, rgb(245 100 112) 50%, rgb(251 186 101) 100%);
+}

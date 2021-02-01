@@ -1,0 +1,18 @@
+[
+    {
+        "value": "women_underwear_undershirt",
+        "label": "เสื้อชั้นใน"
+    },
+    {
+        "value": "women_underwear_panties",
+        "label": "กางเกงชั้นใน"
+    },
+    {
+        "value": "women_underwear_slimmingSuit",
+        "label": "ชุดกระชับสัดส่วน"
+    },
+    {
+        "value": "women_underwear_shirtAndLiningPants",
+        "label": "เสื้อและกางเกงซับใน"
+    }
+]

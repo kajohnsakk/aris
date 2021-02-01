@@ -1,0 +1,184 @@
+.store-management-title-container{
+    background: white;
+    /* -webkit-box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.23);
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.23); */
+    color: black;
+}
+.store-management-step-number-icon{
+    background: rgb(236, 51, 144);
+    border-radius: 100000px;
+    display: inline-block;
+}
+.store-management-step-text{
+
+    color: rgb(236, 51, 144);
+
+}
+
+.store-management-step-container.inactive{
+    opacity: 0.3;
+}
+.store-management-step-number-icon.inactive{
+    background: #999;
+    opacity: 0.5;
+}
+.store-management-step-container.inactive .store-management-step-number-icon{
+
+    border: solid 1px rgb(236, 51, 144);
+    border-radius: 100000px;
+    color: white;
+
+}
+.store-management-header{
+
+    border-bottom: 2px solid #ed3690;
+
+}
+.store-management-header>*{
+
+    color: #ec3390;
+
+}
+.store-management-body{
+    min-height: 450px;
+}
+form.store-management-body input{
+    min-width: 240px;
+}
+.store-management-footer{
+    border-top: 1px solid #ddd;
+}
+
+.button-primary{
+    margin-left: 20px;
+    background: #ed3690;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    min-width: 100px;
+}
+.button-primary:disabled{
+    background: #999;
+}
+.button-primary.inactive{
+    background: #999;
+}
+.button-secondary{
+    margin-left: 25px;
+    background: none;
+    color: #999;
+
+}
+.store-management-body-container{
+    background:white;
+    border-radius: 10px;
+}
+.text-gray{
+    color: #999;
+}
+.login-facebook-button {
+    background: #4267b2;
+    padding: 16px 50px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.edit-login-facebook-button {
+    background: #4267b2;
+    padding: 12px 8px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.edit-login-facebook-small-button {
+    background: #4267b2;
+    padding: 5px 5px;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.loading-facebook {
+    padding: 16px 50px;
+    border-radius: 50px;
+    background: #999;
+    color: white;
+}
+
+.store-management-page-selector{
+    max-height: 330px;
+    overflow: scroll;
+}
+.store-management-page-selector input[type="radio"] + label span {
+    transition: background .2s,
+    transform .2s;
+}
+
+.store-management-page-selector input[type="radio"] + label span:hover,
+.store-management-page-selector input[type="radio"] + label:hover span{
+    transform: scale(1.2);
+}
+.store-management-page-selector input[type="radio"] + label span{
+    margin-right: 14px;
+}
+.store-management-page-selector input[type="radio"]:checked + label span {
+    background-color: purple;
+    box-shadow: 0px 0px 0px 2px white inset;
+}
+
+.store-management-page-selector input[type="radio"]:checked + label{
+
+}
+
+.store-management-page-selector span{
+    border: solid 1px purple;
+    width: 20px;
+    height: 20px;
+}
+.store-management-page-selector>div{
+    border-bottom: solid 1px #ddd;
+}
+.click-link{
+
+    color: #0000ee !important;
+    text-decoration: underline !important;
+
+}
+
+.package-card, .package-card a {
+    color: #696969;
+}
+.package-card .highlight-text {
+    color: #FB8785;
+}
+.selected-package-card {
+    background: linear-gradient(250.37deg, #F2598B -4.27%, #FB8785 88.75%);
+    color: white;
+}
+.selected-package-card a {
+    color: white;
+}
+.selected-package-card .highlight-text {
+    color: white;
+}
+.select-package-button{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    background: linear-gradient(197.42deg, #F2598B -4.27%, #FB8785 88.75%);
+    box-shadow: 0px 2.32093px 5.80232px rgba(222, 222, 222, 0.25);
+    border-radius: 5.80232px;
+    color: #FFFFFF;
+    padding: 14px 0px;
+}
+.select-package-button:disabled {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 2.32093px 5.80232px rgba(222, 222, 222, 0.25);
+    border-radius: 5.80232px;
+    color: rgb(236, 51, 144);
+    padding: 14px 0px;
+    cursor: default;
+}

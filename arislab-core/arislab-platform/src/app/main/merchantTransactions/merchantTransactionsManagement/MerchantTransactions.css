@@ -1,0 +1,145 @@
+.merchant-font {
+    font-family: "Kanit", Muli, Roboto, Helvetica Neue, Arial, sans-serif !important;
+}
+
+.bg-pink {
+    background-color: #e81790;
+}
+
+.merchant-pink {
+    color: #e81790;
+}
+
+.merchant-grey {
+    color: #8c8c8c;
+}
+
+.merchant-red {
+    color: #f14655;
+}
+
+.border-color-gradient {
+    width: 100%;
+    padding-bottom: 1.2px;
+    background: linear-gradient(90deg, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 85, 1) 49%, rgba(252, 176, 78, 1) 100%);
+}
+
+.merchant-p0 {
+    padding: 0 !important;
+}
+
+.merchant-cell-border {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bank-account-container {
+    border: 1px dashed #bdbdbd;
+}
+
+.add-bank-account-btn {
+    color: transparent;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(90deg, rgba(237, 53, 144, 1) 0%, rgba(241, 70, 85, 1) 49%, rgba(252, 176, 78, 1) 100%);
+    border-radius: 50%;
+    padding: 1px;
+}
+
+.merchant-page-text-btn {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+.merchant-page-text-active-btn {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    color: #aeaeae;
+    cursor: default;
+}
+
+.merchant-page-btn {
+    border: 1px solid #bdbdbd;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+.merchant-page-btn-active {
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    color: white;
+    background-color: #e81790;
+}
+
+.warning-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background-color: #ff0000;
+    color: white;
+}
+
+.warning-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.merchant-table-footer {
+    padding: 2.5rem 0;
+}
+
+.merchant-modal {
+    width: 45rem;
+}
+
+.merchant-logo {
+    width: 8.5rem;
+}
+
+.merchant-button {
+    box-shadow: none;
+    background-color: #e81790;
+    color: white;
+    height: 4rem;
+    text-transform: none;
+    font-weight: 400;
+    font-family: "Kanit", Muli, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.merchant-button:hover {
+    background-color: #ff48b3;
+}
+
+.merchant-border-grey {
+    border-color: #e0e0e0;
+}
+
+.inverted-button {
+    background-color: #ffffff;
+    color: #e83490;
+    border: 1px solid #e83490;
+}
+
+.inverted-button:hover {
+    background-color: #ffffff;
+    color: #e83490;
+    border: 1px solid #e83490;
+}
+
+.small-text {
+    font-size: 1rem;
+    color: #B3B3B3;
+}

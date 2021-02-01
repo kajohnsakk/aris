@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <a href="/store" class="btn btn-primary">⬅️ Back</a>
+                {{#if isEdit}}
+                    <h1>GBPay account ID: <kbd>{{ resultGBPayAccountDetails.id }}</kbd></h1>
+                {{/if}}
+
+                {{#unless isEdit}}
+                    <h1>New Token</h1>
+                {{/unless}}
+                <form action="">
+                    <div class="form-group">
+                        <label for="gbpayAccount_ID">GBPay Account ID</label>
+                        <input type="text" class="form-control" id="gbpayAccount_ID" autocomplete="off" value="{{ resultGBPayAccountDetails.gbPayAccountID }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gbpayAccount_name">GBPay Account Name</label>
+                        <input type="text" class="form-control" id="gbpayAccount_name" autocomplete="off" value="{{ resultGBPayAccountDetails.gbPayAccountInfo.name }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gbpayAccount_token">GBPay Account Token</label>
+                        <input type="text" class="form-control" id="gbpayAccount_token" autocomplete="off" value="{{ resultGBPayAccountDetails.gbPayAccountInfo.token }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gbpayAccount_secretKey">GBPay Account Secret Key</label>
+                        <textarea class="form-control" id="gbpayAccount_secretKey" rows="5">{{ resultGBPayAccountDetails.gbPayAccountInfo.secret_key }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmitGBPayAccount">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).on('click', '#btnSubmitGBPayAccount', function (e) {
+        e.preventDefault();
+
+        const HOST = window.location.origin;
+
+        $(this).attr("disabled", true);
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get('id');
+
+        let gbPayAccountID = $('#gbpayAccount_ID').val().trim();
+        let gbPayAccountInfo = {
+            name: $('#gbpayAccount_name').val().trim(),
+            token: $('#gbpayAccount_token').val().trim(),
+            secret_key: $('#gbpayAccount_secretKey').val().trim()
+        }
+
+        let data = {
+            id: id,
+            reqBody: {
+                gbPayAccountID: gbPayAccountID,
+                gbPayAccountInfo: gbPayAccountInfo
+            }
+        }
+
+        let reqURL;
+        let alertPrefix;
+        if (id) {
+            // if id exist means this currently in edit mode
+            alertPrefix = 'Update';
+            reqURL = `${HOST}/api/gbpayAccount/update?id=${id}`;
+        } else {
+            alertPrefix = 'Create';
+            reqURL = `${HOST}/api/gbpayAccount/new`;
+        }
+
+        axios.post(reqURL, data['reqBody'], { headers: { 'content-type': 'application/json' } })
+            .then((response) => {
+                if (response.status === 200) {
+                    alert(`${alertPrefix} token success`);
+                    window.location.replace(`${HOST}/gbpayAccount/list`);
+                } else {
+                    alert(`${alertPrefix} token success`);
+                    $(this).attr("disabled", true);
+                }
+            });
+    });
+</script>
+
+</html>

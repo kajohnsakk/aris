@@ -1,0 +1,790 @@
+[
+    {
+        "value": "xxxs",
+        "label": "XXXS"
+    },
+    {
+        "value": "xxs",
+        "label": "XXS"
+    },
+    {
+        "value": "xs",
+        "label": "XS"
+    },
+    {
+        "value": "s",
+        "label": "S"
+    },
+    {
+        "value": "m",
+        "label": "M"
+    },
+    {
+        "value": "l",
+        "label": "L"
+    },
+    {
+        "value": "xl",
+        "label": "XL"
+    },
+    {
+        "value": "xxl",
+        "label": "XXL"
+    },
+    {
+        "label": "3XL",
+        "value": "3XL"
+    },
+    {
+        "label": "4XL",
+        "value": "4XL"
+    },
+    {
+        "label": "5XL",
+        "value": "5XL"
+    },
+    {
+        "value": "freesize",
+        "label": "Freesize"
+    },
+    {
+        "value": "US 2",
+        "label": "US_2"
+    },
+    {
+        "value": "US 2.5",
+        "label": "US_2.5"
+    },
+    {
+        "value": "US 3",
+        "label": "US_3"
+    },
+    {
+        "value": "US 3.5",
+        "label": "US_3.5"
+    },
+    {
+        "value": "US 4",
+        "label": "US_4"
+    },
+    {
+        "value": "US 4.5",
+        "label": "US_4.5"
+    },
+    {
+        "value": "US 5",
+        "label": "US_5"
+    },
+    {
+        "value": "US 5.5",
+        "label": "US_5.5"
+    },
+    {
+        "value": "US 6",
+        "label": "US_6"
+    },
+    {
+        "value": "US 6.5",
+        "label": "US_6.5"
+    },
+    {
+        "value": "US 7",
+        "label": "US_7"
+    },
+    {
+        "value": "US 7.5",
+        "label": "US_7.5"
+    },
+    {
+        "value": "US 8",
+        "label": "US_8"
+    },
+    {
+        "value": "US 8.5",
+        "label": "US_8.5"
+    },
+    {
+        "value": "US 9",
+        "label": "US_9"
+    },
+    {
+        "value": "US 9.5",
+        "label": "US_9.5"
+    },
+    {
+        "value": "US 10",
+        "label": "US_10"
+    },
+    {
+        "value": "US 10.5",
+        "label": "US_10.5"
+    },
+    {
+        "value": "US 11",
+        "label": "US_11"
+    },
+    {
+        "value": "US 11.5",
+        "label": "US_11.5"
+    },
+    {
+        "value": "US 12",
+        "label": "US_12"
+    },
+    {
+        "value": "US 12.5",
+        "label": "US_12.5"
+    },
+    {
+        "value": "US 13",
+        "label": "US_13"
+    },
+    {
+        "value": "US 13.5",
+        "label": "US_13.5"
+    },
+    {
+        "label": "US 14",
+        "value": "US_14"
+    },
+    {
+        "label": "US 14.5",
+        "value": "US_14.5"
+    },
+    {
+        "label": "US 15",
+        "value": "US_15"
+    },
+    {
+        "label": "US 15.5",
+        "value": "US_15.5"
+    },
+    {
+        "label": "US 16",
+        "value": "US_16"
+    },
+    {
+        "label": "US 16.5",
+        "value": "US_16.5"
+    },
+    {
+        "label": "US 17",
+        "value": "US_17"
+    },
+    {
+        "label": "US 17.5",
+        "value": "US_17.5"
+    },
+    {
+        "label": "US 18",
+        "value": "US_18"
+    },
+    {
+        "value": "US 18.5",
+        "label": "US_18.5"
+    },
+    {
+        "label": "US 30",
+        "value": "US_30"
+    },
+    {
+        "label": "US 32",
+        "value": "US_32"
+    },
+    {
+        "label": "US 34",
+        "value": "US_34"
+    },
+    {
+        "label": "US 36",
+        "value": "US_36"
+    },
+    {
+        "label": "US 38",
+        "value": "US_38"
+    },
+    {
+        "label": "US 40",
+        "value": "US_40"
+    },
+    {
+        "label": "US 42",
+        "value": "US_42"
+    },
+    {
+        "label": "UK 36",
+        "value": "UK_36"
+    },
+    {
+        "label": "UK 37",
+        "value": "UK_37"
+    },
+    {
+        "label": "UK 38",
+        "value": "UK_38"
+    },
+    {
+        "label": "UK 39",
+        "value": "UK_39"
+    },
+    {
+        "label": "UK 40",
+        "value": "UK_40"
+    },
+    {
+        "label": "UK 41",
+        "value": "UK_41"
+    },
+    {
+        "label": "UK 42",
+        "value": "UK_42"
+    },
+    {
+        "label": "UK 43",
+        "value": "UK_43"
+    },
+    {
+        "label": "UK 44",
+        "value": "UK_44"
+    },
+    {
+        "label": "UK 45",
+        "value": "UK_45"
+    },
+    {
+        "label": "UK 46",
+        "value": "UK_46"
+    },
+    {
+        "label": "UK 48",
+        "value": "UK_48"
+    },
+    {
+        "label": "UK 50",
+        "value": "UK_50"
+    },
+    {
+        "label": "UK 52",
+        "value": "UK_52"
+    },
+    {
+        "label": "UK 54",
+        "value": "UK_54"
+    },
+    {
+        "label": "UK 56",
+        "value": "UK_56"
+    },
+    {
+        "label": "UK 58",
+        "value": "UK_58"
+    },
+    {
+        "label": "34",
+        "value": "34"
+    },
+    {
+        "label": "35",
+        "value": "35"
+    },
+    {
+        "label": "36",
+        "value": "36"
+    },
+    {
+        "label": "37",
+        "value": "37"
+    },
+    {
+        "label": "38",
+        "value": "38"
+    },
+    {
+        "label": "39",
+        "value": "39"
+    },
+    {
+        "label": "40",
+        "value": "40"
+    },
+    {
+        "label": "41",
+        "value": "41"
+    },
+    {
+        "label": "42",
+        "value": "42"
+    },
+    {
+        "label": "43",
+        "value": "43"
+    },
+    {
+        "label": "44",
+        "value": "44"
+    },
+    {
+        "label": "45",
+        "value": "45"
+    },
+    {
+        "label": "Less than 34",
+        "value": "LESS_THAN_34"
+    },
+    {
+        "label": "More than 43",
+        "value": "MORE_THAN43"
+    },
+    {
+        "label": "Waist 25 inches",
+        "value": "WAIST_25_INCH"
+    },
+    {
+        "label": "Waist 26 inches",
+        "value": "WAIST_26_INCH"
+    },
+    {
+        "label": "Waist 27 inches",
+        "value": "WAIST_27_INCH"
+    },
+    {
+        "label": "Waist 28 inches",
+        "value": "WAIST_28_INCH"
+    },
+    {
+        "label": "Waist 29 inches",
+        "value": "WAIST_29_INCH"
+    },
+    {
+        "label": "Waist 30 inches",
+        "value": "WAIST_30_INCH"
+    },
+    {
+        "label": "Waist 31 inches",
+        "value": "WAIST_31_INCH"
+    },
+    {
+        "label": "Waist 32 inches",
+        "value": "WAIST_32_INCH"
+    },
+    {
+        "label": "Waist 33 inches",
+        "value": "WAIST_33_INCH"
+    },
+    {
+        "label": "Waist 34 inches",
+        "value": "WAIST_34_INCH"
+    },
+    {
+        "label": "Waist 35 inches",
+        "value": "WAIST_35_INCH"
+    },
+    {
+        "label": "Waist 36 inches",
+        "value": "WAIST_36_INCH"
+    },
+    {
+        "label": "Waist 37 inches",
+        "value": "WAIST_37_INCH"
+    },
+    {
+        "label": "Waist 38 inches",
+        "value": "WAIST_38_INCH"
+    },
+    {
+        "label": "30/65",
+        "value": "30_65"
+    },
+    {
+        "label": "32/70",
+        "value": "32_70"
+    },
+    {
+        "label": "34/75",
+        "value": "34_75"
+    },
+    {
+        "label": "36/80",
+        "value": "36_80"
+    },
+    {
+        "label": "38/85",
+        "value": "38_85"
+    },
+    {
+        "label": "40/90",
+        "value": "40_90"
+    },
+    {
+        "label": "42/95",
+        "value": "42_95"
+    },
+    {
+        "label": "44/100",
+        "value": "44_100"
+    },
+    {
+        "label": "46/105",
+        "value": "46_105"
+    },
+    {
+        "label": "48/110",
+        "value": "48_110"
+    },
+    {
+        "label": "A30",
+        "value": "A30"
+    },
+    {
+        "label": "A32",
+        "value": "A32"
+    },
+    {
+        "label": "A34",
+        "value": "A34"
+    },
+    {
+        "label": "A36",
+        "value": "A36"
+    },
+    {
+        "label": "A38",
+        "value": "A38"
+    },
+    {
+        "label": "A40",
+        "value": "A40"
+    },
+    {
+        "label": "A42",
+        "value": "A42"
+    },
+    {
+        "label": "B30",
+        "value": "B30"
+    },
+    {
+        "label": "B32",
+        "value": "B32"
+    },
+    {
+        "label": "B34",
+        "value": "B34"
+    },
+    {
+        "label": "B36",
+        "value": "B36"
+    },
+    {
+        "label": "B38",
+        "value": "B38"
+    },
+    {
+        "label": "B40",
+        "value": "B40"
+    },
+    {
+        "label": "B42",
+        "value": "B42"
+    },
+    {
+        "label": "B44",
+        "value": "B44"
+    },
+    {
+        "label": "B46",
+        "value": "B46"
+    },
+    {
+        "label": "B48",
+        "value": "B48"
+    },
+    {
+        "label": "C30",
+        "value": "C30"
+    },
+    {
+        "label": "C32",
+        "value": "C32"
+    },
+    {
+        "label": "C34",
+        "value": "C34"
+    },
+    {
+        "label": "C36",
+        "value": "C36"
+    },
+    {
+        "label": "C38",
+        "value": "C38"
+    },
+    {
+        "label": "C40",
+        "value": "C40"
+    },
+    {
+        "label": "C42",
+        "value": "C42"
+    },
+    {
+        "label": "C44",
+        "value": "C44"
+    },
+    {
+        "label": "C46",
+        "value": "C46"
+    },
+    {
+        "label": "D32",
+        "value": "D32"
+    },
+    {
+        "label": "D34",
+        "value": "D34"
+    },
+    {
+        "label": "D36",
+        "value": "D36"
+    },
+    {
+        "label": "D38",
+        "value": "D38"
+    },
+    {
+        "label": "D40",
+        "value": "D40"
+    },
+    {
+        "label": "D42",
+        "value": "D42"
+    },
+    {
+        "label": "D44",
+        "value": "D44"
+    },
+    {
+        "label": "E32",
+        "value": "E32"
+    },
+    {
+        "label": "E34",
+        "value": "E34"
+    },
+    {
+        "label": "E36",
+        "value": "E36"
+    },
+    {
+        "label": "E38",
+        "value": "E38"
+    },
+    {
+        "label": "E40",
+        "value": "E40"
+    },
+    {
+        "label": "E42",
+        "value": "E42"
+    },
+    {
+        "label": "E42",
+        "value": "E42"
+    },
+    {
+        "label": "50cm",
+        "value": "50cm"
+    },
+    {
+        "label": "60cm",
+        "value": "60cm"
+    },
+    {
+        "label": "70cm",
+        "value": "70cm"
+    },
+    {
+        "label": "80cm",
+        "value": "80cm"
+    },
+    {
+        "label": "90cm",
+        "value": "90cm"
+    },
+    {
+        "label": "100cm",
+        "value": "100cm"
+    },
+    {
+        "label": "110cm",
+        "value": "110cm"
+    },
+    {
+        "label": "120cm",
+        "value": "120cm"
+    },
+    {
+        "label": "130cm",
+        "value": "130cm"
+    },
+    {
+        "label": "140cm",
+        "value": "140cm"
+    },
+    {
+        "label": "150cm",
+        "value": "150cm"
+    },
+    {
+        "label": "160cm",
+        "value": "160cm"
+    },
+    {
+        "label": "EU 34.5",
+        "value": "EU_34.5"
+    },
+    {
+        "label": "EU 35",
+        "value": "EU_35"
+    },
+    {
+        "label": "EU 35 1/2",
+        "value": "EU_35_1/2"
+    },
+    {
+        "label": "EU 35.5",
+        "value": "EU_35.5"
+    },
+    {
+        "label": "EU 36",
+        "value": "EU_36"
+    },
+    {
+        "label": "EU 36.5",
+        "value": "EU_36.5"
+    },
+    {
+        "label": "EU 36 2/3",
+        "value": "EU_36_2/3"
+    },
+    {
+        "label": "EU 37",
+        "value": "EU_37"
+    },
+    {
+        "label": "EU 37.5",
+        "value": "EU_37.5"
+    },
+    {
+        "label": "EU 38",
+        "value": "EU_38"
+    },
+    {
+        "label": "EU 38 2/3",
+        "value": "EU_38_2/3"
+    },
+    {
+        "label": "EU 39",
+        "value": "EU_39"
+    },
+    {
+        "label": "EU 39 1/3",
+        "value": "EU_39_1/3"
+    },
+    {
+        "label": "EU 40",
+        "value": "EU_40"
+    },
+    {
+        "label": "EU 40.5",
+        "value": "EU_40.5"
+    },
+    {
+        "label": "EU 40 2/3",
+        "value": "EU_40_2/3"
+    },
+    {
+        "label": "EU 41",
+        "value": "EU_41"
+    },
+    {
+        "label": "EU 41 2/3",
+        "value": "EU_41_2/3"
+    },
+    {
+        "label": "EU 42",
+        "value": "EU_42"
+    },
+    {
+        "label": "EU 42.5",
+        "value": "EU_42.5"
+    },
+    {
+        "label": "EU 43",
+        "value": "EU_43"
+    },
+    {
+        "label": "EU 43 1/3",
+        "value": "EU_43_1/3"
+    },
+    {
+        "label": "EU 44",
+        "value": "EU_44"
+    },
+    {
+        "label": "EU 44.5",
+        "value": "EU_44.5"
+    },
+    {
+        "label": "EU 44 2/3",
+        "value": "EU_44_2/3"
+    },
+    {
+        "label": "EU 45",
+        "value": "EU_45"
+    },
+    {
+        "label": "EU 45 1/3",
+        "value": "EU_45_1/3"
+    },
+    {
+        "label": "EU 45.5",
+        "value": "EU_45.5"
+    },
+    {
+        "label": "EU 46",
+        "value": "EU_46"
+    },
+    {
+        "label": "EU 46.5",
+        "value": "EU_46.5"
+    },
+    {
+        "label": "EU 46 2/3",
+        "value": "EU_46_2/3"
+    },
+    {
+        "label": "EU 47",
+        "value": "EU_47"
+    },
+    {
+        "label": "EU 47 1/3",
+        "value": "EU_47_1/3"
+    },
+    {
+        "label": "EU 47.5",
+        "value": "EU_47.5"
+    },
+    {
+        "label": "EU 48",
+        "value": "EU_48"
+    },
+    {
+        "label": "EU 48.5",
+        "value": "EU_48.5"
+    },
+    {
+        "label": "EU 48 2/3",
+        "value": "EU_48_2/3"
+    }
+]

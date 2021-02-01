@@ -1,0 +1,152 @@
+[
+    {
+        "fundsTransactionID": "5da96cc632c6ae616ead0bbe",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1715.48,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 11099,
+            "custumerName": "Haynes"
+        },
+        "createdAt": 1571379342134,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc65e4af4f4b1c11a75",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1749.83,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 10677,
+            "custumerName": "Francis"
+        },
+        "createdAt": 1571379315793,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc67417f4ed8a129711",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 810.69,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 19183,
+            "custumerName": "Mccullough"
+        },
+        "createdAt": 1571379322482,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc68c44d0824f99f69e",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 713.92,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 15170,
+            "custumerName": "Fischer"
+        },
+        "createdAt": 1571379399792,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc657409b47b10c85dd",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1288.72,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "WITHDRAW",
+        "orderInfo": {
+            "orderID": 14105,
+            "custumerName": "Wyatt"
+        },
+        "createdAt": 1571379474078,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc6104c41c3a7fe7f93",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 802.83,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 11957,
+            "custumerName": "Pollard"
+        },
+        "createdAt": 1571379388548,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc6a6d339dcd7f068e5",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1785.06,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 16620,
+            "custumerName": "Phoebe"
+        },
+        "createdAt": 1571379328786,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc69607d07da7a84e3c",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1367.59,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 10462,
+            "custumerName": "Eliza"
+        },
+        "createdAt": 1571379427727,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc66615ed56a785198d",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 1501.71,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 18481,
+            "custumerName": "Mcdowell"
+        },
+        "createdAt": 1571379353202,
+        "isDeleted": false,
+        "deletedAt": 0
+    },
+    {
+        "fundsTransactionID": "5da96cc6452ebc0ea8573846",
+        "storeID": "096f5f9a-99f8-4450-ab17-84d5ad718c42",
+        "amount": 50000.83,
+        "acutalAmount": 980.77,
+        "fee": 20,
+        "type": "DEPOSIT",
+        "orderInfo": {
+            "orderID": 14021,
+            "custumerName": "Kristina"
+        },
+        "createdAt": 1571379440482,
+        "isDeleted": false,
+        "deletedAt": 0
+    }
+]

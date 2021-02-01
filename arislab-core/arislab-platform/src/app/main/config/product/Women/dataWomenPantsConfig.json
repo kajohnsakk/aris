@@ -1,0 +1,18 @@
+[
+    {
+        "value": "women_pants_shorts",
+        "label": "กางเกงขาสั้น"
+    },
+    {
+        "value": "women_pants_longTrouser",
+        "label": "กางเกงขายาว"
+    },
+    {
+        "value": "women_pants_legging",
+        "label": "เลกกิ้ง"
+    },
+    {
+        "value": "women_pants_jeans",
+        "label": "กางเกงยีนส์"
+    }
+]

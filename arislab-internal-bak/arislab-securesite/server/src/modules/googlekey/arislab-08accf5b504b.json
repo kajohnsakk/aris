@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "arislab",
+  "private_key_id": "08accf5b504bebfdbb6e36392d102c13df7944cb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2BLSsUrWoVNMQ\n04rOkiFk3fgk5nsVHHmP34Wa7h3gIJLYWN0Exu2asA37ABV1BdXqWFDiSUeYHU9e\nR9h2ERdEiLPvOXCEJ/Ad4kv7rMfilXeNBC0dZQJk/6QFDxcFVDRYQ1IQ7lOa18pP\ngd/Q7qWU4p1yuCdHGG/DWk6ZzU1YEllxMylXsIW4nB7JhVG3dFfBZs7PLBn0vrV6\nTGxm3PN+CzUOSHQa/+sNFc79jmlMJlsLzDDgUJX2jvvFNVfBJ+jnCYSzul2/5Ygs\n3hMmLOvNeZCwc3E8Xe+DC6xmcVcnHkXvNaoEEXoO1svz+rsp+ci+EbDBcGSeynYG\nROfOOD5hAgMBAAECggEAAggc9xBZ+v0N/8UOt1xp9aj+uLTr/yOBDcL91Nzoz2kQ\nEb//LcSyX2l5t6yLvZF6u2m9AGOdqLDi3O9rtv8QMPMe+z7IKg95XPBuVVebjqr8\nSXVYTN8eyiWqc3+0cicOfQUGWafhXfjf5xtXSVfQ/q+sK7BEYityu7eQ6Xy65IHH\npJ3OPO+nhvsh8JAQBYyRSHu1GrNSrbJE2TrjtzeOxDL1+2yy9fmUhNH5G1BzcnG+\n0YQlS3N1ekGoxTGb8OQRwdbxJMXM8nS8gBiCOxrcScRmXQ+mCbd+Cl7MnX0AUIXZ\n5mqDkYspJJAD8wTxfAmMNPqQFkO9HoqWstsY8aJyIQKBgQD+Q4/4JSjhq7AjmyM+\nOtzXmUheY8/9uSLBsYS+NyvkrrNY6XH0qEWx58Jos3yRR8fgJ697wpX+L+pYzWfV\nUxQcpxJVSGc/1hMNs37pM+u7zI9BnfpRiHVipC5/cKlaX7QxI63rZJhIjC1OKapc\nE9gjS4dlAf+v7pzjvZnzuuxLcQKBgQC3QtzWNlaXEETn7TZPo8FjNxvlyEoNICW/\nlssTkwtKXqYFHG/Tk9GX9PlG65+LgFWIxXx6L1/AmfelILyw17UQ5h+7tetbfEZh\ngtxt5NHF++7AVLTYAmR3ZX6quqaXkpeTcjDdfrdb1ES3zynU2A5LvHqB6Tu1/60N\n6m00Q2JJ8QKBgQDaPK1GxMZZJF7zwMW4NRe2qec2tR8h3JUbgT25cmtnRhfD+eMI\npqHjeFQiP+RsYhsJp6Z0aGkLmp7fh7ZWoI9DpJcUwid04E7MVMNacGkmcQaIwIrJ\nDoIKn3cVhWKmojxsbP5ra5VVt5NvYk3J6HJ8oOheZx/KJtlclDGexFLq0QKBgCqK\n/RVFfAiJoFVu/gKy8zwDGRjYzEgLxHebm/0pT5+uJUBef59QW4G5Pv01yc3qtvCP\nV/xNbx8ZHyJYXTV4ffI0Wf2Ll92fFf+hD2b7ja82cxB3GZxjwcrt5t/fgLkDMOjr\nw2hH+Gz69BDvqLheh8MROCdca54ugpAOcdeGJRUhAoGARs8meynWfcc1ostnEUTA\nl4KuuQvxtxWnfE0CDiC9dVWFXAnBhgLn8585/M9A0dG8Gf4GuB8NIeqb+S6zprPF\nvy9EY1z0E0JxMOkQ6J87e+WUGXRzszuSRZxoXUHZlNM9dqhefS7vT33Y34xk+hYK\n/p9ZL/7YXVx9YEv7zBevAhQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-api-analytic@arislab.iam.gserviceaccount.com",
+  "client_id": "111412832776304755327",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-api-analytic%40arislab.iam.gserviceaccount.com"
+}

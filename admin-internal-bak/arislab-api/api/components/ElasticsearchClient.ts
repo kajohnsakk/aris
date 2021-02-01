@@ -1,0 +1,528 @@
+import * as elasticsearch from 'elasticsearch';
+import rp from 'request-promise-native';
+import { Log } from '../utils/Log';
+import { error } from "util";
+
+const INDEX: string = process.env.db_index;
+const ELASTICSEARCH_ENDPOINT = process.env.nes;
+const ENDPOINT_URL: string = 'https://' + ELASTICSEARCH_ENDPOINT + '/' + INDEX;
+
+// const updateIdCache = {};
+export interface ElasticsearchQueryResultDocument {
+    "_id": string, "_score": number, "_source": any
+}
+export class ElasticsearchClient {
+    private static mInstance: ElasticsearchClient;
+
+    public static getInstance(): ElasticsearchClient {
+        if (!this.mInstance)
+            this.mInstance = new ElasticsearchClient();
+        return this.mInstance;
+    }
+
+    private client: elasticsearch.Client;
+
+    constructor() {
+        this.client = new elasticsearch.Client({
+            host: "https://" + ELASTICSEARCH_ENDPOINT,
+            httpAuth: process.env.nuser + ':' + process.env.npwd,
+            // log: 'debug'
+        });
+        // setTimeout(()=>{
+        //      require("../flow").ensureSearchTerm();
+        // }, 5000);
+        // this.initMapping();
+        Log.debug('Elasticsearch client created with index ', INDEX);
+    }
+
+    private initMapping() {
+        Log.debug('initing elasticsearch mapping');
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'conversation',
+            body: {
+                'properties': {
+                    'timestamp': {
+                        'properties': {
+                            'created': {
+                                'type': 'long'
+                            },
+                            'created_date': {
+                                'type': 'date'
+                            },
+                            'updated': {
+                                'type': 'long'
+                            },
+                            'updated_date': {
+                                'type': 'date'
+                            }
+                        }
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for conversation mapping ', err);
+            }
+            else {
+                Log.debug('Conversation mapping successfully inited');
+            }
+        });
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'confidence',
+            body: {
+                'properties': {
+                    'received_at_date': {
+                        'type': 'date'
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for conversation mapping ', err);
+            }
+            else {
+                Log.debug('Confidence mapping successfully inited');
+            }
+        });
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'message',
+            body: {
+                'properties': {
+                    'sent_at_date': {
+                        'type': 'date'
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for message mapping ', err);
+            }
+            else {
+                Log.debug('Message mapping successfully inited');
+            }
+        });
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'user',
+            body: {
+                'properties': {
+                    'active_day_date': {
+                        'type': 'date'
+                    },
+                    'created_at_date': {
+                        'type': 'date'
+                    },
+                    'last_active_date': {
+                        'type': 'date'
+                    },
+                    'last_enriched_date': {
+                        'type': 'date'
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for user mapping ', err);
+            }
+            else {
+                Log.debug('User mapping successfully inited');
+            }
+        });
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'context',
+            body: {
+                "properties": {
+                    "id": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "records": {
+                        "properties": {
+                            "classification": {
+                                "properties": {
+                                    "entities": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            },
+                                            "value": {
+                                                "properties": {
+                                                    "confidence": {
+                                                        "type": "long"
+                                                    },
+                                                    "value": {
+                                                        "type": "text",
+                                                        "fields": {
+                                                            "keyword": {
+                                                                "type": "keyword",
+                                                                "ignore_above": 256
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "intent": {
+                                        "properties": {
+                                            "confidence": {
+                                                "type": "long"
+                                            },
+                                            "value": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "message": {
+                                "type": "text",
+                                "fields": {
+                                    "keyword": {
+                                        "type": "keyword",
+                                        "ignore_above": 256
+                                    }
+                                }
+                            },
+                            "timestamp": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for context mapping ', err);
+            }
+            else {
+                Log.debug('Context mapping successfully inited');
+            }
+        });
+        this.client.indices.putMapping({
+            index: INDEX,
+            type: 'event_log',
+            body: {
+                'properties': {
+                    'sent_at_date': {
+                        'type': 'date'
+                    }
+                }
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing mapping for user mapping ', err);
+            }
+            else {
+                Log.debug('User mapping successfully inited');
+            }
+        });
+        this.client.indices.putSettings({
+            index: INDEX,
+            body: {
+                "index.mapping.total_fields.limit": 5000
+            }
+        }, (err, response) => {
+            if (err) {
+                Log.error('Error while initing setting for index ', err);
+            }
+            else {
+                Log.debug('Index setting successfully inited');
+            }
+        });
+    }
+
+    aggregate(type: string, query: any, aggregate: any, option?: any) {
+        return new Promise((resolve) => {
+            if (!option) option = {};
+            if (!query) query = { match_all: {} };
+            const body = {
+                query: query,
+                aggs: {
+                    'aggregatelist': aggregate
+                }
+            };
+            Log.debug('elastic aggregate type ', type, ' with body ', body);
+            this.client.search({
+                index: INDEX,
+                type: type,
+                size: option.size || 30,
+                body: body
+            }, (err, res) => {
+                if (err || !res || !res.aggregations || !res.aggregations.aggregatelist || !res.aggregations.aggregatelist.buckets) {
+                    Log.error('Error ', err, ' while aggregating with type ', type, ' body ', aggregate, ' with res ', res);
+                    resolve();
+                }
+                else {
+                    resolve(res.aggregations.aggregatelist.buckets);
+                }
+            });
+        });
+    }
+
+    search(type: string, body: any, option?: any): Promise<ElasticsearchQueryResultDocument[]> {
+        return new Promise((resolve, reject) => {
+            if (!option) option = {};
+            if (!option._retryCount) option._retryCount = 0;
+            if (!option.isDocs) option.isDocs = false;
+            if (option.autoScroll === undefined) option.autoScroll = true;
+            // Log.debug("elastic search type ",type," body ",body, " option ",option);
+            const size = (option && option.size) ? option.size :
+                (body.size ? body.size : 10000);
+            const from = (option && option.from) ? option.from : 0;
+            this.client.search({
+                index: option.isDocs ? INDEX + '-docs' : INDEX,
+                type: type,
+                size: size,
+                scroll: from == 0 ? '3m' : null,
+                from: from,
+                body: body
+            }, (err, resp) => {
+                if (err || !resp.hits || !resp.hits.hits) {
+                    if (err.message == 'No Living connections' && option._retryCount < 6) {
+                        option._retryCount++;
+                        Log.error('Error ' + err.message + ', retrying in 500ms for the ' + option._retryCount + ' times');
+                        setTimeout(() => {
+                            this.search(type, body, option).then(resolve).catch(reject);
+                        }, 500);
+                    }
+                    else {
+                        Log.error("error ", err, " while querying type ", type, " with body ", body, " resp is ", resp);
+                        resolve([]);
+                    }
+                }
+                else {
+                    if (resp._scroll_id && resp.hits.hits.length == 10000) {
+                        if (option.autoScroll) {
+                            this.scroll(resp._scroll_id, resp.hits.hits, option).then(resolve);
+                        }
+                        else {
+                            // put scroll id into option for future scrolling
+                            option.scroll_id = resp._scroll_id;
+                            resolve(resp.hits.hits);
+                        }
+                    }
+                    else resolve(resp.hits.hits);
+                }
+            });
+        });
+    }
+    scroll(scrollId: string, array: ElasticsearchQueryResultDocument[], option: any): Promise<ElasticsearchQueryResultDocument[]> {
+        if (!option) {
+            option = {};
+        }
+        Log.debug("scrolling on scrollId " + scrollId);
+        if (option.autoScroll === undefined) {
+            option.autoScroll = true;
+        }
+        return this.client.scroll({
+            scrollId: scrollId,
+            scroll: '5m'
+        }).then((resp: any) => {
+            if (!resp || !resp.hits || !resp.hits.hits) {
+                Log.error("error while scrolling resp is ", resp);
+                return Promise.reject("error while scrolling");
+            }
+            else if (resp.hits.hits.length == 0) {
+                Log.debug("scrolling finished with total length " + array.length);
+                return Promise.resolve(array)
+            }
+            else if (option.autoScroll) {
+                array.push(...resp.hits.hits);
+                return this.scroll(scrollId, array, option);
+            }
+            else {
+                array.push(...resp.hits.hits);
+                return Promise.resolve(resp.hits.hits);
+            }
+        });
+    }
+
+    count(type: string, body: any): Promise<number> {
+        return new Promise((resolve) => {
+            Log.debug('elastic count type ', type, ' body ', body);
+            this.client.search({
+                index: INDEX,
+                type: type,
+                size: 0,
+                body: body
+            }, (err, resp) => {
+                if (err || !resp.hits) {
+                    Log.error('error ', err, ' while querying type ', type, ' with body ', body, ' resp is ', resp);
+                    resolve(0);
+                }
+                else {
+                    // Log.debug("flow query result is ", resp.hits.hits);
+                    resolve(resp.hits.total);
+                }
+            });
+        });
+    }
+
+    update(type: string, id: string, body: any, upsert: boolean, option?: any) {
+        if (!option) option = {};
+        if (!option.isDocs) option.isDocs = false;
+        return new Promise((resolve) => {
+            if (!this.client) {
+                Log.debug('elasticsearch is not enabled, not updating ', type);
+                return;
+            }
+            body = JSON.parse(JSON.stringify(body));
+            delete body._id;
+            this.client.update({
+                index: option.isDocs ? INDEX + '-docs' : INDEX,
+                type: type,
+                retryOnConflict: 3,
+                id: id,
+                body: {
+                    'doc': body,
+                    'doc_as_upsert': upsert
+                }
+            }, (err, response) => {
+                if (err)
+                    Log.error('Error while inserting ', id, ' of type ', type, ' to elasticsearch ', err);
+                // else
+                //     Log.debug('Elasticsearch type ', type, ' upserted with id ', id);
+                resolve();
+            });
+        });
+    }
+
+    get(type: string, id: string, option?: any) {
+        if (!option) option = {};
+        if (!option.isDocs) option.isDocs = false;
+        return new Promise((resolve, reject) => {
+            if (!this.client) {
+                Log.debug('elasticsearch is not enabled, not getting ', type);
+                return;
+            }
+            this.client.get({
+                index: option.isDocs ? INDEX + '-docs' : INDEX,
+                type: type,
+                id: id
+            }, (err, response: any) => {
+                if (err && !response) {
+                    Log.error('Fatal error while getting id: ', id, ' of type ', type, ' from elasticsearch ', err, ' response ', response);
+                    reject(err);
+                }
+                else if (!response._source) {
+                    Log.error('Error while getting id: ', id, ' of type ', type, ' from elasticsearch ', err, ' response ', response);
+                    resolve(null);
+                }
+                else {
+                    // Log.debug('Elasticsearch get type ', type, ' with id ', id, ' success');
+                    if (response._type === "account") {
+                        response._source.version = response._version;
+                    }
+                    resolve(response._source);
+                }
+            });
+        });
+    }
+
+    mget(type: string, id: Array<string>, option?: any) {
+        if (!option) option = {};
+        if (!option.isDocs) option.isDocs = false;
+        return new Promise((resolve, reject) => {
+            if (!this.client) {
+                Log.debug('elasticsearch is not enabled, not getting ', type);
+                return;
+            }
+            this.client.mget({
+                index: option.isDocs ? INDEX + '-docs' : INDEX,
+                type: type,
+                body: {
+                    ids: id
+                }
+            }, (err, response: any) => {
+                if (err && !response) {
+                    Log.error('Fatal error while getting id: ', id, ' of type ', type, ' from elasticsearch ', err, ' response ', response);
+                    reject(err);
+                }
+                else if (!response.docs) {
+                    Log.error('Error while getting id: ', id, ' of type ', type, ' from elasticsearch ', err, ' response ', response);
+                    resolve(null);
+                }
+                else {
+                    Log.debug('Elasticsearch get type ', type, ' with id ', id, ' success');
+                    resolve(response.docs);
+                }
+            });
+        });
+    }
+
+    delete(type: string, id: string, option?: any) {
+        if (!option) option = {};
+        if (!option.isDocs) option.isDocs = false;
+        return new Promise((resolve) => {
+            if (!this.client) {
+                Log.debug('elasticsearch is not enabled, not getting ', type);
+                return;
+            }
+            this.client.delete({
+                index: option.isDocs ? INDEX + '-docs' : INDEX,
+                type: type,
+                id: id
+            }, (err, response) => {
+                if (err)
+                    Log.error('Error while deleting ', id, ' of type ', type, ' from elasticsearch ', err, ' response ', response);
+                else
+                    Log.debug('Elasticsearch delete type ', type, ' with id ', id, ' result ', response);
+                resolve();
+            });
+        });
+    }
+
+    request(path: string, option: any) {
+        option.uri = ENDPOINT_URL + path;
+        Log.debug('requesting elasticsearch with option ', option);
+        return rp(option);
+    }
+
+    bulkIndex(type: string, bulkData: any[], option?: any) {
+        if (!option) option = {};
+        if (!option.isDocs) option.isDocs = false;
+        let body: any = [];
+        bulkData.forEach((datum) => {
+            if (datum.id) {
+                body.push({ index: { _index: option.isDocs ? INDEX + '-docs' : INDEX, _type: type, _id: datum.id } });
+            } else {
+                body.push({ index: { _index: option.isDocs ? INDEX + '-docs' : INDEX, _type: type } });
+            }
+            body.push(datum);
+        });
+        return new Promise((resolve, reject) => {
+            if (!this.client) {
+                Log.debug('elasticsearch is not enabled, not getting ', type);
+                return;
+            }
+            this.client.bulk({
+                body: body,
+            }, function (err, resp) {
+                if (err) throw (err);
+                resolve(resp);
+            });
+        });
+    }
+}

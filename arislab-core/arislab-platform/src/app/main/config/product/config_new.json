@@ -1,0 +1,86 @@
+[
+    {
+        "label": "เสื้อผ้าแฟชั่นผู้ชาย",
+        "value": "fashionCloth_Men",
+        "children": [
+            {
+                "label": "เสื้อยืด",
+                "value": "men_tShirt"
+            },
+            {
+                "label": "เสื้อเชิ้ต",
+                "value": "men_shirt"
+            },
+            {
+                "label": "เสื้อโปโล",
+                "value": "men_poloShirt"
+            },
+            {
+                "label": "เสื้อคลุมตัวนอก",
+                "value": "men_outerCoat"
+            },
+            {
+                "label": "กางเกงขาสั้น",
+                "value": "men_shorts"
+            },
+            {
+                "label": "กางเกงขายาว",
+                "value": "men_longTrouser"
+            },
+            {
+                "label": "กางเกงยีนส์",
+                "value": "men_jeans"
+            },
+            {
+                "label": "ชุดชั้นในชาย",
+                "value": "men_underwear"
+            },
+            {
+                "label": "ลองจอน",
+                "value": "men_longjohn"
+            },
+            {
+                "label": "ถุงมือ",
+                "value": "men_handglove"
+            }
+        ]
+    },
+    {
+        "label": "เสื้อผ้าแฟชั่นผู้หญิง",
+        "value": "fashionCloth_Women",
+        "children": [
+            {
+                "label": "เสื้อ",
+                "value": "women_shirt"
+            },
+            {
+                "label": "เดรส",
+                "value": "women_dress"
+            },
+            {
+                "label": "กระโปรง",
+                "value": "women_skirt"
+            },
+            {
+                "label": "กางเกง",
+                "value": "women_pants"
+            },
+            {
+                "label": "แจ็คเก็ตและเสื้อโค้ท",
+                "value": "women_jacketAndCoat"
+            },
+            {
+                "label": "จั๊มสูท",
+                "value": "women_jumpsuit"
+            },
+            {
+                "label": "ชุดชั้นใน",
+                "value": "women_underwear"
+            },
+            {
+                "label": "ชุดนอน",
+                "value": "women_pajamas"
+            }
+        ]
+    }
+]

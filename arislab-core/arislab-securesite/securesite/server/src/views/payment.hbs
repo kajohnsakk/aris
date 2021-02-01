@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card mt-4" style="box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1); margin-bottom: 35vh;">
+            <div class="card-body">
+                <h5 class="card-title">Complete your order</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Order ID : {{ data.orderID }}</h6>
+
+                <ul class="list-unstyled">
+                    {{#each data.selectedProduct}}
+                    <div class="card my-4">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{ productImage }}" class="card-img" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="clearfix">
+                                        <h5 class="card-title float-left">{{ productName }}</h5>
+                                        <h5 class="card-title {{#unless isInStock}}text-danger{{/unless}} float-right">
+                                            {{#if isInStock}}
+                                            {{ productValue.price }} THB
+                                            {{else}}
+                                            <del>{{ productValue.price }} THB</del>
+                                            {{/if}}
+                                        </h5>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            {{#if productValue.size}}
+                                            {{#unless productValue.isColorOnly}}
+                                            <p class="card-text">
+                                                Size: <span class="text-uppercase">{{ productValue.size }}</span>
+                                            </p>
+                                            {{/unless}}
+                                            {{/if}}
+                                        </div>
+                                        {{#unless isInStock}}
+                                        <h5 class="card-title float-right text-danger">Out of stock</h5>
+                                        {{/unless}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card fixed-bottom">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                            <h4>Summary</h4>
+                            <div class="row my-0">
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">Total</div>
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 text-right">
+                                    {{ data.summary.totalPrice }} THB
+                                </div>
+                            </div>
+                            <div class="row my-0">
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">Delivery</div>
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 text-right">
+                                    {{ data.summary.totalDeliveryCost }} THB
+                                </div>
+                            </div>
+                            {{!-- <div class="row my-0">
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">Tax</div>
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 text-right">0 THB</div>
+                            </div> --}}
+                            <div class="row my-0">
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">Discount</div>
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 text-right">0 THB</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="d-md-block d-lg-block d-xl-block d-sm-none d-none text-right">Total</h5>
+                                    <h4 class="d-md-block d-lg-block d-xl-block d-sm-none d-none text-right">
+                                        {{ data.summary.grandTotal }} THB
+                                    </h4>
+                                    <hr class="d-sm-block d-block d-md-none d-lg-none d-xl-none" />
+                                    <div class="row mb-2">
+                                        <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                                            <h5 class="d-sm-block d-block d-md-none d-lg-none d-xl-none">Total</h5>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 text-right">
+                                            <h4 class="d-sm-block d-block d-md-none d-lg-none d-xl-none">
+                                                {{ data.summary.grandTotal }} THB
+                                            </h4>
+                                        </div>
+                                    </div>
+
+                                    {{#if GBPayLinkData.defaultLink }}
+                                    {{#if resultReturningUser.isReturningUser}}
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                        data-target="#returningUserModal">
+                                        Pay
+                                    </button>
+                                    {{else}}
+                                    <button onclick="window.location.href='{{ GBPayLinkData.defaultLink.gbLinkUrl }}'"
+                                        class="btn btn-primary btn-lg btn-block btnPay">
+                                        Pay
+                                    </button>
+                                    {{/if}}
+
+                                    {{else}}
+                                    <a href="#" class="btn btn-secondary btn-lg btn-block disabled">
+                                        Pay
+                                    </a>
+                                    {{/if}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="returningUserModal" tabindex="-1" role="dialog"
+        aria-labelledby="returningUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="returningUserModalLabel">Returning user</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <h5 class="card-title">
+                                            Hello, {{ resultReturningUser.additionalDetails.userInfo.firstName }}
+                                            {{ resultReturningUser.additionalDetails.userInfo.lastName }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">
+                                            We noticed that you're a returning customer. In order to save time, would
+                                            you like to use
+                                            the following info to proceed with the payment?
+                                        </h6>
+                                        <div>
+                                            <div class="form-group row">
+                                                <label for="staticName" class="col-sm-4 col-form-label">Your
+                                                    name</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" readonly="true" class="form-control-plaintext"
+                                                        id="staticName"
+                                                        value="{{ resultReturningUser.additionalDetails.customerName }}" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="staticEmail" class="col-sm-4 col-form-label">Your
+                                                    email</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" readonly="true" class="form-control-plaintext"
+                                                        id="staticEmail"
+                                                        value="{{ resultReturningUser.additionalDetails.customerEmail }}" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="staticAddress" class="col-sm-4 col-form-label">Your
+                                                    address</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" readonly="true" class="form-control-plaintext"
+                                                        id="staticAddress"
+                                                        value="{{ resultReturningUser.additionalDetails.customerAddress }}" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="staticPhoneNo" class="col-sm-4 col-form-label">Your phone
+                                                    number</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" readonly="true" class="form-control-plaintext"
+                                                        id="staticPhoneNo"
+                                                        value="{{ resultReturningUser.additionalDetails.customerTelephone }}" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <button
+                                                        onclick="window.location.href='{{ GBPayLinkData.defaultLink.gbLinkUrl }}'"
+                                                        class="btn btn-outline-primary btn-block btnPay">
+                                                        No
+                                                    </button>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button
+                                                        onclick="window.location.href='{{ GBPayLinkData.prefilledLink.gbLinkUrl }}'"
+                                                        class="btn btn-primary btn-block btnPay">
+                                                        Yes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>

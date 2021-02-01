@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store Balance - Arislab.ai</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-5">
+                    <h1 class="mb-4 text-2xl font-extrabold">Store Balance</h1>
+                    <p>All deposit store balance : <b>{{allStoreDepositSummary}}</b></p>
+                    <p>All withdraw store balance : <b>{{allStoreWithdrawSummary}}</b></p>
+                    <p>Current balance : <b>{{currentBalance}}</b></p>
+                    <p>Total active store : <b>{{total}}</b></p>
+                    ---
+                    <div class="content">
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>Store Name</th>
+                                    <th>
+                                        Deposit Summary
+                                    </th>
+                                    <th>
+                                        Withdraw Summary
+                                    </th>
+                                    <th>
+                                        Current Balance
+                                    </th>
+                                    <th>Has Bank Account</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                                {{#each data}}
+                                <tr>
+                                    <td>{{storeInfo.businessProfile.accountDetails.businessName}}({{storeInfo.businessProfile.accountDetails.name}})
+                                    </td>
+                                    <td>{{balanceInfo.depositSummary}}</td>
+                                    <td>{{balanceInfo.withdrawSummary}}</td>
+                                    <td>{{balanceInfo.currentBalance}}</td>
+                                    <td>{{#if storeInfo.paymentInfo.accountNumber != ''}} Yes {{else}} No {{/if}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script>
+            $('#table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                ]
+            });
+
+            function loading(display) {
+                if (display) {
+                    $('.loading').show();
+                    $('.content').hide();
+                    return;
+                }
+
+                $('.loading').hide();
+                $('.content').show();
+            }
+
+            function fetchData() {
+                loading(true);
+
+                $.ajax({
+                    url: '/api/reports/current-store-balance?size=10',
+                    dataType: 'json',
+                    success: function (data) {
+                        var html = '';
+                        console.log("data", data)
+                        data.data.map(function (storeBalance) {
+                            html += `<tr>
+                                    <td>${storeBalance.storeInfo.businessProfile.accountDetails.businessName}(${storeBalance.storeInfo.businessProfile.accountDetails.name})</td>
+                                    <td>${storeBalance.balanceInfo.currentBalance}</td>
+                                    <td>${storeBalance.balanceInfo.depositSummary}</td>
+                                    <td>${storeBalance.balanceInfo.withdrawSummary}</td>
+                                </tr>`
+                            $('.tbody').html(html);
+                            loading(false);
+                        });
+                    }
+                })
+            }
+
+        </script>
+</body>
+
+</html>

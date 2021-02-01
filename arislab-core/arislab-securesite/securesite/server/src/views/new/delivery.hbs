@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Your shopping cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/new/tailwind.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/new/new-basket.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/jquery.Thailand.min.css?v={{ timestamp }}" />
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+</head>
+
+<body class="h-full">
+    <div
+        class="m-auto w-full sm:w-3/5 md:w-2/5 mb-8 leading-normal delivery-container basket font-light text-sm sm:text-base">
+        <div class="flex py-6 mb-px">
+            <div class="logo ml-4 sm:ml-0">
+                <img src="../img/svg/logo.svg" />
+            </div>
+            <div class="flex items-center ml-4 sm:ml-6 whitespace-no-wrap text-sm sm:text-base">ระบบการขายผ่านไลฟ์สด
+            </div>
+        </div>
+        <div class="border w-full">
+            <div class="flex flex-col items-center mt-8 mb-10">
+                {{#if isCustomerExists }}
+                {{#if storeInfo.enabledReserveProduct}}
+                {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                <img src="../img/svg/box.svg" />
+                <div class="font-medium text-lg">แก้ไขข้อมูลการจองสินค้า</div>
+                {{else}}
+                <img src="../img/svg/truck-gray.svg" />
+                <div class="font-medium text-lg">แก้ไขที่อยู่จัดส่งสินค้า</div>
+                {{/if}}
+                {{else}}
+                <img src="../img/svg/truck-gray.svg" />
+                <div class="font-medium text-lg">แก้ไขที่อยู่จัดส่งสินค้า</div>
+                {{/if}}
+
+                {{else}}
+                {{#if storeInfo.enabledReserveProduct}}
+                {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                <div class="font-medium text-lg">เพิ่มข้อมูลการจองสินค้า</div>
+                {{else}}
+                <div class="font-medium text-lg">เพิ่มที่อยู่จัดส่งสินค้า</div>
+                {{/if}}
+                {{else}}
+                <div class="font-medium text-lg">เพิ่มที่อยู่จัดส่งสินค้า</div>
+                {{/if}}
+                {{/if}}
+            </div>
+            <form id="deli-form" class="px-6 sm:px-12 pb-20 font-normal frmDeliveryInfo">
+                <div class="mb-4">
+                    <div>ชื่อ-นามสกุล<span class="text-red">*</span></div>
+                    <input id="customerName" class="border w-full" type="text" placeholder="ชื่อ นามสกุล"
+                        name="customerName" value="{{ customerDetails.customerName }}" required="true" />
+                    <p class="text-red text-xs italic hidden" id="customerName_msg"></p>
+                </div>
+                <div class="flex mb-4">
+                    <div class="w-1/2">
+                        <div>อีเมล<span class="text-red">*</span></div>
+                        <input id="customerEmail" class="border w-full" type="email" placeholder="อีเมล"
+                            name="customerEmail" value="{{ customerDetails.customerEmail }}" required="true" />
+                        <p class="text-red text-xs italic hidden" id="customerEmail_msg"></p>
+                    </div>
+                    <div class="px-2"></div>
+                    <div class="w-1/2">
+                        <div>เบอร์โทร<span class="text-red">*</span></div>
+                        <input id="customerPhoneNo" class="border w-full" type="tel" placeholder="เบอร์โทร"
+                            name="customerPhoneNo" value="{{ customerDetails.customerPhoneNo }}" required="true"
+                            pattern="^\d{10}$" maxlength="10" />
+                        <p class="text-red text-xs italic hidden" id="customerPhoneNo_msg"></p>
+                    </div>
+                </div>
+
+                {{#unless cartDetails.disableAddress}}
+                <div class="mb-4">
+                    <div>ที่อยู่<span class="text-red">*</span></div>
+                    <input id="customerAddress" class="border w-full" type="text" placeholder="ที่อยู่"
+                        name="customerAddress" value="{{ customerDetails.customerAddress }}" required="true" />
+                    <p class="text-red text-xs italic hidden" id="customerAddress_msg"></p>
+                </div>
+                <div class="flex mb-4">
+                    <div class="w-1/2">
+                        <div>รหัสไปรษณีย์<span class="text-red">*</span></div>
+                        <input id="postalCode" class="border w-full" type="tel" placeholder="รหัสไปรษณีย์"
+                            name="customerAddressDetails['postalCode']"
+                            value="{{ customerDetails.customerAddressDetails.postalCode }}" required="true"
+                            autocomplete="off" maxlength="5" />
+                        <p class="text-red text-xs italic hidden" id="postalCode_msg"></p>
+                    </div>
+                    <div class="px-2"></div>
+                    <div class="w-1/2">
+                        <div>แขวง/ตำบล<span class="text-red">*</span></div>
+                        <input id="subDistrict" class="border w-full" type="text" placeholder="ตำบล"
+                            name="customerAddressDetails['subDistrict']"
+                            value="{{ customerDetails.customerAddressDetails.subDistrict }}" required="true"
+                            autocomplete="off" />
+                        <p class="text-red text-xs italic hidden" id="subDistrict_msg"></p>
+                    </div>
+                </div>
+                <div class="flex mb-4">
+                    <div class="w-1/2">
+                        <div>เขต/อำเภอ<span class="text-red">*</span></div>
+                        <input id="district" class="border w-full" type="text" placeholder="อำเภอ"
+                            name="customerAddressDetails['district']"
+                            value="{{ customerDetails.customerAddressDetails.district }}" required="true"
+                            autocomplete="off" />
+                        <p class="text-red text-xs italic hidden" id="district_msg"></p>
+                    </div>
+                    <div class="px-2"></div>
+                    <div class="w-1/2">
+                        <div>จังหวัด<span class="text-red">*</span></div>
+                        <input id="province" class="border w-full" type="text" placeholder="จังหวัด"
+                            name="customerAddressDetails['province']"
+                            value="{{ customerDetails.customerAddressDetails.province }}" required="true"
+                            autocomplete="off" />
+                        <p class="text-red text-xs italic hidden" id="province_msg"></p>
+                    </div>
+                </div>
+                {{/unless}}
+                {{#if storeInfo.enabledReserveProduct}}
+                {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                {{/if}}
+                {{else}}
+                {{#if storeIsEnableTaxInvoice}}
+                <div class="mb-2 mt-4 w-full flex flex-row items-center">
+                    {{#if isEnableTaxInvoice}}
+                    <div
+                        class="enable-tax-invoice-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-pink-dark bg-transparent">
+                        <button type="button"
+                            class="enable-tax-invoice-button rounded-full h-full w-full flex items-center justify-center bg-pink-dark focus:outline-none"
+                            onclick="toggleTaxInvoice()" />
+                    </div>
+                    {{else}}
+                    <div
+                        class="enable-tax-invoice-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-grey bg-transparent">
+                        <button type="button"
+                            class="enable-tax-invoice-button rounded-full h-full w-full flex items-center justify-center bg-grey focus:outline-none"
+                            onclick="toggleTaxInvoice()" />
+                    </div>
+                    {{/if}}
+                    <div class="ml-4">ต้องการใบเสร็จ/ใบกำกับภาษี</div>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                {{#if isEnableTaxInvoice}}
+                <div class="flex flex-col tax-invoice-field">
+                    {{else}}
+                    <div class="hidden tax-invoice-field">
+                        {{/if}}
+                        <div class="mb-4 w-full">
+                            <span class="text-red text-xs">กรณีลูกค้าเลือกไม่รับใบกำกับภาษีแล้ว
+                                หากต้องการขอใบกำกับภาษีเต็มรูป สามารถขอได้ภายในวันที่ซื้อสินค้าเท่านั้น</span>
+                        </div>
+                        <div class="mb-4 flex flex-row items-center">
+                            <div class="w-1/2 flex flex-row items-center">
+                                {{#if isLegalEntity}}
+                                <div
+                                    class="legal-entity-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-pink-dark bg-transparent">
+                                    <button type="button"
+                                        class="legal-entity-button rounded-full h-full w-full flex items-center justify-center bg-pink-dark focus:outline-none"
+                                        onclick="toggleCustomerType('legalEntity')" />
+                                    {{else}}
+                                    <div
+                                        class="legal-entity-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-grey bg-transparent">
+                                        <button type="button"
+                                            class="legal-entity-button rounded-full h-full w-full flex items-center justify-center bg-grey focus:outline-none"
+                                            onclick="toggleCustomerType('legalEntity')" />
+                                        {{/if}}
+                                    </div>
+                                    <div class="ml-4">นิติบุคคล</div>
+                                </div>
+                                <div class="w-1/2 flex flex-row items-center">
+                                    {{#if isLegalEntity}}
+                                    <div
+                                        class="individual-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-grey bg-transparent">
+                                        <button type="button"
+                                            class="individual-button rounded-full h-full w-full flex items-center justify-center bg-grey focus:outline-none"
+                                            onclick="toggleCustomerType('individual')" />
+                                        {{else}}
+                                        <div
+                                            class="individual-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-pink-dark bg-transparent">
+                                            <button type="button"
+                                                class="individual-button rounded-full h-full w-full flex items-center justify-center bg-pink-dark focus:outline-none"
+                                                onclick="toggleCustomerType('individual')" />
+                                            {{/if}}
+                                        </div>
+                                        <div class="ml-4">บุคคลธรรมดา</div>
+                                    </div>
+                                </div>
+                                {{#if isLegalEntity}}
+                                <div class="business-row mb-4 flex flex-row items-center">
+                                    {{else}}
+                                    <div class="business-row mb-4 hidden items-center">
+                                        {{/if}}
+                                        <div class="w-1/2 flex flex-row items-center">
+                                            {{#if isHeadOffice}}
+                                            <div
+                                                class="head-office-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-pink-dark bg-transparent">
+                                                <button type="button"
+                                                    class="head-office-button rounded-full h-full w-full flex items-center justify-center bg-pink-dark focus:outline-none"
+                                                    onclick="toggleBusinessType('headOffice')" />
+                                            </div>
+                                            {{else}}
+                                            <div
+                                                class="head-office-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-grey bg-transparent">
+                                                <button type="button"
+                                                    class="head-office-button rounded-full h-full w-full flex items-center justify-center bg-grey focus:outline-none"
+                                                    onclick="toggleBusinessType('headOffice')" />
+                                            </div>
+                                            {{/if}}
+                                            <div class="ml-4">สำนักงานใหญ่</div>
+                                        </div>
+                                        <div class="w-1/2 flex flex-row items-center">
+                                            {{#if isHeadOffice}}
+                                            <div
+                                                class="branch-office-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-grey bg-transparent">
+                                                <button type="button"
+                                                    class="branch-office-button rounded-full h-full w-full flex items-center justify-center bg-grey focus:outline-none"
+                                                    onclick="toggleBusinessType('branch')" />
+                                            </div>
+                                            {{else}}
+                                            <div
+                                                class="branch-office-border rounded-full h-8 w-8 p-1 flex items-center justify-center border-2 border-pink-dark bg-transparent">
+                                                <button type="button"
+                                                    class="branch-office-button rounded-full h-full w-full flex items-center justify-center bg-pink-dark focus:outline-none"
+                                                    onclick="toggleBusinessType('branch')" />
+                                            </div>
+                                            {{/if}}
+                                            <div class="ml-4">สาขา</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 w-full">
+                                        <span class="business-name">ชื่อบริษัท หน่วยงาน หรือองค์กร</span><span
+                                            class="text-red">*</span>
+                                        <input id="businessName" class="border w-full" type="text"
+                                            name="customerTaxInvoiceDetails['businessName']"
+                                            value="{{ customerDetails.customerTaxInvoiceDetails.businessName }}"
+                                            required="true" autocomplete="off" />
+                                        <p class="text-red text-xs italic hidden" id="businessName_msg"></p>
+                                    </div>
+                                    {{#if isHeadOffice}}
+                                    <div class="hidden branch-name">
+                                        {{else}}
+                                        <div class="mb-4 w-full branch-name">
+                                            {{/if}}
+                                            <div>ชื่อสาขา<span class="text-red">*</span></div>
+                                            <input id="branch" class="border w-full" type="text"
+                                                name="customerTaxInvoiceDetails['branchName']"
+                                                value="{{ customerDetails.customerTaxInvoiceDetails.branchName }}"
+                                                required="false" autocomplete="off" />
+                                            <p class="text-red text-xs italic hidden" id="branch_msg"></p>
+                                        </div>
+                                        {{#if isHeadOffice}}
+                                        <div class="mb-4 w-full invoice-head">
+                                            {{else}}
+                                            <div class="hidden invoice-head">
+                                                {{/if}}
+                                                <span class="identify-id">เลขประจำตัวผู้เสียภาษี</span><span
+                                                    class="text-red">*</span>
+                                                <input id="taxInvoiceNumberHead" class="border w-full" type="text"
+                                                    name="customerTaxInvoiceDetails['taxInvoiceNumber']"
+                                                    value="{{ customerDetails.customerTaxInvoiceDetails.taxInvoiceNumber }}"
+                                                    required="true" autocomplete="off" />
+                                                <p class="text-red text-xs italic hidden" id="taxInvoiceNumberHead_msg">
+                                                </p>
+                                            </div>
+                                            {{#if isHeadOffice}}
+                                            <div class="hidden invoice-branch">
+                                                {{else}}
+                                                <div class="mb-4 w-full flex flex-row invoice-branch">
+                                                    {{/if}}
+                                                    <div class='w-1/2 flex flex-col mr-4'>
+                                                        <div>เลขประจำตัวผู้เสียภาษี<span class="text-red">*</span></div>
+                                                        <input id="taxInvoiceNumberBranch" class="border w-full"
+                                                            type="text"
+                                                            name="customerTaxInvoiceDetails['taxInvoiceNumber']"
+                                                            value="{{ customerDetails.customerTaxInvoiceDetails.taxInvoiceNumber }}"
+                                                            required="true" autocomplete="off" />
+                                                        <p class="text-red text-xs italic hidden"
+                                                            id="taxInvoiceNumberBranch_msg"></p>
+                                                    </div>
+                                                    <div class='w-1/2 flex flex-col'>
+                                                        <div>รหัสสาขา<span class="text-red">*</span></div>
+                                                        <input id="branchId" class="border w-full" type="text"
+                                                            name="customerTaxInvoiceDetails['branchId']"
+                                                            value="{{ customerDetails.customerTaxInvoiceDetails.branchId }}"
+                                                            required="true" autocomplete="off" />
+                                                        <p class="text-red text-xs italic hidden" id="branchId_msg"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 w-full">
+                                                    <div>ที่อยู่ใบกำกับ<span class="text-red">*</span></div>
+                                                    <input id="invoiceAddress" class="border w-full" type="text"
+                                                        name="customerTaxInvoiceDetails['invoiceAddress']"
+                                                        value="{{ customerDetails.customerTaxInvoiceDetails.invoiceAddress }}"
+                                                        required="true" autocomplete="off" />
+                                                    <p class="text-red text-xs italic hidden" id="invoiceAddress_msg">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="disableAddress"
+                                                value="{{ cartDetails.disableAddress }}">
+                                            <input type="hidden" name="storeID" value="{{ cartDetails.storeID }}">
+                                            <input type="hidden" name="userID" value="{{ cartDetails.userID }}">
+                                            <input type="hidden" id="firstname" name="userInfo['firstName']"
+                                                value="{{ cartDetails.userInfo.firstName }}">
+                                            <input type="hidden" id="lastname" name="userInfo['lastName']"
+                                                value="{{ cartDetails.userInfo.lastName }}">
+                                            <input type="hidden" id="enableTaxInvoice" value="{{ isEnableTaxInvoice }}">
+                                            <input type="hidden" id="businessType"
+                                                value="{{ customerDetails.customerTaxInvoiceDetails.businessType }}">
+                                            <input type="hidden" id="personalType"
+                                                value="{{ customerDetails.customerTaxInvoiceDetails.personalType }}">
+            </form>
+            <div class="flex justify-end items-center border-t py-4 px-4 sm:px-12 leading-tight">
+                <div class="flex">
+                    <button type="button" onclick="save()" form="deli-form"
+                        class="basket-btn py-2 px-8 my-2 rounded-full font-light">
+                        บันทึก
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden flex-1 flex-col h-full items-center justify-center loading-container">
+        <div class="mb-2 text-highlight">กำลังบันทึกข้อมูล.....</div>
+        <div class="text-highlight">Saving your data.....</div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="../js/JQL.min.js?v={{ timestamp }}"></script>
+<script type="text/javascript" src="../js/typeahead.bundle.js?v={{ timestamp }}"></script>
+<script type="text/javascript" src="../js/jquery.Thailand.min.js?v={{ timestamp }}"></script>
+<script>
+    const HOST = window.location.origin;
+    const URL_PARAMS = new URLSearchParams(window.location.search);
+
+    const CART_ID = URL_PARAMS.get('cartID');
+    //const STORE_ID = $(`input[name="storeID"]`).val();
+    //const USER_ID = $(`input[name="userID"]`).val();
+    const STORE_ID = "{{cartDetails.storeID}}";
+    const USER_ID = "{{cartDetails.userID}}";
+    let fieldsListToCheck = [];
+    let isEnableTaxInvoice = JSON.parse($('#enableTaxInvoice').val()) || false;
+    let businessType = $('#businessType').val() || 'HEAD_OFFICE';
+    let personalType = $('#personalType').val() || 'LEGAL_ENTITY';
+
+    const disableAddress = JSON.parse($('#disableAddress').val());
+
+    $.Thailand({
+        database: '../misc/db.json', // path หรือ url ไปยัง database
+        $district: $('#subDistrict'), // input ของตำบล
+        $amphoe: $('#district'), // input ของอำเภอ
+        $province: $('#province'), // input ของจังหวัด
+        $zipcode: $('#postalCode'), // input ของรหัสไปรษณีย์
+    });
+
+    function save() {
+        const ENDPOINT_URL = `${HOST}/site/customer/setCustomerInfo`;
+
+        let formData = {
+            storeID: STORE_ID,
+            userID: USER_ID,
+            userInfo: {
+                firstName: $(`#firstname`),
+                lastName: $(`#lastname`)
+            },
+            customerName: $(`#customerName`),
+            customerEmail: $(`#customerEmail`),
+            customerPhoneNo: $(`#customerPhoneNo`)
+        };
+
+        if (!disableAddress) {
+            formData['customerAddress'] = $(`#customerAddress`)
+            formData['customerAddressDetails'] = {};
+            formData['customerAddressDetails']['subDistrict'] = $(`#subDistrict`);
+            formData['customerAddressDetails']['district'] = $(`#district`);
+            formData['customerAddressDetails']['province'] = $(`#province`);
+            formData['customerAddressDetails']['postalCode'] = $(`#postalCode`);
+        }
+
+        if (isEnableTaxInvoice) {
+            formData['customerTaxInvoiceDetails'] = {};
+            formData['customerTaxInvoiceDetails']['personType'] = personalType;
+            if (personalType === 'LEGAL_ENTITY') {
+                formData['customerTaxInvoiceDetails']['businessType'] = businessType;
+            }
+            else {
+                formData['customerTaxInvoiceDetails']['businessType'] = "";
+            }
+            formData['customerTaxInvoiceDetails']['businessName'] = $(`#businessName`);
+            formData['customerTaxInvoiceDetails']['invoiceAddress'] = $(`#invoiceAddress`);
+            if (businessType === 'BRANCH') {
+                formData['customerTaxInvoiceDetails']['branchName'] = $(`#branch`);
+                formData['customerTaxInvoiceDetails']['branchId'] = $(`#branchId`);
+                formData['customerTaxInvoiceDetails']['taxInvoiceNumber'] = $(`#taxInvoiceNumberBranch`);
+            }
+            else {
+                formData['customerTaxInvoiceDetails']['taxInvoiceNumber'] = $(`#taxInvoiceNumberHead`);
+            }
+        }
+
+        fieldsListToCheck = [
+            { "fieldName": formData['customerName'], "useRegex": false },
+            { "fieldName": formData['customerEmail'], "useRegex": true, "regex": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ },
+            { "fieldName": formData['customerPhoneNo'], "useRegex": true, "regex": /^[0]\d{8,9}$/ }
+        ];
+
+        if (!disableAddress) {
+            fieldsListToCheck.push({ "fieldName": formData['customerAddress'], "useRegex": true, "regex": /^[^'"&]*$/, "regexMessage": `ห้ามมีเครื่องหมาย ' " หรือ &` });
+            fieldsListToCheck.push({ "fieldName": formData['customerAddressDetails']['subDistrict'], "useRegex": false });
+            fieldsListToCheck.push({ "fieldName": formData['customerAddressDetails']['district'], "useRegex": false });
+            fieldsListToCheck.push({ "fieldName": formData['customerAddressDetails']['province'], "useRegex": false });
+            fieldsListToCheck.push({ "fieldName": formData['customerAddressDetails']['postalCode'], "useRegex": true, "regex": /^\d{5}$/ });
+        }
+
+        if (isEnableTaxInvoice) {
+            fieldsListToCheck.push({ "fieldName": formData['customerTaxInvoiceDetails']['businessName'], "useRegex": false });
+            fieldsListToCheck.push({ "fieldName": formData['customerTaxInvoiceDetails']['taxInvoiceNumber'], "useRegex": true, "regex": /^[0-9]+$/ });
+            fieldsListToCheck.push({ "fieldName": formData['customerTaxInvoiceDetails']['invoiceAddress'], "useRegex": true, "regex": /^[^'"&]*$/, "regexMessage": `ห้ามมีเครื่องหมาย ' " หรือ &` });
+            if (businessType === 'BRANCH') {
+                fieldsListToCheck.push({ "fieldName": formData['customerTaxInvoiceDetails']['branchName'], "useRegex": false });
+                fieldsListToCheck.push({ "fieldName": formData['customerTaxInvoiceDetails']['branchId'], "useRegex": false });
+            }
+        }
+
+        let resultCheckFields = checkFields(fieldsListToCheck);
+
+        if (resultCheckFields) {
+            formData = {
+                storeID: STORE_ID,
+                userID: USER_ID,
+                userInfo: {
+                    firstName: $(`#firstname`).val(),
+                    lastName: $(`#lastname`).val()
+                },
+                customerName: $(`#customerName`).val(),
+                customerEmail: $(`#customerEmail`).val(),
+                customerPhoneNo: $(`#customerPhoneNo`).val()
+            };
+
+            if (!disableAddress) {
+                formData['customerAddress'] = $(`#customerAddress`).val()
+                formData['customerAddressDetails'] = {};
+                formData['customerAddressDetails']['subDistrict'] = $(`#subDistrict`).val();
+                formData['customerAddressDetails']['district'] = $(`#district`).val();
+                formData['customerAddressDetails']['province'] = $(`#province`).val();
+                formData['customerAddressDetails']['postalCode'] = $(`#postalCode`).val();
+            }
+
+            formData['isEnableTaxInvoice'] = isEnableTaxInvoice;
+
+            if (isEnableTaxInvoice) {
+                formData['customerTaxInvoiceDetails'] = {};
+                formData['customerTaxInvoiceDetails']['personType'] = personalType;
+                if (personalType === 'LEGAL_ENTITY') {
+                    formData['customerTaxInvoiceDetails']['businessType'] = businessType;
+                }
+                else {
+                    formData['customerTaxInvoiceDetails']['businessType'] = "";
+                }
+                formData['customerTaxInvoiceDetails']['businessName'] = $(`#businessName`).val();
+                formData['customerTaxInvoiceDetails']['invoiceAddress'] = $(`#invoiceAddress`).val();
+                if (businessType === 'BRANCH') {
+                    formData['customerTaxInvoiceDetails']['branchName'] = $(`#branch`).val();
+                    formData['customerTaxInvoiceDetails']['branchId'] = $(`#branchId`).val();
+                    formData['customerTaxInvoiceDetails']['taxInvoiceNumber'] = $(`#taxInvoiceNumberBranch`).val();
+                }
+                else {
+                    formData['customerTaxInvoiceDetails']['branchName'] = '';
+                    formData['customerTaxInvoiceDetails']['branchId'] = '';
+                    formData['customerTaxInvoiceDetails']['taxInvoiceNumber'] = $(`#taxInvoiceNumberHead`).val();
+                }
+            } else {
+                formData['customerTaxInvoiceDetails'] = {};
+                formData['customerTaxInvoiceDetails']['personType'] = '';
+                formData['customerTaxInvoiceDetails']['businessType'] = '';
+                formData['customerTaxInvoiceDetails']['businessName'] = '';
+                formData['customerTaxInvoiceDetails']['taxInvoiceNumber'] = '';
+                formData['customerTaxInvoiceDetails']['invoiceAddress'] = '';
+                formData['customerTaxInvoiceDetails']['branchName'] = '';
+                formData['customerTaxInvoiceDetails']['branchId'] = '';
+            }
+
+            axios.post(ENDPOINT_URL, formData, { headers: { 'content-type': 'application/json' } })
+                .then((response) => {
+                    if (response.status === 200) {
+                        const REDIRECT_URL = `${HOST}/site/cart/details?cartID=${CART_ID}&v=${Date.now()}`;
+                        setTimeout(() => {
+                            window.location.replace(REDIRECT_URL);
+                        }, 1500);
+                    } else {
+                        alert('Failed to save delivery');
+                    }
+                });
+
+            $('.delivery-container').addClass('hidden');
+            $('.loading-container').removeClass('hidden').addClass('flex');
+        } else {
+            $('.delivery-container').addClass('show');
+        }
+    }
+
+    function checkFields(fields) {
+        let isAllChecked = false;
+        let isAllPassed = false;
+
+        let tempFields = fields;
+        tempFields = tempFields.map(v => ({ ...v, pass: false }));
+
+        tempFields.forEach((fieldObj, index) => {
+            if (!$(fieldObj['fieldName']).val()) {
+                addClasses(fieldObj['fieldName']);
+                showWarningText('#' + fieldObj['fieldName'][0]['id'], "กรุณากรอก" + fieldObj['fieldName'][0]['placeholder']);
+                fieldObj['pass'] = false;
+            } else {
+                if (fieldObj['useRegex']) {
+                    fieldObj['pass'] = false;
+
+                    const resultCheckFieldDataFormat = checkFieldDataFormat(fieldObj['fieldName'][0], fieldObj['regex'], index);
+                    if (resultCheckFieldDataFormat) {
+                        fieldObj['pass'] = true;
+                    }
+                } else {
+                    removeClasses(fieldObj['fieldName']);
+                    hideWarningText('#' + fieldObj['fieldName'][0]['id']);
+                    fieldObj['pass'] = true;
+                }
+            }
+
+            if (index === fieldObj.length - 1) {
+                isAllChecked = true;
+            }
+        });
+
+        const countNotPassedFields = tempFields.filter((field) => {
+            return field['pass'] === false;
+        });
+
+        if (countNotPassedFields.length > 0) {
+            isAllPassed = false;
+        } else {
+            isAllPassed = true;
+        }
+
+        return isAllPassed;
+    }
+
+    function checkFieldDataFormat($field, regex, fieldIndex) {
+        let resultTest = (regex.test($(`#${$field['id']}`).val()));
+        if (!resultTest) {
+            addClasses($field);
+            let warningText = `กรุณากรอก${$field['placeholder']}ให้ตรงตามรูปแบบ`;
+            if (
+                fieldsListToCheck[fieldIndex].hasOwnProperty('regexMessage') &&
+                fieldsListToCheck[fieldIndex]['regexMessage']
+            ) {
+                warningText += ` ${fieldsListToCheck[fieldIndex]['regexMessage']}`;
+            }
+            showWarningText("#" + $field['id'], warningText);
+        } else {
+            removeClasses($field);
+            hideWarningText("#" + $field['id']);
+        }
+        return resultTest;
+    }
+
+    function addClasses(element) {
+        if (element) {
+            $(element).siblings('div > div').addClass('text-red-light');
+            $(element).addClass('border-red-light');
+        }
+    }
+
+    function removeClasses(element) {
+        if (element) {
+            $(element).siblings('div > div').removeClass('text-red-light');
+            $(element).removeClass('border-red-light');
+        }
+    }
+
+    function setWarningText(element, text) {
+        if (element) {
+            resetWarningText(element);
+            $(element).text(text);
+        }
+    }
+
+    function showWarningText(element, text) {
+        if (element) {
+            let msgElement = `${element}_msg`;
+            $(msgElement).removeClass('hidden');
+            setWarningText(msgElement, text);
+        }
+    }
+
+    function hideWarningText(element) {
+        if (element) {
+            let msgElement = `${element}_msg`;
+            $(msgElement).addClass('hidden');
+            resetWarningText(`${msgElement}_msg`);
+        }
+    }
+
+    function resetWarningText(element) {
+        if (element) {
+            $(element).text("");
+        }
+    }
+
+    function toggleTaxInvoice() {
+        console.log(isEnableTaxInvoice)
+        if (!isEnableTaxInvoice) {
+            $('.tax-invoice-field').addClass('flex flex-col');
+            $('.tax-invoice-field').removeClass('hidden');
+            changeButtonColor('.enable-tax-invoice-button', '.enable-tax-invoice-border', 'on')
+            isEnableTaxInvoice = true;
+        }
+        else {
+            $('.tax-invoice-field').addClass('hidden');
+            $('.tax-invoice-field').removeClass('flex flex-col');
+            changeButtonColor('.enable-tax-invoice-button', '.enable-tax-invoice-border', 'off')
+            isEnableTaxInvoice = false;
+        }
+    }
+
+    function toggleCustomerType(type) {
+        if (type === 'legalEntity') {
+            changeButtonColor('.legal-entity-button', '.legal-entity-border', 'on')
+            changeButtonColor('.individual-button', '.individual-border', 'off')
+            $('.business-row').addClass('flex flex-row')
+            $('.business-row').removeClass('hidden')
+            personalType = 'LEGAL_ENTITY';
+            $('.business-name').text('ชื่อบริษัท หน่วยงาน หรือองค์กร');
+            $('.identify-id').text('เลขประจำตัวผู้เสียภาษี');
+        }
+        else {
+            changeButtonColor('.legal-entity-button', '.legal-entity-border', 'off')
+            changeButtonColor('.individual-button', '.individual-border', 'on')
+            $('.business-row').removeClass('flex flex-row')
+            $('.business-row').addClass('hidden')
+            personalType = 'INDIVIDUAL';
+            toggleBusinessType('headOffice')
+            $('.business-name').text('ชื่อ-นามสกุล');
+            $('.identify-id').text('เลขบัตรประจำตัวประชาชน');
+        }
+    }
+
+    function toggleBusinessType(type) {
+        if (type === 'headOffice') {
+            changeButtonColor('.head-office-button', '.head-office-border', 'on')
+            changeButtonColor('.branch-office-button', '.branch-office-border', 'off')
+            $('.invoice-head').removeClass('hidden')
+            $('.invoice-head').addClass('mb-4 w-full')
+            $('.invoice-branch').addClass('hidden')
+            $('.invoice-branch').removeClass('mb-4 w-full flex flex-row')
+            $('.branch-name').addClass('hidden')
+            $('.branch-name').removeClass('mb-4 w-full')
+            businessType = 'HEAD_OFFICE';
+        }
+        else {
+            changeButtonColor('.head-office-button', '.head-office-border', 'off')
+            changeButtonColor('.branch-office-button', '.branch-office-border', 'on')
+            $('.invoice-head').addClass('hidden')
+            $('.invoice-head').removeClass('mb-4 w-full')
+            $('.invoice-branch').removeClass('hidden')
+            $('.invoice-branch').addClass('mb-4 w-full flex flex-row')
+            $('.branch-name').removeClass('hidden')
+            $('.branch-name').addClass('mb-4 w-full')
+            businessType = 'BRANCH';
+        }
+    }
+
+    function changeButtonColor(buttonName, borderName, status) {
+        if (status === "on") {
+            $(buttonName).addClass('bg-pink-dark');
+            $(borderName).addClass('border-pink-dark');
+            $(buttonName).removeClass('bg-grey');
+            $(borderName).removeClass('border-grey');
+        }
+        else {
+            $(buttonName).addClass('bg-grey');
+            $(borderName).addClass('border-grey');
+            $(buttonName).removeClass('bg-pink-dark');
+            $(borderName).removeClass('border-pink-dark');
+        }
+    }
+
+</script>
+
+</html>

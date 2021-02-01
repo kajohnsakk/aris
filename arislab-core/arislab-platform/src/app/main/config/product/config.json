@@ -1,0 +1,1972 @@
+[
+    {
+        "label": "เสื้อผ้าแฟชั่นผู้ชาย",
+        "value": "fashionCloth_Men",
+        "children": [
+            {
+                "label": "เสื้อยืด",
+                "value": "men_tShirt",
+                "children": [
+                    {
+                        "label": "เสื้อยืดสีพื้น",
+                        "value": "men_tShirt_basicColor",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "เสื้อยืดลาย",
+                        "value": "men_tShirt_pattern",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "เสื้อยืดลายทาง",
+                        "value": "men_tShirt_striped",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "เสื้อยืดสกรีนตัวหนังสือ",
+                        "value": "men_tShirt_screen",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "เสื้อยืดลายการ์ตูน",
+                        "value": "men_tShirt_cartoon",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "เสื้อยืดแขนกุด",
+                        "value": "men_tShirt_sleeveless",
+                        "children": [
+                            {
+                                "label": "สี",
+                                "value": "color",
+                                "children": [
+                                    {
+                                        "label": "ดำ",
+                                        "value": "black"
+                                    },
+                                    {
+                                        "label": "ขาว",
+                                        "value": "white"
+                                    },
+                                    {
+                                        "label": "เทา",
+                                        "value": "gray"
+                                    },
+                                    {
+                                        "label": "เบจ",
+                                        "value": "beigh"
+                                    },
+                                    {
+                                        "label": "แดง",
+                                        "value": "red"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "วิธีซัก",
+                                "value": "washingMethod",
+                                "children": [
+                                    {
+                                        "label": "ซักเครื่อง",
+                                        "value": "machine"
+                                    },
+                                    {
+                                        "label": "ซักมือ",
+                                        "value": "hand"
+                                    },
+                                    {
+                                        "label": "ซักแห้ง",
+                                        "value": "drywash"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "กระเป๋าเสื้อ",
+                                "value": "pocket",
+                                "children": [
+                                    {
+                                        "label": "มี",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "label": "ไม่มี",
+                                        "value": "no"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ขนาด",
+                                "value": "size",
+                                "children": [
+                                    {
+                                        "label": "XS",
+                                        "value": "xs"
+                                    },
+                                    {
+                                        "label": "S",
+                                        "value": "s"
+                                    },
+                                    {
+                                        "label": "M",
+                                        "value": "m"
+                                    },
+                                    {
+                                        "label": "L",
+                                        "value": "l"
+                                    },
+                                    {
+                                        "label": "XL",
+                                        "value": "xl"
+                                    },
+                                    {
+                                        "label": "ฟรีไซส์",
+                                        "value": "freesize"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทคอ",
+                                "value": "neckType",
+                                "children": [
+                                    {
+                                        "label": "คอกลม",
+                                        "value": "roundNeck"
+                                    },
+                                    {
+                                        "label": "คอวี",
+                                        "value": "VNeck"
+                                    },
+                                    {
+                                        "label": "คอกระดุม",
+                                        "value": "neckButton"
+                                    },
+                                    {
+                                        "label": "คอปกโปโล",
+                                        "value": "poloCollar"
+                                    },
+                                    {
+                                        "label": "คอปกเชิ้ต",
+                                        "value": "collar"
+                                    },
+                                    {
+                                        "label": "คอสูง",
+                                        "value": "highNeck"
+                                    },
+                                    {
+                                        "label": "คอเต่า",
+                                        "value": "turtleNeck"
+                                    },
+                                    {
+                                        "label": "คอกว้าง",
+                                        "value": "wideNeck"
+                                    },
+                                    {
+                                        "label": "คอจีน",
+                                        "value": "chineseCollar"
+                                    },
+                                    {
+                                        "label": "คอสี่เหลี่ยม",
+                                        "value": "squareNeck"
+                                    },
+                                    {
+                                        "label": "คอบัว",
+                                        "value": "crouch"
+                                    },
+                                    {
+                                        "label": "ฮู้ด",
+                                        "value": "hood"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ทรงเสื้อ",
+                                "value": "shirtShape",
+                                "children": [
+                                    {
+                                        "label": "มาตรฐาน",
+                                        "value": "standard"
+                                    },
+                                    {
+                                        "label": "โอเวอร์ไซส์",
+                                        "value": "oversize"
+                                    },
+                                    {
+                                        "label": "เข้ารูป",
+                                        "value": "fit"
+                                    },
+                                    {
+                                        "label": "รัดรูป",
+                                        "value": "tight"
+                                    },
+                                    {
+                                        "label": "ตัวยาว",
+                                        "value": "longBody"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "ประเภทแขน",
+                                "value": "armType",
+                                "children": [
+                                    {
+                                        "label": "แขนสั้น",
+                                        "value": "shortArm"
+                                    },
+                                    {
+                                        "label": "แขนยาว",
+                                        "value": "longArm"
+                                    },
+                                    {
+                                        "label": "แขนสามส่วน",
+                                        "value": "threeArms"
+                                    },
+                                    {
+                                        "label": "ไม่มีแขน",
+                                        "value": "withoutArm"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "เนื้อผ้า",
+                                "value": "texture",
+                                "children": [
+                                    {
+                                        "label": "ผ้าฝ้าย",
+                                        "value": "cotton"
+                                    },
+                                    {
+                                        "label": "ผ้ายืด",
+                                        "value": "stretchFabrics"
+                                    },
+                                    {
+                                        "label": "ผ้าลินิน",
+                                        "value": "linen"
+                                    },
+                                    {
+                                        "label": "ผ้ายีนส์",
+                                        "value": "jeans"
+                                    },
+                                    {
+                                        "label": "ผ้าชิโน",
+                                        "value": "sinoFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าโพลีเอสเตอร์",
+                                        "value": "polyesterFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าไนลอน",
+                                        "value": "nylonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าตาข่าย",
+                                        "value": "meshFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกฟูก",
+                                        "value": "corduroy"
+                                    },
+                                    {
+                                        "label": "หนังเทียม",
+                                        "value": "leatherette"
+                                    },
+                                    {
+                                        "label": "หนังแท้/หนังกลับ",
+                                        "value": "genuineLeatherSuede"
+                                    },
+                                    {
+                                        "label": "ผ้าฟลีส/ผ้าสำลี",
+                                        "value": "fleetFabricLint"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์",
+                                        "value": "wool"
+                                    },
+                                    {
+                                        "label": "ขนสัตว์เทียม",
+                                        "value": "artificialFur"
+                                    },
+                                    {
+                                        "label": "แคชเมียร์",
+                                        "value": "kashmir"
+                                    },
+                                    {
+                                        "label": "ไหมพรม",
+                                        "value": "yarn"
+                                    },
+                                    {
+                                        "label": "ผ้าสักกะหลาด",
+                                        "value": "cloth"
+                                    },
+                                    {
+                                        "label": "ผ้ากำมะหยี่",
+                                        "value": "flannel"
+                                    },
+                                    {
+                                        "label": "ผ้าวิสคอส",
+                                        "value": "viscose"
+                                    },
+                                    {
+                                        "label": "ผ้าชีฟอง",
+                                        "value": "chiffonFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าลูกไม้",
+                                        "value": "laceFabric"
+                                    },
+                                    {
+                                        "label": "ผ้าซาติน",
+                                        "value": "satin"
+                                    },
+                                    {
+                                        "label": "ผ้าไหม",
+                                        "value": "silk"
+                                    },
+                                    {
+                                        "label": "สแปนเด็กซ์",
+                                        "value": "spandex"
+                                    },
+                                    {
+                                        "label": "อื่นๆ",
+                                        "value": "other"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "เสื้อเชิ้ต",
+                "value": "men_shirt"
+            },
+            {
+                "label": "เสื้อโปโล",
+                "value": "men_poloShirt"
+            },
+            {
+                "label": "เสื้อคลุมตัวนอก",
+                "value": "men_outerCoat"
+            },
+            {
+                "label": "กางเกงขาสั้น",
+                "value": "men_shorts"
+            },
+            {
+                "label": "กางเกงขายาว",
+                "value": "men_longTrouser"
+            },
+            {
+                "label": "กางเกงยีนส์",
+                "value": "men_jeans"
+            },
+            {
+                "label": "ชุดชั้นในชาย",
+                "value": "men_underwear"
+            },
+            {
+                "label": "ลองจอน",
+                "value": "men_longjohn"
+            },
+            {
+                "label": "ถุงมือ",
+                "value": "men_handglove"
+            }
+        ]
+    },
+    {
+        "label": "เสื้อผ้าแฟชั่นผู้หญิง",
+        "value": "fashionCloth_Women",
+        "children": [
+            {
+                "label": "เสื้อ",
+                "value": "women_shirt"
+            },
+            {
+                "label": "เดรส",
+                "value": "women_dress"
+            },
+            {
+                "label": "กระโปรง",
+                "value": "women_skirt"
+            },
+            {
+                "label": "กางเกง",
+                "value": "women_pants"
+            },
+            {
+                "label": "แจ็คเก็ตและเสื้อโค้ท",
+                "value": "women_jacketAndCoat"
+            },
+            {
+                "label": "จั๊มสูท",
+                "value": "women_jumpsuit"
+            },
+            {
+                "label": "ชุดชั้นใน",
+                "value": "women_underwear"
+            },
+            {
+                "label": "ชุดนอน",
+                "value": "women_pajamas"
+            }
+        ]
+    }
+]

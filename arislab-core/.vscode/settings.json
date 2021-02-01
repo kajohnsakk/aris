@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/node_modules": true
+    },
+    "terminal.integrated.env.osx": {
+        "nuser": "arislab",
+    },
+    "debug.node.autoAttach": "off",
+    "eslint.enable": false
+}

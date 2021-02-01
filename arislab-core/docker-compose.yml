@@ -1,0 +1,91 @@
+version: "3"
+
+services:
+  rvp:
+    image: arislab-rvp:1.0.8
+    container_name: "arislab-rvp"
+    build:
+      context: ./arislab-rvp
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+      - "1843:1843"
+    links:
+      - api
+      - platform
+      - securesite
+  api:
+    image: arislab-api:1.0.8
+    container_name: "arislab-api"
+    build:
+      context: ./arislab-api
+    env_file:
+      - .env
+    ports:
+      - "1780:1780"
+  platform:
+    image: arislab-platform:1.0.15-prod-1
+    container_name: "arislab-platform"
+    build:
+      context: ./arislab-platform
+    ports:
+      - "3000:3000"
+  securesite:
+    image: arislab-securesite:1.0.5
+    container_name: "arislab-securesite"
+    build:
+      context: ./arislab-securesite
+    env_file:
+      - .env
+    ports:
+      - "1380:1380"
+  analytic:
+    image: analytic-service:1.0.0
+    container_name: "analytic-service"
+    build:
+      context: ./analytic-service
+    env_file:
+      - .env
+    ports:
+      - "3003:3003"
+  media:
+    image: arislab-media:1.0.2
+    container_name: "arislab-media"
+    build:
+      context: ./arislab-media
+    env_file:
+      - .env
+    ports:
+      - "1935:1935"
+      - "4080:4080"
+      - "8000:8000"
+      - "1112:1112"
+  webhook:
+    image: arislab-webhook:1.0.0
+    container_name: "arislab-webhook"
+    build:
+      context: ./arislab-webhook
+    env_file:
+      - .env
+    ports:
+      - "3111:3111"
+  queue-services:
+    image: arislab-queueservices:1.0.3
+    container_name: "arislab-queueservices"
+    build:
+      context: ./arislab-queueservices
+    env_file:
+      - .env
+    ports:
+      - "1415:1415"
+    links:
+      - redis
+  redis:
+    image: "redis:alpine"
+    container_name: "redis"
+    ports:
+      - "6379:6379"
+    volumes:
+      - $PWD/redis/redis-data:/var/lib/redis
+      - $PWD/redis/redis.conf:/usr/local/etc/redis/redis.conf

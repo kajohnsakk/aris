@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store Package Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Store Package Report</h1>
+				
+				<div class="flex flex-col">
+                    <div class="flex flex-row mb-3">
+                        <div class="flex flex-row items-center">
+                            <div class="font-bold w-20">Package:</div>
+                            <div class="flex flex-row items-center">
+                                <select id="selected-package" class="block w-full border border-gray-200 text-gray-700 py-1 px-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option selected value="">All Package</option>
+                                    {{#each packageList}}
+                                        <option value="{{code}}">
+                                            {{ name }}
+                                        </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+							<div class="flex flex-row items-center ml-4">
+								<div id="count-store">{{ storeList.length }}</div> / {{ storeList.length }}
+							</div>
+                        </div>
+                    </div>
+                </div>
+				
+				<table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td width="200">Store ID</td>
+                            <td width="200">Email / Business Email</td>
+                            <td>Page</td>
+                            <td width="150">เบอร์โทร</td>
+                            <td width="150">Package</td>
+							<td width="150">Expiry Date</td>
+							<td width="200">Note</td>
+                            <td width="150">Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each storeList}}
+                            <tr class="store {{ storeInfo.packageInfo.code }} {{#if storeInfo.packageInfo.isExpirySoon}}bg-warning{{/if}}">
+                                <td class="text-break">{{ storeID }}</td>
+                                <td class="text-break">
+									{{#if email }}
+										{{ email }}
+									{{else}}
+										-
+									{{/if}}
+									<br />
+									{{#if storeInfo.businessProfile.businessEmail}}
+                                        {{ storeInfo.businessProfile.businessEmail }}
+									{{else}}
+										-
+                                    {{/if}}
+								</td>
+								<td>
+                                    {{#if storeInfo.businessProfile.accountDetails.businessName}}
+                                        {{ storeInfo.businessProfile.accountDetails.businessName }}
+									{{else}}
+										-
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if storeInfo.businessProfile.businessPhoneNo}}
+                                        {{ storeInfo.businessProfile.businessPhoneNo }}
+									{{else}}
+										N/A
+                                    {{/if}}
+                                </td>
+                                <td>
+									{{#if storeInfo.packageInfo}}
+                                        {{ storeInfo.packageInfo.name }}
+                                    {{/if}}
+								</td>
+								<td class="{{#if storeInfo.packageInfo.isExpirySoon}}text-danger{{/if}}">
+									{{#if storeInfo.packageInfo}}
+                                        {{ storeInfo.packageInfo.expiryDate }}
+                                    {{/if}}
+								</td>
+								<td class="{{#if storeInfo.packageInfo.isExpirySoon}}text-danger{{/if}}">
+									{{#if storeInfo.packageInfo.isExpirySoon}}
+										ใกล้หมดอายุ
+                                    {{else}}
+										-
+									{{/if}}
+								</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/storePackage/store/{{ storeID }}">ดูรายละเอียด</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+    $('#selected-package').on('change', function() {
+        var selectedPackage = $('#selected-package').val();
+        // alert(selectedPackage.length);
+		
+		if( selectedPackage.length > 0 ) {
+			$(".store").hide();
+			$("."+selectedPackage).show();
+			$("#count-store").html($("."+selectedPackage).length);
+		} else {
+			$(".store").show();
+			$("#count-store").html($(".store").length);
+		}
+    });
+
+</script>
+
+</html>

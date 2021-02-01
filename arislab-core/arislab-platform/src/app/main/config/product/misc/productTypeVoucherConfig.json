@@ -1,0 +1,26 @@
+[
+    {
+        "value": "VOUCHER",
+        "label": "Digital (Coupon/Voucher)",
+        "en": "Digital (Coupon/Voucher)",
+        "th": "สินค้าดิจิตอล (คูปอง/Voucher)"
+    },
+    {
+        "value": "SINGLE",
+        "label": "Generic (Single Color/Size)",
+        "en": "Generic (Single Color/Size)",
+        "th": "สินค้าทั่วไป (หนึ่งสี/หนึ่งไซส์)"
+    },
+    {
+        "value": "MULTI",
+        "label": "Apparel (Multiple Color/Size)",
+        "en": "Apparel (Multiple Color/Size)",
+        "th": "สินค้าหลายสี หลายไซส์ เช่น เสื้อผ้า"
+    },
+    {
+        "value": "COLOR_ONLY",
+        "label": "Accessories (Multiple Colors)",
+        "en": "Accessories (Multiple Colors)",
+        "th": "สินค้าหลายสี เช่น กระเป๋า เครื่องประดับ"
+    }
+]

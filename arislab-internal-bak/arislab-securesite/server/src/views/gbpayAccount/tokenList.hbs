@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Token list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h1>Token List</h1>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="text-right">
+                            <a href="/gbpayAccount/new" class="btn btn-primary">New Token</a>
+                            <a href="#" id="btnLoadExistsToken" class="btn btn-primary">Load Exists Token</a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>GBPay Account ID</td>
+                            <td>GBPay Account Name</td>
+                            <td>GBPay Account Token</td>
+                            <td>GBPay Account Secret Key</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each resultFindAll}}
+                        <tr>
+                            <td>{{ gbPayAccountID }}</td>
+                            <td>{{ gbPayAccountInfo.name }}</td>
+                            <td style="word-break: break-word;">{{ gbPayAccountInfo.token }}</td>
+                            <td>{{ gbPayAccountInfo.secret_key }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Action
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="/gbpayAccount/edit?id={{ id }}">Edit</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).on('click', '#btnLoadExistsToken', function(e) {
+        e.preventDefault();
+
+        axios.get('/gbpayAccount/loadAllToken')
+            .then(function (response) {
+                // handle success
+                alert('Push token done!');
+                setTimeout(() => window.location.reload(), 3000);
+            })
+            .catch(function (error) {
+                // handle error
+                alert('Error while load exists token into db, see console for more details');
+                console.log('Error while load exists to token into db: ', error);
+            });
+    });
+</script>
+</html>

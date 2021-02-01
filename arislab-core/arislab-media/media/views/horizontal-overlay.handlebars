@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+			
+    <link rel="stylesheet" href="/static/css/horizontal-overlay.css">
+</head>
+<body>
+<div class="container-fluid">
+
+	<div class="mask-container">
+		<div class="flex w-full justify-between mb-4">
+			<div class="flex flex-col w-2/6 justify-between">
+				{{#if data.selectedProduct}}
+					<div class="flex w-full flex-col justify-between mb-2">
+						{{#if data.selectedProduct.productInfo.enableProductImage}}
+							<div class="flex flex-col w-3/4">
+								<img class='shadow-xl w-full h-auto object-contain' src="{{data.selectedProduct.productInfo.productImage}}"/>
+							</div>
+						{{else}}
+							<div class="flex max-w-xl z-20 overflow-hidden whitespace-no-wrap rounded-r-full">
+								<div class="shadow-xl font-medium bg-white p-2 pr-4 rounded-r-full">{{data.selectedProduct.productInfo.productName}}</div>
+							</div>
+						{{/if}}
+						<div class="flex max-w-xl z-10 overflow-hidden whitespace-no-wrap rounded-r-full">
+							<div class="flex shadow-xl font-medium bg-white p-2 rounded-r-full hashtag items-center">
+								<div class="flex">สั่งซื้อพิมพ์ </div><div class="flex text-2xl font-bold mx-3">#{{data.selectedProduct.productInfo.productHashtag}}</div>
+							</div>
+						</div>
+						<div class="flex max-w-xl z-10 overflow-hidden whitespace-no-wrap rounded-r-full mb-1">
+							<div class="shadow-xl font-medium bg-white p-2 pr-4 rounded-r-full text-red-700">{{numberToString data.selectedProduct.minPrice}} Baht</div>
+						</div>
+						{{#if data.selectedProduct.productInfo.enableSizeTable}}
+							<div class="flex flex-col w-full">
+								<img class='shadow-xl h-auto' src="{{data.selectedProduct.productInfo.sizeTableImage}}" />
+							</div>
+						{{/if}}
+					</div>
+				{{/if}}
+			</div>
+			
+			<div class="flex flex-col w-1/6 content-start">
+				<div class="flex w-full mb-4 justify-end">
+					<div class="flex flex-col w-2/5">
+						<img class='rounded-full' src="{{data.storeLogo}}"/>
+					</div>
+				</div>
+				<div class="flex w-full justify-end">
+					<div class="flex flex-col w-4/5">
+						<img class='img-fluid' src="/static/img/powered-by-aris.png"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--
+	<div class="col-2 powered-by-container">
+		<div class="row">
+			<div class="col-12">
+				<img class='img-fluid' src="/static/img/powered-by-aris.png"/>
+			</div>
+		</div>
+	</div>
+
+	
+	{{#if data.storeLogo}}
+		<div class="col-1 logo-container">
+			<div class="row">
+				<div class="col-12 logo-image">
+					<img class='img-fluid rounded-circle' src="{{data.storeLogo}}"/>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+	
+	{{#if data.selectedProduct}}
+		<div class="col-2 product-container">
+			<div class="item active">
+				<div class="product-name-container">#{{data.selectedProduct.productInfo.productHashtag}}</div>
+				<div class="product-image-container"><img class='img-fluid' src="{{data.selectedProduct.productInfo.productImage}}"/></div>
+				<div class="product-desc-container">&#3647; <span class="product-price">{{numberToString data.selectedProduct.minPrice}}</span></div>
+			</div>
+		</div>
+	{{/if}}
+-->	
+</div>
+</body>
+</html>

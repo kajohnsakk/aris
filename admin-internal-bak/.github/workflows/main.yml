@@ -1,0 +1,26 @@
+name: deploy_internal
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  send_deploy_command:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout from master branch
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+      
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: 
+            cd /home/arislab-internal && git clean -f -d && git pull origin master && npm install && npm run-script install-all && npm run-script build-all && npm run-script prod

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <a href="/store" class="btn btn-primary">⬅️ Back</a>
+                <h1>Add Product to storeID: <kbd>{{ storeID }}</kbd></h1>
+                <h3>Next hashtag is <kbd>{{ nextHashtag.hashtag }} </kbd></h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="productInfoJSON">Product Info JSON</label>
+                        <textarea class="form-control" id="productInfoJSON" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmitProduct">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).on('click', '#btnSubmitProduct', function(e) {
+        e.preventDefault();
+
+        const HOST = window.location.origin;
+
+        $(this).attr("disabled", true);
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let storeID = urlParams.get('storeID');
+
+        let productInfoJSON = $('#productInfoJSON').val().trim();
+        // productInfoJSON = JSON.stringify(productInfoJSON);
+
+        let data = {
+            storeID: storeID,
+            productInfo: productInfoJSON
+        }
+
+        // const host = `http://localhost:1780/api/product/storeID/${data['storeID']}/product/new`;
+        const host = `${HOST}/api/product/storeID/${data['storeID']}/product/new`;
+
+        axios.post(host, productInfoJSON, { headers: { 'content-type': 'application/json' } } )
+            .then((response) => {
+                if (response.status === 200) {
+                    alert('Add product success');
+                    location.reload();
+                } else {
+                    alert('Add product success');
+                    $(this).attr("disabled", true);
+                }
+            });
+    });
+</script>
+
+</html>

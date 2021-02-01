@@ -1,0 +1,98 @@
+[
+    {
+        "value": "black",
+        "label": "Black"
+    },
+    {
+        "value": "white",
+        "label": "White"
+    },
+    {
+        "value": "gray",
+        "label": "Gray"
+    },
+    {
+        "value": "beige",
+        "label": "Beige"
+    },
+    {
+        "value": "nude",
+        "label": "Nude"
+    },
+    {
+        "value": "red",
+        "label": "Red"
+    },
+    {
+        "value": "green",
+        "label": "Green"
+    },
+    {
+        "value": "blue",
+        "label": "Blue"
+    },
+    {
+        "value": "navy",
+        "label": "Navy"
+    },
+    {
+        "value": "sky",
+        "label": "Sky blue"
+    },
+    {
+        "value": "yellow",
+        "label": "Yellow"
+    },
+    {
+        "value": "purple",
+        "label": "Purple"
+    },
+    {
+        "value": "pink",
+        "label": "Pink"
+    },
+    {
+        "value": "orange",
+        "label": "Orange"
+    },
+    {
+        "value": "brown",
+        "label": "Brown"
+    },
+    {
+        "value": "offWhite",
+        "label": "Off white"
+    },
+    {
+        "value": "cream",
+        "label": "Cream"
+    },
+    {
+        "value": "khaki",
+        "label": "Khaki"
+    },
+    {
+        "value": "jeans",
+        "label": "Jeans"
+    },
+    {
+        "value": "gold",
+        "label": "Gold"
+    },
+    {
+        "value": "silver",
+        "label": "Sliver"
+    },
+    {
+        "value": "scarlet",
+        "label": "Scarlet"
+    },
+    {
+        "value": "multipleColors",
+        "label": "Multiple colors"
+    },
+    {
+        "value": "other",
+        "label": "Other"
+    }
+]

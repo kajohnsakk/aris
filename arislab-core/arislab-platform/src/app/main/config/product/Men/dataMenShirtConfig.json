@@ -1,0 +1,14 @@
+[
+    {
+        "value": "men_shirt_basicColor",
+        "label": "เสื้อยืดสีพื้น"
+    },
+    {
+        "value": "men_shirt_striped",
+        "label": "เสื้อเชิ้ตลาย"
+    },
+    {
+        "value": "men_shirt_scottish",
+        "label": "เสื้อเชิ้ตลายสก็อต"
+    }
+]

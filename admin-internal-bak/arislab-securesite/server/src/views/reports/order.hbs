@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Order Report</h1>
+
+                <div class="flex flex-col">
+                    <div class="flex flex-col md:flex-row mb-3">
+                        <div class="flex flex-row items-center w-full md:w-1/2">
+                            <div class="font-bold w-20">Start:</div>
+                            <div class="w-auto"><input id="start-date" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+                        </div>
+                        <div class="flex flex-row items-center w-full md:w-1/2">
+                            <div class="font-bold w-20">End:</div>
+                            <div class="w-auto"><input id="end-date" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row mb-3">
+                        <div class="flex flex-row items-center">
+                            <div class="font-bold w-20">Store:</div>
+                            <div class="flex flex-row items-center">
+                                <select id="selected-store-id" class="block w-full border border-gray-200 text-gray-700 py-1 px-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="">All store</option>
+                                    {{#each data}}
+                                        <option value="{{storeID}}">
+                                            {{#if email}}
+                                                {{ email }}
+                                            {{else}}
+                                                {{#if storeInfo.businessProfile.businessEmail}}
+                                                    {{ storeInfo.businessProfile.businessEmail }}
+                                                {{else}}
+                                                    -
+                                                {{/if}}
+                                            {{/if}}
+                                            {{#if storeInfo.businessProfile.accountDetails.businessName}}
+                                                ({{ storeInfo.businessProfile.accountDetails.businessName }})
+                                            {{/if}}
+                                        </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="flex flex-row items-center">
+                            <div class="font-bold w-20">Status:</div>
+                            <div class="flex flex-row items-center">
+                                <select id="selected-status" class="block w-full border border-gray-200 text-gray-700 py-1 px-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="">All</option>
+                                    <option selected="selected" value="SUCCESS">Success</option>
+                                    <option value="PENDING">Pending</option>
+                                </select>
+                                <button id="download-btn" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+    let startDate = moment().subtract('days', 7).format('DD/MM/YYYY');
+	let endDate = moment().format('DD/MM/YYYY');
+
+    $('#start-date').datepicker({
+        format: 'dd/mm/yyyy'
+    }).datepicker('setDate', startDate );
+
+    $('#end-date').datepicker({
+        format: 'dd/mm/yyyy',
+        endDate: endDate
+    }).datepicker('setDate', endDate );
+
+    $('#download-btn').on('click', function() {
+        var selectedStoreID = $('#selected-store-id').val();
+        var startDate = $('#start-date').val() + " 00:00:00";
+        var endDate = $('#end-date').val() + " 23:59:59";
+        var selectedStatus = $('#selected-status').val();
+
+		let dateFilter = ( selectedStatus === "SUCCESS" ) ? 'paymentDate' : 'orderDate';
+        const HOST = window.location.origin;
+        const url = `${HOST}/export/csv/order?selectedStoreID=${selectedStoreID}&selectedStatus=${selectedStatus}&startDate=${toTimestamp(startDate)}&endDate=${toTimestamp(endDate)}`;
+        //const url = `http://console.cb-beta.arislab.ai:1780/api/order/storeID/${selectedStoreID}?file=csv&status=${selectedStatus}&startDate=${toTimestamp(startDate)}&endDate=${toTimestamp(endDate)}&dateFilter=${dateFilter}`;
+		
+		window.location.href = url;
+    });
+
+    function toTimestamp(strDate){
+        var strDateTimeList = strDate.split(' ');
+        var strDateList = strDateTimeList[0].split('/');
+        var newFormat = strDateList[2]+'-'+strDateList[1]+'-'+strDateList[0]+' '+strDateTimeList[1];
+        var datum = Date.parse(newFormat);
+
+        return datum;
+    }
+
+</script>
+
+</html>

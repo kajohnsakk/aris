@@ -1,0 +1,30 @@
+[
+    {
+        "value": "women_jacketAndCoat_cardigan",
+        "label": "เสื้อคลุม คาร์ดิแกน"
+    },
+    {
+        "value": "women_jacketAndCoat_sweaterShirt",
+        "label": "เสื้อสเวตเตอร์"
+    },
+    {
+        "value": "women_jacketAndCoat_jacket",
+        "label": "เสื้อแจ็คเก็ต"
+    },
+    {
+        "value": "women_jacketAndCoat_vest",
+        "label": "เสื้อกั๊ก"
+    },
+    {
+        "value": "women_jacketAndCoat_coat",
+        "label": "เสื้อโค้ด"
+    },
+    {
+        "value": "women_jacketAndCoat_hoodie",
+        "label": "เสื้อฮู้ด"
+    },
+    {
+        "value": "women_jacketAndCoat_suit",
+        "label": "เสื้อสูท"
+    }
+]

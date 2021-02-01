@@ -1,0 +1,188 @@
+{
+	"color": {
+		"black": "Black",
+		"white": "White",
+		"gray": "Gray",
+		"beige": "Beige",
+		"nude": "Nude",
+		"red": "Red",
+		"green": "Green",
+		"dark-blue": "Dark Blue",
+		"blue": "Blue",
+		"navy": "Navy",
+		"light-blue": "Light Blue",
+		"yellow": "Yellow",
+		"purple": "Purple",
+		"pink": "Pink",
+		"orange": "Orange",
+		"brown": "Brown",
+		"off-white": "Off White",
+		"cream": "Cream",
+		"khaki": "Khaki",
+		"denim": "Denim",
+		"gold": "Gold",
+		"silver": "Silver",
+		"crimson": "Crimson",
+		"colorful": "Colorful",
+		"other": "Other"	
+	},
+	"size": {
+		"xs": "XS",
+		"s": "S",
+		"m": "M",
+		"l": "L",
+		"xl": "XL",
+		"freesize": "Free Size"
+	},
+	"washing-method": {
+		"machine-wash": "Machine Washer",
+		"hand-wash": "Hand Wash",
+		"dry-wash": "Dry Wash",
+		"other": "Other"
+	},
+	"pocket": {
+		"yes": "Yes",
+		"no": "No"
+	},
+	"neck-type": {
+		"round-neck": "Round Neck", 
+		"v-neck": "V Neck", 
+		"henry": "Henry", 
+		"polo": "Polo", 
+		"shirt-collar": "Shirt Collar", 
+		"high-neck": "High Neck",
+		"turtle-neck": "Turtle Neck",
+		"scoop": "Scoop",
+		"mandarin-neck": "Mandarin Neck",
+		"square-neck": "Square Neck",
+		"club-collar": "Club Collar",
+		"hooded": "Hooded",
+		"other": "Other"
+	},
+	"shirt-shape": {
+		"regular": "Regular",
+		"oversized": "Oversized",
+		"slim": "Slim",
+		"skinny": "Skinny",
+		"longline": "Longline"
+	},
+	"sleeves-type": {
+		"short-sleeves": "Short Sleeves",
+		"long-sleeves": "Long Sleeves",
+		"3-4-sleeves": "3/4 Sleeves",
+		"sleeveless": "Sleeveless"
+	},
+	"texture": {
+		"cotton": "Cotton",
+		"jersey": "Jersey",
+		"linen": "Linen",
+		"denim": "Denim",
+		"chino": "Chino",
+		"polyester": "Polyester",
+		"nylon-fabric": "Nylon Fabric",
+		"mesh": "Mesh",
+		"corduroy": "Corduroy",
+		"pu-leather": "PU Leather",
+		"leather-suede": "Leather Suede",
+		"fleece": "Fleece",
+		"wool": "Wool",
+		"acrylic-wool": "Acrylic Wool",
+		"cashmier": "Cashmier",
+		"crochet": "Crochet",
+		"felt": "Felt",
+		"velvet-fabric": "Velvet Fabric",
+		"viscose": "Viscose",
+		"chiffon": "Chiffon",
+		"lace-fabric": "Lace Fabric",
+		"satin-fabric": "Satin Fabric",
+		"silk": "Silk",
+		"spandex": "Spandex",
+		"hanako": "Hanako",
+		"lace": "Lace",
+		"leather": "Leather",
+		"linen": "Linen",
+		"sheep-wool": "Sheep Wool",
+		"satin": "Satin",
+		"velvet": "Velvet",
+		"other": "Other Material"
+	},
+	"collar-type": {
+		"standard-collar": "Standard Collar",
+		"button-down-collar": "Button-Down Collar",
+		"spread-collar": "Spread Collar",
+		"mandarin-collar": "Mandarin Collar",
+		"club-collar": "Club Collar",
+		"wing-tip-collar": "Wing Tip Collar",
+		"other": "Others"
+	},
+	"pants-shape": {
+		"regular": "Regular",
+		"skinny": "Skinny",
+		"straight": "Straight",
+		"wide": "Wide"
+	},
+	"waist-height": {
+		"high-waist": "High Waist",
+		"midi-waist": "Midi Waist",
+		"low-waist": "Low Waist"
+	},
+	"leg-length-type": {
+		"ankle": "Ankle",
+		"high-top-ankle": "High Top Ankle",
+		"five-part": "Five Part"
+	},
+	"pant-style": {
+		"casual-pants": "Casual Pants",
+		"formal-pants": "Formal Pants",
+		"workout-pants": "Workout Pants",
+		"camouflage-pants": "Camouflage Pants"
+	},
+	"warmth": {
+		"normal": "Normal",
+		"extra-warm": "Extra Warm",
+		"ultra-warm": "Ultra Warm"
+	},
+	"pattern": {
+		"leather-print": "Leather Print",
+		"camouflage": "Camouflage",
+		"chess": "Chess",
+		"floral": "Floral",
+		"geometric": "Geometric",
+		"plaid": "Plaid",
+		"graphic-pattern": "Graphic Pattern",
+		"letter-print": "Letter Print",
+		"solid-color": "Solid Color",
+		"polka-dot": "Polka Dot",
+		"striped-pattern": "Striped Pattern"
+	},
+	"occasion": {
+		"evening-party": "Evening Party",
+		"party": "Party",
+		"casual": "Casual",
+		"work": "Work"
+	},
+	"dress-type": {
+		"a-line-dress": "A-Line Dress",
+		"ruffle-dress": "Ruffle Dress",
+		"babydoll-dress": "Babydoll Dress",
+		"jumper-dress": "Jumper Dress",
+		"asymmetrical-hem-dress": "Asymmetrical Hem Dress",
+		"pencil-dress": "Pencil Dress",
+		"straight-dress": "Straight Dress",
+		"shirt-dress": "Shirt Dress",
+		"knitted-dress": "Knitted Dress",
+		"tent-dress": "Tent Dress",
+		"sheath-dress": "Sheath Dress",
+		"wedding-dress": "Wedding Dress",
+		"wrap-dress": "Wrap Dress"
+	},
+	"skirt-type": {
+		"a-line-skirts": "A-Line Skirts",
+		"irregular-skirts": "Irregular Skirts",
+		"ruffle-skirts": "Ruffle Skirts",
+		"wrap-skirts": "Wrap Skirts",
+		"pencil-skirts": "Pencil Skirts",
+		"pleated-skirts": "Pleated Skirts",
+		"circular-skirts": "Circular Skirts"
+	}
+}

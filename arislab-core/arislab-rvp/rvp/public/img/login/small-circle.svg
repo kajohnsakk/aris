@@ -1,0 +1,10 @@
+<svg width="590" height="565" viewBox="0 0 590 565" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M131.008 154.842C55.3032 243.693 72.8228 370.648 162.654 447.189C252.486 523.729 400.613 519.899 456.317 432.021C512.022 344.144 532.962 211.516 424.671 139.675C316.381 67.8338 206.714 65.9913 131.008 154.842Z" fill="url(#paint0_linear)"/>
+<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="360" to="0" dur="22s" additive="sum" repeatCount="indefinite" />
+<defs>
+<linearGradient id="paint0_linear" x1="493.924" y1="143.275" x2="157.014" y2="351.062" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EB3290"/>
+<stop offset="1" stop-color="#FB8785"/>
+</linearGradient>
+</defs>
+</svg>

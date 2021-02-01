@@ -1,0 +1,216 @@
+:root {
+    --pink: #e83490;
+    --grey: #e6eaed;
+}
+
+input.date-input::-webkit-outer-spin-button,
+input.date-input::-webkit-inner-spin-button,
+input.date-input::-webkit-clear-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.main-font {
+    font-family: "Kanit", Muli, Roboto, Helvetica Neue, Arial, sans-serif !important;
+}
+
+.text-sm {
+    font-size: .875rem;
+}
+
+/* .shipping-tabs-container {
+
+} */
+
+.shipping-tabs {
+    color: #828282;
+    border: 1px solid #CBCBCB;
+}
+
+.shipping-tabs:first-child {
+    color: #828282;
+    border-radius: 3px 0 0 3px;
+}
+
+.shipping-tabs:last-child {
+    color: #828282;
+    border-radius: 0 3px 3px 0;
+}
+
+.shipping-tabs:not(:first-child):not(:last-child) {
+    color: #828282;
+    border-top: 1px solid #CBCBCB;
+    border-bottom: 1px solid #CBCBCB;
+}
+
+/* .middle-shipping-tab {
+    color: #828282;
+    border-top: 1px solid #CBCBCB;
+    border-bottom: 1px solid #CBCBCB;
+} */
+
+/* .middle-shipping-tab.active {
+    color: white;
+    border: 1px solid #e83490;
+    background-color: #e83490;
+} */
+
+.shipping-tabs.active {
+    color: white !important;
+    border: 1px solid var(--pink);
+    background-color: var(--pink);
+}
+
+.small-text-button {
+    font-size: 1.2rem;
+}
+
+#order-table {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+#order-table table {
+    font-family: inherit;
+}
+
+#order-table thead tr {
+    background: #f6f6f6;
+    height: 0px;
+}
+
+/* #order-table tr:last-child {
+    max-height: 0;
+    border: none;
+} */
+
+#order-table tr:last-child th,
+#order-table tr:last-child td {
+    border: none;
+    border-bottom: none;
+}
+
+.order-primary-button {
+    cursor: pointer;
+    width: max-content;
+    /* padding: 0.5em; */
+    color: white;
+    background-color: var(--pink);
+    border-radius: 3px;
+}
+
+.order-primary-button:hover {
+    background-color: rgba(241, 52, 150, 0.8);
+}
+
+.order-secondary-button {
+    cursor: pointer;
+    width: max-content;
+    /* padding: 0.5em; */
+    color: var(--pink);
+    background-color: white;
+    border: 1px solid var(--pink);
+    border-radius: 3px;
+}
+
+.order-secondary-button:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.order-edit-button {
+    border-bottom: 1px solid black;
+ }
+
+.order-edit-button:hover {
+   border-bottom: 1px solid black;
+}
+
+.modal-header {
+    padding: 1rem;
+    background-color: var(--grey);
+}
+
+.modal-menu {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 0 2rem;
+    display: flex;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+}
+
+.modal-content > div {
+    padding: 1.2rem 1.2rem 3rem 1.2rem;
+}
+
+.modal-content > div:first-child {
+    padding: 1.2rem 1.2rem 3rem 0;
+}
+
+.modal-content > div:last-child {
+    padding: 1.2rem 0 3rem 1.2rem;
+}
+
+.modal-content > div:not(:last-child) {
+    border-right: 1px solid var(--grey);
+}
+
+.modal-content .section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--grey);
+}
+
+.upload-modal-content {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+}
+
+.csv-reader {
+    padding: 1em 0 1.25em 0;
+    border: dotted 1px var(--grey);
+}
+
+#react-csv-reader-input {
+    display: flex;
+    justify-content: center;
+    padding-left: 5em;
+    margin-top: 0.5em;
+}
+
+#file-upload-button {
+    margin: 0;
+}
+
+.order-progress-container {
+    margin: 2em 0 1.5em 0;
+    width: 100%;
+}
+
+.progress-label {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1199px) {
+    .modal-menu {
+        padding: 0;
+    }
+
+    .modal-content {
+        padding: 0;
+    }
+    
+    .modal-content > div:last-child {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,388 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: alpha
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: media
+    app: aris
+  name: media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: media
+      app: aris
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 ()
+      creationTimestamp: null
+      labels:
+        io.kompose.service: media
+        app: aris
+    spec:
+      containers:
+        - env:
+            - name: ANDROID_APP_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: ANDROID_APP_URL
+                  name: env-configmap
+            - name: API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: API_HOST
+                  name: env-configmap
+            - name: API_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: API_PORT
+                  name: env-configmap
+            - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: API_URL
+                  name: env-configmap
+            - name: AUTH0_CLIENT_ID
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTH0_CLIENT_ID
+                  name: env-configmap
+            - name: AUTH0_CLIENT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTH0_CLIENT_SECRET
+                  name: env-configmap
+            - name: AUTH0_DOMAIN
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTH0_DOMAIN
+                  name: env-configmap
+            - name: AUTH0_SAML_IDP_CERT_FILE
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTH0_SAML_IDP_CERT_FILE
+                  name: env-configmap
+            - name: BULKSMS_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: BULKSMS_PASSWORD
+                  name: env-configmap
+            - name: BULKSMS_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: BULKSMS_URL
+                  name: env-configmap
+            - name: BULKSMS_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: BULKSMS_USERNAME
+                  name: env-configmap
+            - name: CHATBOT_OUT_OF_STOCK_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  key: CHATBOT_OUT_OF_STOCK_MESSAGE
+                  name: env-configmap
+            - name: DEFAULT_GB_PAY_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: DEFAULT_GB_PAY_TOKEN
+                  name: env-configmap
+            - name: DOMAIN_ALLOW_ORIGIN
+              valueFrom:
+                configMapKeyRef:
+                  key: DOMAIN_ALLOW_ORIGIN
+                  name: env-configmap
+            - name: ENABLE_NOTIFICATION
+              valueFrom:
+                configMapKeyRef:
+                  key: ENABLE_NOTIFICATION
+                  name: env-configmap
+            - name: FACEBOOK_APP_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  key: FACEBOOK_APP_SECRET
+                  name: env-configmap
+            - name: GB_PAY_ADMIN_ARISLAB_ACCOUNT_PUBLIC_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_ADMIN_ARISLAB_ACCOUNT_PUBLIC_KEY
+                  name: env-configmap
+            - name: GB_PAY_ADMIN_ARISLAB_ACCOUNT_SECRET_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_ADMIN_ARISLAB_ACCOUNT_SECRET_KEY
+                  name: env-configmap
+            - name: GB_PAY_ADMIN_ARISLAB_ACCOUNT_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_ADMIN_ARISLAB_ACCOUNT_TOKEN
+                  name: env-configmap
+            - name: GB_PAY_AMOUNT_FOR_NO_FEE
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_AMOUNT_FOR_NO_FEE
+                  name: env-configmap
+            - name: GB_PAY_FEE
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_FEE
+                  name: env-configmap
+            - name: GB_PAY_GATEWAY
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_GATEWAY
+                  name: env-configmap
+            - name: GB_PAY_SECRET_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: GB_PAY_SECRET_KEY
+                  name: env-configmap
+            - name: INSTANCE_EMAIL
+              valueFrom:
+                configMapKeyRef:
+                  key: INSTANCE_EMAIL
+                  name: env-configmap
+            - name: INSTANCE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: INSTANCE_NAME
+                  name: env-configmap
+            - name: INSTANCE_PASS
+              valueFrom:
+                configMapKeyRef:
+                  key: INSTANCE_PASS
+                  name: env-configmap
+            - name: IOS_APP_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: IOS_APP_URL
+                  name: env-configmap
+            - name: IS_SCALE_BOT
+              valueFrom:
+                configMapKeyRef:
+                  key: IS_SCALE_BOT
+                  name: env-configmap
+            - name: LINE_NOTIFY_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: LINE_NOTIFY_TOKEN
+                  name: env-configmap
+            - name: LOG_DESTINATION
+              valueFrom:
+                configMapKeyRef:
+                  key: LOG_DESTINATION
+                  name: env-configmap
+            - name: LOG_FILE
+              valueFrom:
+                configMapKeyRef:
+                  key: LOG_FILE
+                  name: env-configmap
+            - name: LOG_FOLDER
+              valueFrom:
+                configMapKeyRef:
+                  key: LOG_FOLDER
+                  name: env-configmap
+            - name: MEDIA_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: MEDIA_HOST
+                  name: env-configmap
+            - name: MEDIA_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: MEDIA_PORT
+                  name: env-configmap
+            - name: MEDIA_WEB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: MEDIA_WEB_HOST
+                  name: env-configmap
+            - name: MEDIA_WEB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: MEDIA_WEB_PORT
+                  name: env-configmap
+            - name: MSG_PURGE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: MSG_PURGE_URL
+                  name: env-configmap
+            - name: MSG_REFRESH_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: MSG_REFRESH_URL
+                  name: env-configmap
+            - name: NOTIFICATION_TIME_INTERVAL
+              valueFrom:
+                configMapKeyRef:
+                  key: NOTIFICATION_TIME_INTERVAL
+                  name: env-configmap
+            - name: PACKAGE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: PACKAGE_URL
+                  name: env-configmap
+            - name: PAYMENT_RESPONSE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: PAYMENT_RESPONSE_URL
+                  name: env-configmap
+            - name: PAYMENT_WEBHOOK_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: PAYMENT_WEBHOOK_URL
+                  name: env-configmap
+            - name: PLATFORM_FACEBOOK_APP_ID
+              valueFrom:
+                configMapKeyRef:
+                  key: PLATFORM_FACEBOOK_APP_ID
+                  name: env-configmap
+            - name: PLATFORM_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: PLATFORM_HOST
+                  name: env-configmap
+            - name: PLATFORM_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: PLATFORM_PORT
+                  name: env-configmap
+            - name: QUEUESERVICE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: QUEUESERVICE_HOST
+                  name: env-configmap
+            - name: QUEUESERVICE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: QUEUESERVICE_PORT
+                  name: env-configmap
+            - name: RECURRING_BACKGROUND_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: RECURRING_BACKGROUND_URL
+                  name: env-configmap
+            - name: RECURRING_PERIOD
+              valueFrom:
+                configMapKeyRef:
+                  key: RECURRING_PERIOD
+                  name: env-configmap
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: REDIS_HOST
+                  name: env-configmap
+            - name: RVP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: RVP_PORT
+                  name: env-configmap
+            - name: RVP_PORT_TLS
+              valueFrom:
+                configMapKeyRef:
+                  key: RVP_PORT_TLS
+                  name: env-configmap
+            - name: SECURESITE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: SECURESITE_HOST
+                  name: env-configmap
+            - name: SECURESITE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: SECURESITE_PORT
+                  name: env-configmap
+            - name: SERVER_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: SERVER_NAME
+                  name: env-configmap
+            - name: SERVICE_STATUS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: SERVICE_STATUS_HOST
+                  name: env-configmap
+            - name: SERVICE_STATUS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: SERVICE_STATUS_PORT
+                  name: env-configmap
+            - name: STREAM_STATUS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: STREAM_STATUS_HOST
+                  name: env-configmap
+            - name: STREAM_STATUS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: STREAM_STATUS_PORT
+                  name: env-configmap
+            - name: WEBHOOK_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: WEBHOOK_HOST
+                  name: env-configmap
+            - name: WEBHOOK_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: WEBHOOK_PORT
+                  name: env-configmap
+            - name: WEB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: WEB_PORT
+                  name: env-configmap
+            - name: WEB_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: WEB_URL
+                  name: env-configmap
+            - name: XPOWEREDBY
+              valueFrom:
+                configMapKeyRef:
+                  key: XPOWEREDBY
+                  name: env-configmap
+            - name: db_index
+              valueFrom:
+                configMapKeyRef:
+                  key: db_index
+                  name: env-configmap
+            - name: log
+              valueFrom:
+                configMapKeyRef:
+                  key: log
+                  name: env-configmap
+            - name: nes
+              valueFrom:
+                configMapKeyRef:
+                  key: nes
+                  name: env-configmap
+            - name: npwd
+              valueFrom:
+                configMapKeyRef:
+                  key: npwd
+                  name: env-configmap
+            - name: nuser
+              valueFrom:
+                configMapKeyRef:
+                  key: nuser
+                  name: env-configmap
+          image: 217564844566.dkr.ecr.ap-southeast-1.amazonaws.com/arislab-media:1.0.1
+          name: arislab-media
+          ports:
+            - containerPort: 1935
+            - containerPort: 4080
+            - containerPort: 8000
+            - containerPort: 1112
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

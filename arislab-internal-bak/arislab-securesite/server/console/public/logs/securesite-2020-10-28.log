@@ -1,0 +1,38 @@
+2020-10-28 01:13:11 ERROR [bootstrap_node.js:391>events.js:211>events.js:116>] Unhandled Exception with reason:Error: listen EADDRINUSE :::1380
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at listenInCluster (net.js:1401:12)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Server.listen (net.js:1485:7)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Function.serverListen [as listen] (/Users/kajohnsakkernkaew/Desktop/works/aris/arislab-internal/arislab-securesite/server/node_modules/express-ws/lib/index.js:42:40)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Object.<anonymous> (/Users/kajohnsakkernkaew/Desktop/works/aris/arislab-internal/arislab-securesite/server/src/App.js:31:5)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Module._compile (module.js:653:30)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Object.Module._extensions..js (module.js:664:10)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Module.load (module.js:566:32)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at tryModuleLoad (module.js:506:12)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Function.Module._load (module.js:498:3)
+2020-10-28 01:14:09 ERROR [bootstrap_node.js:391>events.js:211>events.js:116>] Unhandled Exception with reason:Error: listen EADDRINUSE :::1380
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Server.setupListenHandle [as _listen2] (net.js:1360:14)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at listenInCluster (net.js:1401:12)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Server.listen (net.js:1485:7)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Function.serverListen [as listen] (/Users/kajohnsakkernkaew/Desktop/works/aris/arislab-internal/arislab-securesite/server/node_modules/express-ws/lib/index.js:42:40)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Object.<anonymous> (/Users/kajohnsakkernkaew/Desktop/works/aris/arislab-internal/arislab-securesite/server/src/App.js:31:5)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Module._compile (module.js:653:30)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Object.Module._extensions..js (module.js:664:10)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Module.load (module.js:566:32)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at tryModuleLoad (module.js:506:12)
+[bootstrap_node.js:391>events.js:211>events.js:116>] 	    at Function.Module._load (module.js:498:3)
+10/28/2020, 1:16:24 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 1:21:49 AM ERROR [/execution.js:165>events.js:315>] Unhandled Exception with reason:TypeError: app.setTimeout is not a function
+[/execution.js:165>events.js:315>] 	    at Object.<anonymous> (/Users/kajohnsakkernkaew/Desktop/works/aris/arislab-internal/arislab-securesite/server/src/App.js:31:5)
+[/execution.js:165>events.js:315>] 	    at Module._compile (internal/modules/cjs/loader.js:1138:30)
+[/execution.js:165>events.js:315>] 	    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1158:10)
+[/execution.js:165>events.js:315>] 	    at Module.load (internal/modules/cjs/loader.js:986:32)
+[/execution.js:165>events.js:315>] 	    at Function.Module._load (internal/modules/cjs/loader.js:879:14)
+[/execution.js:165>events.js:315>] 	    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+[/execution.js:165>events.js:315>] 	    at internal/main/run_main_module.js:17:47
+10/28/2020, 1:23:45 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 1:34:44 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 1:52:43 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 2:04:45 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 2:07:58 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 2:35:11 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380
+10/28/2020, 2:47:16 AM DEBUG [events.js:327>events.js:421>/App.js:32>] securesite listening on port 1380

@@ -1,0 +1,22 @@
+[
+    {
+        "value": "men_outerCoat_sweaterAndCardigan",
+        "label": "สเว็ตเตอร์และคาร์ดิแกน"
+    },
+    {
+        "value": "men_outerCoat_jacketAndCoat",
+        "label": "แจ็คเก็ตและโค้ด"
+    },
+    {
+        "value": "men_outerCoat_hoodie",
+        "label": "เสื้อฮู้ด"
+    },
+    {
+        "value": "men_outerCoat_suit",
+        "label": "เสื้อสูท"
+    },
+    {
+        "value": "men_outerCoat_denimJacket",
+        "label": "แจ็คเก็ตยีนส์"
+    }
+]

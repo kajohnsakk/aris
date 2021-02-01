@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Your shopping cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/new/tailwind.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/new/new-basket.css?v={{ timestamp }}" />
+    <link rel="stylesheet" href="../css/new/status.css?v={{ timestamp }}" />
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+</head>
+
+<body class="h-full">
+    <div class="m-auto w-full md:w-1/2 mb-8 leading-normal basket-container basket font-light text-sm sm:text-base">
+        <div class="flex py-6 mb-px basket-sticky-top">
+            <div class="logo ml-4 lg:ml-0">
+                <img src="../img/svg/logo.svg" />
+            </div>
+            <div class="flex items-center ml-4 sm:ml-6 whitespace-no-wrap">ระบบการขายผ่านไลฟ์สด</div>
+        </div>
+        <div class="border w-full">
+            <div class="px-2 sm:px-4 pt-4 sm:pt-0 sm:px-12 pb-4 font-normal">
+
+                <div class="pt-4 basket-content font-light">
+                    <div class="flex flex-col items-center mt-16">
+                        {{#if status}}
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                        {{#if status}}
+                        <div class="font-medium text-lg mt-4 text-grey-dark">ส่งข้อมูลการสั่งจองเรียบร้อยแล้ว</div>
+                        <div class="font-medium text-lg mt-4 text-grey animated zoomIn">กรุณาปิดหน้าจอนี้
+                            ระบบจะแจ้งข้อมูลการสั่งจองไปยังอินบ็อกซ์</div>
+                        {{/if}}
+                        {{else}}
+                        <img src="../img/svg/cross-red.svg" />
+                        <div class="text-lg mt-4 text-grey-dark">ErrorCode: {{resultCode}}</div>
+                        <div class="font-medium text-lg mt-2 text-grey-dark">การทำรายการไม่สำเร็จ</div>
+                        <div class="font-medium text-lg mt-2 mb-4 text-grey animated zoomIn">กรุณาทำรายการใหม่อีกครั้ง
+                        </div>
+                        {{/if}}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

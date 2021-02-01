@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: konga
+    io.kompose.service: konga
+  name: konga
+  namespace: kong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: konga
+      io.kompose.service: konga
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 ()
+      creationTimestamp: null
+      labels:
+        app: konga
+        io.kompose.service: konga
+    spec:
+      containers:
+        - env:
+            - name: DB_ADAPTER
+              value: mongo
+            - name: DB_DATABASE
+              value: konga
+            - name: DB_HOST
+              value: konga-database
+            - name: KONGA_SEED_USER_DATA_SOURCE_FILE
+              value: /app/user_seed.js
+            - name: NODE_ENV
+              value: production
+            - name: ROLLING
+              value: "0"
+          image: pantsel/konga:latest
+          name: konga
+          ports:
+            - containerPort: 1337
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+        - name: konga-claim0
+          persistentVolumeClaim:
+            claimName: konga-claim0
+            readOnly: true
+status: {}

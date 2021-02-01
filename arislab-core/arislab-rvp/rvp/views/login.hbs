@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login - Arislab.ai</title>
+    <meta name="description" content="LIVE-Commerce">
+    <meta name="keywords" content="Arislab,LIVE-Commerce">
+    <meta name="author" content="Withinpixels">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="../public/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./public/css/login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <style>
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: visible !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7JB4DT" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="login-page" class="flex flex-col flex-1 h-full w-full relative">
+        <div class="md:block absolute hidden md:ml-20 mt-6 sm:mt-12 flex">
+            <a href="https://arislab.ai/"><img class="login-logo" src="./public/img/aris-logo.svg" /></a>
+        </div>
+        <div class="flex justify-center h-full md:items-center">
+            <div class="md:flex  hidden justify-center mt-8 md:w-1/2 items-center">
+                <div class="w-3/4">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./public/img/login/c1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./public/img/login/c2.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="login-right-container w-4/5 flex md:px-0 px-4 md:w-1/2">
+                <div class="login-box w-full lg:w-3/5 sm:mx-0">
+                    {{!-- Start: Login --}}
+                    <div id="login" class="login-header pt-8 pb-4 w-4/5">
+                        <div class="flex justify-center mb-2">
+                            <span class="text-3xl font-medium login-text-dark-grey">เข้าสู่ระบบ</span>
+                        </div>
+                        <div class="flex justify-center login-text-light-grey font-light">
+                            <span>เริ่มใช้งาน เพียง 3 ขั้นตอน</span>
+                        </div>
+                        <div class="flex flex-col mb-2">
+                            <div class="p-4">
+                                <div class="social-login-box mt-2">
+                                    <div class="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-1 gap-2">
+                                        <button
+                                            class="login-facebook py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-facebook hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+                                            <div class="btn-text">
+                                                <div class="btn-social-logo"><svg width="1.5em" height="1.5em"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                        class="sc-fznzqM cGsYwR sc-fznOgF glfmCu">
+                                                        <path fill="#ffffff" fill-rule="evenodd"
+                                                            d="M22.122 12.061C22.122 6.505 17.618 2 12.062 2 6.504 2 2 6.505 2 12.061c0 5.022 3.68 9.184 8.49 9.939v-7.03H7.933V12.06h2.555V9.845c0-2.522 1.502-3.915 3.8-3.915 1.101 0 2.252.197 2.252.197v2.476h-1.268c-1.25 0-1.64.775-1.64 1.57v1.888h2.79l-.446 2.908h-2.344V22c4.81-.755 8.49-4.917 8.49-9.939">
+                                                        </path>
+                                                    </svg></div> Facebook
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-2 social-login-divider">
+                                    <div class="social-divider"></div>หรือ<div class="social-divider"></div>
+                                </div>
+                                <form method="post" id="manual-login-form">
+                                    <div class="alert-error hidden">
+                                        <div class="mb-2 flex items-center bg-red-500 text-white text-sm px-4 py-3"
+                                            role="alert">
+                                            <p class="alert-message"></p>
+                                        </div>
+                                    </div>
+                                    <div class="manual-login-box">
+                                        <div class="mb-3">
+                                            <label class="block text-gray-700 text-sm" for="Email">อีเมล</label>
+                                            <input id="email" name="email" type="email" required
+                                                class="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="block text-gray-700 text-sm" for="Password">รหัสผ่าน</label>
+                                            <input id="password" name="password" type="password" required
+                                                class="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
+                                        </div>
+                                        <div class="flex justify-between mb-3">
+                                            <a class="cursor-pointer" onClick={onToggleForgotPassword()}>
+                                                <div class="text-black-600 hover:text-pink-500">ลืมรหัสผ่าน</div>
+                                            </a>
+                                            <div><a class="text-black-600 hover:text-pink-500 text-decoration-none"
+                                                    href="https://lin.ee/wj86cIh" target="_blank">ขอความช่วยเหลือ?</a>
+                                            </div>
+                                        </div>
+                                        <button id="btn-manual-login"
+                                            class="w-full py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-login-submit hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+                                            <i class="loading" aria-hidden="true"></i> เข้าสู่ระบบ
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="px-4 text-center font-light en inline-flex items-center">
+                            ข้อกำหนดและเงื่อนไขของทาง Arislab.ai</div>
+                        <div class="flex justify-center"><a class="modal-open login-a en" href="#">terms &
+                                conditions</a></div>
+                        <div class="flex justify-center mt-4">
+                            <div class="progress-container flex">
+                                <div class="login-step-active">
+                                    <div>1</div>
+                                    <div class="login-step-massege">เข้าสู่ระบบ</div>
+                                </div>
+                                <div class="login-step-line"></div>
+                                <div class="login-step">
+                                    <div>2</div>
+                                    <div class="login-step-massege">ยืนยัน OTP</div>
+                                </div>
+                                <div class="login-step-line"></div>
+                                <div class="login-step">
+                                    <div>3</div>
+                                    <div class="login-step-massege">สำเร็จ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End: Login --}}
+
+                    {{!-- Begin: Forgot password --}}
+                    <div id="forgot-password" class="pt-8 w-full sm:w-4/5 hidden">
+                        <div class="flex justify-center mb-2">
+                            <span class="text-3xl font-medium login-text-dark-grey">ลืมรหัสผ่าน</span>
+                        </div>
+                        <div class="flex flex-col mb-2">
+                            <div class="p-4">
+                                <form id="reset-password-form">
+                                    <div class="alert-error hidden">
+                                        <div class="mb-2 flex items-center bg-red-500 text-white text-sm px-4 py-3"
+                                            role="alert">
+                                            <p class="alert-message"></p>
+                                        </div>
+                                    </div>
+                                    <div class="manual-login-box">
+                                        <div class="mb-3 w-full">
+                                            <label class="block text-gray-700 text-sm" for="Email">อีเมล</label>
+                                            <input id="reset-email" name="reset-email" type="email" required
+                                                class="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
+                                        </div>
+
+                                        <button id="btn-reset-password"
+                                            class="w-full py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-login-submit hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+                                            <i class="loading" aria-hidden="true"></i>
+                                            รีเซ็ตรหัสผ่าน
+                                        </button>
+                                        <div class="py-4 text-center">
+                                            <a class="cursor-pointer" onClick={onToggleBackToLoginFromForgotPassword()}>
+                                                <div class="text-black-600 hover:text-pink-500">ย้อนกลับ</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End: Forgot password --}}
+
+                    {{!-- Begin: Send mail message complete--}}
+                    <div id="send-email-complete" class="pt-8 w-full sm:w-4/5 hidden">
+                        <div class="flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                style="color: #b7b7b7;width: 70px;height: 70px;" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col mb-2">
+                            <div class="p-4">
+                                <form method="post" id="manual-login-form">
+                                    <div class="alert-error hidden">
+                                        <div class="mb-2 flex items-center bg-red-500 text-white text-sm px-4 py-3"
+                                            role="alert">
+                                            <p class="alert-message"></p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        เราส่งลิงค์สำหรับรีเซ็ตรหัสผ่านไปที่ email <br />
+                                        <span class="text-email text-pink-600 text-xl"></span>
+                                        <div class="mt-4 text-center">
+                                            <a onClick={onToggleBackToLoginFromForgotPassword()}>
+                                                <div class="cursor-pointer text-black-600 hover:text-pink-500">ย้อนกลับ
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End: Send mail message complete --}}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!--Modal-->
+    <div class="tailwind-modal hidden pointer-events-none fixed w-full h-full top-0 left-0 items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+        <div class="modal-container bg-white w-11/12 md:max-w-2xl mt-8 mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+            <div
+                class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+                <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                    </path>
+                </svg>
+                <span class="text-sm">(Esc)</span>
+            </div>
+
+            <!-- Add margin if you want to see some of the overlay behind the modal-->
+            <div class="modal-content py-4 text-left px-6">
+                <!--Title-->
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">Terms & Conditions</p>
+                    <div class="modal-close cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 18 18">
+                            <path
+                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!--Body-->
+                <div class="overflow-auto text-justify" style="height: 32rem;">
+                    {{{PRIVACY_POLICY}}}
+                </div>
+
+                <!--Footer-->
+                <div class="flex justify-end pt-2">
+                    <button class="modal-close px-4 p-3 rounded-lg">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0/9.11.3/auth0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../public/js/utility/login_activity.js"></script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P7JB4DT');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '335772327368511');
+        fbq('track', 'Login PageView');
+    </script>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=335772327368511&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <script type="text/javascript">
+        function HTMLConsole(options) {
+            this.ele = $(options.selector);
+            this.data = [];
+            var _this = this;
+            var data;
+            if ((data = localStorage.getItem('consoleData'))) {
+                data = JSON.parse(data);
+                data.forEach(function (d) {
+                    _this.dumpCallback(d.error ? d : null, d.error ? null : d);
+                });
+            }
+        }
+
+        HTMLConsole.prototype.clear = function () {
+            this.data = [];
+            this.ele.html('');
+            localStorage.removeItem('consoleData');
+        };
+
+        HTMLConsole.prototype.dumpCallback = function (err, data) {
+            if (err) {
+                return this.dump(err, 'error');
+            }
+            if (data && data.error) {
+                return this.dump(data, 'error');
+            }
+            if (data) {
+                return this.dump(data);
+            }
+        };
+
+        HTMLConsole.prototype.dump = function (o, className) {
+            className = className || '';
+
+            this.data.push(o);
+            localStorage.setItem('consoleData', JSON.stringify(this.data));
+
+            function replacer(key, value) {
+                if (typeof value === 'object') {
+                    return value;
+                }
+                return '<span>' + value + '</span>';
+            }
+
+            var plainStr = JSON.stringify(o).substr(0, 50);
+            var str = JSON.stringify(o, replacer, 4);
+            var html =
+                '<details class="' +
+                className +
+                '">' +
+                '<summary>' +
+                plainStr +
+                '</summary>' +
+                '<p>' +
+                str +
+                '</p>' +
+                '</details>';
+
+            this.ele.append(html);
+
+            this.ele.find('details').removeAttr('open');
+            this.ele
+                .find('details')
+                .last()
+                .attr('open', true);
+        };
+    </script>
+
+    <script type="text/javascript">
+        const HOST = window.location.origin;
+        const URL_PARAMS = new URLSearchParams(window.location.search);
+
+        const ref = URL_PARAMS.get('ref');
+
+        if (ref) {
+            localStorage.setItem('ref_source', ref);
+        }
+
+        dataLayer.push({ 'event': 'ARIS', 'pageAction': 'View', 'pageCategory': "Login Page", 'pageLabel': "Initial login page", 'pageUser': 'Anonymous' });
+
+        var htmlConsole = new HTMLConsole({
+            selector: '#console'
+        });
+
+        var https = window.location.origin.replace('http:', 'https:')
+        var REDIRECT_URL = https + '/login/assert';
+        var DOMAIN = "{{domain}}"
+        var CLIENT_ID = "{{clientID}}"
+        var webAuth;
+
+        function setConfig() {
+            webAuth = new auth0.WebAuth({
+                domain: DOMAIN,
+                redirectUri: REDIRECT_URL,
+                clientID: CLIENT_ID,
+                responseType: 'token id_token',
+                responseMode: 'form_post'
+            });
+        }
+
+        setConfig();
+
+        webAuth.parseHash(function (err, data) {
+            if (err) {
+                return htmlConsole.dumpCallback(err);
+            }
+            window.location.hash = '';
+        });
+
+        // Login with facebook
+        $('.login-facebook').click(function (e) {
+            e.preventDefault();
+
+            fbq('track', 'Click facebook login button');
+            fbq('track', 'CompleteRegistration');
+
+            dataLayer.push({ 'event': 'ARIS', 'pageAction': 'Click', 'pageCategory': "Login Page", 'pageLabel': "Login with facebook in initial login page", 'pageUser': 'Anonymous' });
+            webAuth.authorize({
+                connection: 'facebook',
+                redirectURI: REDIRECT_URL
+            });
+        });
+
+        // Login with google
+        $('.btn-google').click(function (e) {
+            e.preventDefault();
+            loginWithGoogle();
+        });
+
+        function loginWithGoogle() {
+            webAuth.authorize({
+                connection: 'google-oauth2',
+                redirectURI: REDIRECT_URL
+            }, function (err) {
+                if (err) displayError(err);
+            });
+        }
+
+        // btn loading
+        function loading(show = false) {
+            const loadingClass = 'fa fa-spinner fa-pulse fa-lg';
+            const action = show ? 'addClass' : 'removeClass';
+            $('.loading')[action]('fa fa-spinner fa-pulse fa-lg');
+        }
+
+        // Login with manual
+        $('#manual-login-form').on('submit', function (e) {
+            e.preventDefault();
+
+            loading(true);
+            loginWithManual();
+        });
+
+        function loginWithManual() {
+            $.ajax({
+                url: '/login/manual',
+                type: "POST",
+                data: {
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                },
+                dataType: 'json',
+                success: function (data) {
+                    window.location.href = '/';
+                },
+                error: function (error) {
+                    $(".alert-message").text(error.responseText);
+                    $(".alert-error").removeClass('hidden');
+                    loading(false);
+                    setTimeout(function () {
+                        $(".alert-error").addClass('hidden');
+                    }, 4000)
+                }
+            });
+        };
+
+        $('.login-line').click(function (e) {
+            fbq('track', 'Click line login button');
+            fbq('track', 'CompleteRegistration');
+            dataLayer.push({ 'event': 'ARIS', 'pageAction': 'Click', 'pageCategory': "Login Page", 'pageLabel': "Login with line in initial login page", 'pageUser': 'Anonymous' });
+            e.preventDefault();
+            webAuth.authorize({ connection: 'line' });
+        });
+
+        var openmodal = document.querySelectorAll('.modal-open')
+        for (var i = 0; i < openmodal.length; i++) {
+            openmodal[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                toggleModal();
+            })
+        }
+
+        const overlay = document.querySelector('.modal-overlay')
+        overlay.addEventListener('click', toggleModal)
+
+        var closemodal = document.querySelectorAll('.modal-close')
+        for (var i = 0; i < closemodal.length; i++) {
+            closemodal[i].addEventListener('click', toggleModal)
+        }
+
+        document.onkeydown = function (evt) {
+            evt = evt || window.event;
+            var isEscape = false;
+            if ("key" in evt) {
+                isEscape = (evt.key === "Escape" || evt.key === "Esc");
+            } else {
+                isEscape = (evt.keyCode === 27);
+            }
+            if (isEscape && document.body.classList.contains('modal-active')) {
+                toggleModal();
+            }
+        };
+
+        function toggleModal() {
+            const body = document.querySelector('body')
+            const modal = document.querySelector('.tailwind-modal')
+            modal.classList.toggle('hidden')
+            modal.classList.toggle('pointer-events-none')
+            body.classList.toggle('modal-active')
+        }
+
+        function onToggleForgotPassword() {
+            loginActivity().onToggleForgotPassword();
+        }
+
+        function onToggleBackToLoginFromForgotPassword() {
+            loginActivity().onToggleBackToLoginFromForgotPassword();
+        }
+
+        $('#reset-password-form').submit(function (e) {
+            e.preventDefault();
+            loading(true);
+            var $email = $('#reset-email').val();
+            loginActivity().onSendEmailClick($email);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funds list</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+				<!--
+				<div class="mb-5">
+					<h1 class="mb-4 text-2xl font-extrabold">Funds List</h1>
+					<table class="table">
+						<thead>
+							<tr>
+								<td>Order ID</td>
+								<td>Store ID</td>
+								<td>Count funds</td>
+								<td>Funds ID</td>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each result}}
+							<tr class="{{#if isMoreThanOne}}bg-orange-200{{/if}}">
+								<td>{{ orderID }}</td>
+								<td>{{ storeID }}</td>
+								<td>{{ countFunds }}</td>
+								<td>{{ fundsDocID }}</td>
+							</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+				-->
+				
+				<div class="mb-5">
+					<h1 class="mb-4 text-2xl font-extrabold">Remain Funds List</h1>
+					<table class="table">
+						<thead>
+							<tr>
+								<td>Funds ID</td>
+								<td>Order ID</td>
+								<td>Store ID</td>
+								<td>Order Type</td>
+								<td>Amount</td>
+								<td>Fund Date</td>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each remainFundsList}}
+							<tr class="{{#if isWalletType}}bg-orange-200{{/if}}">
+								<td>{{ fundTransactionID }}</td>
+								<td>{{ orderInfo.orderID }}</td>
+								<td>{{#if storeID}}{{ storeID }}{{else}}N/A{{/if}}</td>
+								<td>{{ orderType }}</td>
+								<td>{{ actualAmount }}</td>
+								<td>{{ fundDate }}</td>
+							</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="mb-5">
+					<h1 class="mb-4 text-2xl font-extrabold">Remain Funds List</h1>
+					<table class="table">
+						<thead>
+							<tr>
+								<td>Store ID</td>
+								<td>Found Fund</td>
+								<td>Total Amount</td>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each problemFunds}}
+							<tr>
+								<td>{{ storeID }}</td>
+								<td>{{ countFund }}</td>
+								<td>{{ actualAmount }}</td>
+							</tr>
+							{{/each}}
+							<tr>
+								<td align="right">Total</td>
+								<td>{{ summaryResult.countFund }}</td>
+								<td>{{ summaryResult.totalAmount }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

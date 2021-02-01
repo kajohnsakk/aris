@@ -1,0 +1,34 @@
+[
+    {
+        "value": "women_shirt",
+        "label": "เสื้อ"
+    },
+    {
+        "value": "women_dress",
+        "label": "เดรส"
+    },
+    {
+        "value": "women_skirt",
+        "label": "กระโปรง"
+    },
+    {
+        "value": "women_pants",
+        "label": "กางเกง"
+    },
+    {
+        "value": "women_jacketAndCoat",
+        "label": "แจ็คเก็ตและเสื้อโค้ท"
+    },
+    {
+        "value": "women_jumpsuit",
+        "label": "จั๊มสูท"
+    },
+    {
+        "value": "women_underwear",
+        "label": "ชุดชั้นใน"
+    },
+    {
+        "value": "women_pajamas",
+        "label": "ชุดนอน"
+    }
+]

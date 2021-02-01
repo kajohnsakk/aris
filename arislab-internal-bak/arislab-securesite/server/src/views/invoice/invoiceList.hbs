@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invoice List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">Invoice List</h1>
+				
+				<div class="flex flex-col">
+					<div class="flex flex-row flex-1">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<td width="200">Date</td>
+									<td width="300">Invoice Number</td>
+									<td width="200">ประเภท</td>
+									<td>Name</td>
+									<td width="150">File</td>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each invoiceList}}
+									<tr class="">
+										<td class="text-break">{{ invoiceDate }}</td>
+										<td class="text-break">{{ documentNumber }}</td>
+										<td class="text-break">
+											{{#if isInvoice}}
+												<b class="text-blue-800">Invoice/Receipt</b>
+											{{else}}
+												<b class="text-green-600">Cash Bill</b>
+											{{/if}}
+										</td>
+										<td>{{ customerInfo.name }}</td>
+										<td><a class="text-blue-600" target="_blank" href={{ invoiceFileUrl }}>Download</a></td>
+									</tr>
+								{{/each}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+
+</script>
+
+</html>

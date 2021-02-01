@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #ecf0f1;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: none;
+            }
+        }
+
+        .modal-dialog {
+            width: 68%;
+            height: 92%;
+            padding: 0;
+        }
+
+        .modal-content {
+            height: 69%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="mb-4 text-2xl font-extrabold">ค้นหา Order</h1>
+
+                <div class="flex flex-col">
+                    <div class="flex flex-col md:flex-col mb-3">
+                        <div class="flex flex-row items-center w-full md:flex-1 mb-3">
+                            <div class="font-bold w-20">Field:</div>
+                            <div class="w-auto">
+								<select id="selected-field" class="block w-full border border-gray-200 text-gray-700 py-1 px-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="GBP">GBP</option>
+                                </select>
+							</div>
+                        </div>
+                        <div class="flex flex-row items-center w-full md:flex-1">
+                            <div class="font-bold w-20">Value:</div>
+                            <div class="w-auto"><input id="selected-value" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="flex flex-row items-center">
+                            <button id="search-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full">
+								Search
+							</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+	var redirectUrl = window.location.hostname + window.location.pathname;
+	
+	$('#search-btn').on('click', () => {
+		var selectedField = $('#selected-field').val();
+        var selectedValue = $('#selected-value').val();
+		if( selectedField.length > 0 && selectedValue.length > 0 ) {
+			redirectUrl+= `?field=${selectedField}&value=${selectedValue}`;
+			window.location.replace(redirectUrl);
+		} else {
+			alert('กรุณาใส่ค่าให้ครบก่อน');
+		}
+	});
+
+</script>
+
+</html>

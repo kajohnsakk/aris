@@ -1,0 +1,26 @@
+[
+    {
+        "value": "men_tShirt_basicColor",
+        "label": "เสื้อยืดสีพื้น"
+    },
+    {
+        "value": "men_tShirt_pattern",
+        "label": "เสื้อยืดลาย"
+    },
+    {
+        "value": "men_tShirt_striped",
+        "label": "เสื้อยืดลายทาง"
+    },
+    {
+        "value": "men_tShirt_screen",
+        "label": "เสื้อยืดสกรีนตัวหนังสือ"
+    },
+    {
+        "value": "men_tShirt_cartoon",
+        "label": "เสื้อยืดลายการ์ตูน"
+    },
+    {
+        "value": "men_tShirt_sleeveless",
+        "label": "เสื้อยืดแขนกุด"
+    }
+]

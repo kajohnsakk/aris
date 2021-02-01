@@ -1,0 +1,14 @@
+[
+    {
+        "value": "men_poloShirt_basicColor",
+        "label": "เสื้อโปโลสีพื้น"
+    },
+    {
+        "value": "men_poloShirt_plaid",
+        "label": "เสื้อโปโลลาย"
+    },
+    {
+        "value": "men_poloShirt_striped",
+        "label": "เสื้อโปโลลายทาง"
+    }
+]

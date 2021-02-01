@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Your shopping cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,500&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css?v={{ timestamp }}" rel="stylesheet">
+    <link rel="stylesheet" href="../css/new/new-basket.css?v={{ timestamp }}" />
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+</head>
+
+<body class="h-full">
+    {{#if productIsEqual}}
+    <div class="m-auto w-full md:w-1/2 mb-8 leading-normal basket-container basket font-light text-sm sm:text-base">
+        <div class="flex py-6 mb-px basket-sticky-top">
+            <div class="logo ml-4 lg:ml-0">
+                <img src="../img/svg/logo.svg" />
+            </div>
+            <div class="flex items-center ml-4 sm:ml-6 whitespace-no-wrap">ระบบการขายผ่านไลฟ์สด</div>
+        </div>
+        <div class="border w-full">
+            {{#if isPaidOrder}}
+            <div class="flex bg-green-600 h-12 px-3 text-white items-center">
+                <img src="../img/svg/checkmark.svg" />
+                <div class="ml-3">รายการนี้ ชำระเงินเรียบร้อยแล้ว</div>
+            </div>
+            {{/if}}
+            <div class="hidden sm:flex flex-col items-center mt-8 mb-10">
+                <img src="../img/svg/cart.svg" />
+                <div class="font-medium text-lg mt-2">
+                    {{#if storeConfig.enabledReserveProduct}}
+                    {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                    <span>สรุปรายการสั่งจอง</span>
+                    {{else}}
+                    <span>สรุปรายการสั่งซื้อ</span>
+                    {{/if}}
+                    {{else}}
+                    <span>สรุปรายการสั่งซื้อ</span>
+                    {{/if}}</div>
+            </div>
+            <div class="px-2 sm:px-4 pt-4 sm:pt-0 sm:px-12 pb-4 font-normal">
+                <div class="flex justify-between mb-2">
+                    {{#unless isPaidOrder}}
+                    {{#if storeConfig.enabledReserveProduct}}
+                    {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                    <span class="font-medium">ข้อมูลการจองสินค้า</span>
+                    {{else}}
+                    <span class="font-medium">ที่อยู่จัดส่งสินค้า</span>
+                    {{/if}}
+                    {{else}}
+                    <span class="font-medium">ที่อยู่จัดส่งสินค้า</span>
+                    {{/if}}
+                    {{else}}
+                    <span class="font-medium">จัดส่งไปที่</span>
+                    {{/unless}}
+                    {{#unless isPaidOrder}}
+                    {{#if isCustomerExists }}
+                    <button class="red btnEditDeliveryInfo">แก้ไข</button>
+                    {{/if}}
+                    {{/unless}}
+                </div>
+                <input type="hidden" name="storeID" id="storeID" value={{cartDetails.storeID}}>
+                {{#if isCustomerExists }}
+                <div class="flex border-t border-b py-4">
+                    <div class="flex items-center">
+                        {{#if storeConfig.enabledReserveProduct}}
+                        {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                        <img width="50" height="50" src="../img/svg/box.svg" class="mr-6" />
+                        {{else}}
+                        <img src="../img/svg/truck-gray.svg" class="mr-6" />
+                        {{/if}}
+                        {{else}}
+                        <img src="../img/svg/truck-gray.svg" class="mr-6" />
+                        {{/if}}
+                    </div>
+                    <div>
+                        {{#if cartDetails.disableAddress}}
+                        <div>{{ customerDetails.customerName }}</div>
+                        {{else}}
+                        <div>{{ customerDetails.customerName }} {{ customerDetails.customerAddress }}
+                            อำเภอ{{ customerDetails.customerAddressDetails.district }}
+                            ตำบล{{ customerDetails.customerAddressDetails.subDistrict }}
+                            {{ customerDetails.customerAddressDetails.province }}
+                            {{ customerDetails.customerAddressDetails.postalCode }}</div>
+                        {{/if}}
+                        <div>เบอร์โทร: {{ customerDetails.customerPhoneNo }}</div>
+                        <input type="hidden" name="customerDetailsStringify" value="{{ customerDetails.stringify }}">
+                    </div>
+                </div>
+                {{else}}
+                <div class="flex border-t border-b py-4" id="addressSection">
+                    <div class="flex items-center">
+                        <img src="../img/svg/truck-gray.svg" class="mr-6" />
+                    </div>
+                    <a class="flex items-center no-underline text-blue-light"
+                        href="delivery?cartID={{ cartDetails.cartID }}">
+                        + เพิ่มที่อยู่ใหม่
+                    </a>
+                </div>
+                <div class="hidden flex border-t border-b border-red py-4" id="promptFillAddressSection">
+                    <div class="flex items-center">
+                        <img src="../img/svg/truck-red.svg" class="mr-6" />
+                    </div>
+                    <div class="flex items-center justify-between w-full">
+                        <a class="flex items-center no-underline text-blue-light"
+                            href="delivery?cartID={{ cartDetails.cartID }}">
+                            + เพิ่มที่อยู่ใหม่
+                        </a>
+                        <span class="red" id="promptFillAddress">*กรุณาใส่ที่อยู่</span>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="pt-4 basket-content font-light">
+                    {{#if storeConfig.enabledReserveProduct}}
+                    {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                    <div class="sm:text-lg font-medium">รายการสั่งจอง</div>
+                    {{else}}
+                    <div class="sm:text-lg font-medium">รายการสั่งซื้อ</div>
+                    {{/if}}
+                    {{else}}
+                    <div class="sm:text-lg font-medium">รายการสั่งซื้อ</div>
+                    {{/if}}
+                    {{#if cartDetails.selectedProductLength}}
+                    {{#each cartDetails.productStaticInfo}}
+                    <div class="flex items-start sm:items-center border text-center mb-4 mt-2 productRow">
+                        <div class="basket-img flex items-center"><img src="{{ productImage }}" /></div>
+                        <div class="flex flex-col sm:flex-row flex-1 justify-between h-full">
+                            <div class="flex sm:w-3/5 items-center text-left mt-2 sm:mt-0">
+                                <div class="ml-4">
+                                    <div class="sm:font-medium sm:text-lg text-base">#{{ productHashtag }}
+                                        {{ productNameWithoutColor }}</div>
+                                    <div class="text-grey-dark">
+                                        {{#if productValue.sizelabel}}
+                                        <span class="mr-2">{{ productValue.sizelabel }}</span>
+                                        {{/if}}
+                                        <span>{{ productValue.colorObj.label }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-2 justify-end md:ml-4 sm:ml-0 sm:mt-0">
+                                <div class="flex flex-col w-24 md:w-32">
+                                    <div class="hidden sm:block">Quantity</div>
+                                    <div class="flex justify-center items-center mb-2 sm:mt-2">
+                                        <button
+                                            class="border w-6 h-6 btnDecreaseQuantity {{#if isPaidOrder}} hidden {{else}} {{#if ../cartDetails.isOneClickBuy}} hidden {{/if}} {{/if}}"
+                                            {{#if isOutOfStock}} disabled="true" {{else}} {{#if isLastQuantity}}
+                                            disabled="true" {{/if}} {{#if isQuantityOne}} disabled="true" {{/if}}
+                                            {{/if}}>-</button>
+                                        <div
+                                            class="flex justify-center items-center border w-6 h-6 {{#if isOutOfStock}} text-grey-dark {{/if}} quantity">
+                                            {{ availableQuantity }}</div>
+                                        <button
+                                            class="border w-6 h-6 btnIncreaseQuantity {{#if isPaidOrder}} hidden {{else}} {{#if ../cartDetails.isOneClickBuy}} hidden {{/if}} {{/if}}"
+                                            {{#if isOutOfStock}} disabled="true" {{else}} {{#if isLastQuantity}}
+                                            disabled="true" {{else}} {{#if isDecreaseQuantity}} disabled="true" {{else}}
+                                            {{#if isLastRemaining}} disabled="true" {{/if}} {{/if}} {{/if}}
+                                            {{/if}}>+</button>
+                                    </div>
+                                    <div class="text-xs red">
+                                        {{#if isOutOfStock}}
+                                        สินค้าหมด กรุณาลบรายการสั่งซื้อเพื่อชำระเงิน
+                                        {{else}}
+                                        {{#if isDecreaseQuantity}}
+                                        จำนวนสินค้ามีการเปลี่ยนแปลง
+                                        {{else}}
+                                        {{#if isLastQuantity}}
+                                        สินค้าชิ้นสุดท้าย
+                                        {{/if}}
+                                        {{/if}}
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-10 md:w-12 ml-2 md:ml-4 font-medium flex justify-center {{#if isOutOfStock}} text-grey-dark {{else}} {{#if isPaidOrder}} text-grey-dark {{else}} red {{/if}} {{/if}}">
+                                    ฿{{ productValue.price }}</div>
+                                {{#if ../cartDetails.isOneClickBuy}}
+                                {{#if ../storeConfig.useCart}}
+                                <div class="w-10 md:w-12 items-center ml-2 flex"></div>
+                                {{else}}
+                                <button
+                                    class="w-10 md:w-12 btnRemoveItem items-center ml-2 {{#if isPaidOrder}} hidden {{else}} flex {{/if}}">
+                                    {{#if isOutOfStock}}
+                                    <img src="../img/svg/trash-red.svg" class="outOfStock" />
+                                    {{else}}
+                                    <img src="../img/svg/trash-gray.svg" />
+                                    {{/if}}
+                                </button>
+                                {{/if}}
+                                {{else}}
+                                <button
+                                    class="w-10 md:w-12 btnRemoveItem items-center ml-2 {{#if isPaidOrder}} hidden {{else}} flex {{/if}}">
+                                    {{#if isOutOfStock}}
+                                    <img src="../img/svg/trash-red.svg" class="outOfStock" />
+                                    {{else}}
+                                    <img src="../img/svg/trash-gray.svg" />
+                                    {{/if}}
+                                </button>
+                                {{/if}}
+                            </div>
+                            <input type="hidden" class="selectedProductStringify" value="{{stringify}}">
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div class="flex flex-col items-center mt-16">
+                        <img src="../img/svg/cart.svg" />
+                        <div class="font-medium text-lg mt-4 text-grey-dark">คุณยังไม่มีรายการสั่งซื้อ</div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div
+                class="flex justify-between items-center border-t py-4 px-2 sm:px-4 sm:px-12 leading-tight basket-sticky">
+                <div class="flex text-grey-dark">
+                    <div class="mr-2 sm:mr-4">
+                        {{#if storeConfig.enabledReserveProduct}}
+                        {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                        {{else}}
+                        <div class="flex flex-row justify-between">
+                            <span class="mr-4">รวม ({{ cartDetails.summary.totalQuantity }})</span>
+                            <span class="text-left">฿{{ cartDetails.summary.totalPrice }}</span>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <span class="mr-4">ค่าจัดส่ง</span>
+                            <span class="text-left">฿{{ cartDetails.summary.totalDeliveryCost }}</span>
+                        </div>
+                        {{/if}}
+                        {{else}}
+                        <div class="flex flex-row justify-between">
+                            <span class="mr-4">รวม ({{ cartDetails.summary.totalQuantity }})</span>
+                            <span class="text-left">฿{{ cartDetails.summary.totalPrice }}</span>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <span class="mr-4">ค่าจัดส่ง</span>
+                            <span class="text-left">฿{{ cartDetails.summary.totalDeliveryCost }}</span>
+                        </div>
+                        {{/if}}
+                        {{#if cartDetails.hasDiscount}}
+                        <div class="flex flex-row justify-between">
+                            <span class="mr-4">ส่วนลด</span>
+                            <span class="text-left">฿{{ cartDetails.discount.grandTotal }}</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="mr-2 sm:mr-4">
+                        <div class="text-right whitespace-no-wrap">รวมทั้งหมด</div>
+                        <div
+                            class="{{#unless isPaidOrder}} red {{/unless}} font-medium text-base sm:text-xl text-right">
+                            ฿{{ cartDetails.summary.grandTotal }}
+                        </div>
+                    </div>
+                    {{#unless isPaidOrder}}
+                    {{#if storeConfig}}
+                    {{#if storeConfig.enabledReserveProduct}}
+                    {{#if cartDetails.productStaticInfo.0.enabledReserveProduct}}
+                    <button
+                        class="btn-reserve-product modal-reserve-product-open py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap"
+                        {{#if cartDetails.productStaticInfo.0.isOutOfStock}} disabled="true" {{/if}}>จองสินค้า</button>
+                    {{else}}
+                    <button class="btnPay modal-open py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap"
+                        id="btnPay">สั่งสินค้า</button>
+                    {{/if}}
+                    {{else}}
+                    <button class="btnPay modal-open py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap"
+                        id="btnPay">สั่งสินค้า</button>
+                    {{/if}}
+                    {{/if}}
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div
+        class="m-auto w-full h-full flex flex-col md:w-1/2 mb-8 leading-normal basket-container basket font-light items-center justify-center text-sm sm:text-base">
+        <div class="text-highlight text-3xl text-center">สินค้าในตะกร้าของคุณ มีการเปลี่ยนแปลงข้อมูลสินค้าจากทางร้านค้า
+            กรุณาพิมพ์ # เข้ามาอีกครั้ง ขออภัยในความไม่สะดวกค่ะ</div>
+    </div>
+    {{/if}}
+    <div class="hidden flex-1 flex-col h-full items-center justify-center loading-container">
+        <div class="mb-2 text-highlight">กำลังประมวลผลคำสั่งซื้อ.....</div>
+        <div class="text-highlight">Processing your order.....</div>
+    </div>
+    <div class="hidden flex-1 flex-col h-full items-center justify-center redirect-container">
+        <div class="mb-2 text-highlight">กำลังนำท่านไปยังหน้าชำระเงิน.....</div>
+        <div class="text-highlight">Redirect to Payment Page.....</div>
+    </div>
+    <div class="hidden flex-1 flex-col h-full items-center justify-center payment-method-container">
+        <div
+            class="btnClosePaymentMethod absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+            <img src="../img/svg/close-black.svg" class="fill-current text-black" />
+        </div>
+        <div class="w-5/6 sm:w-5/6 md:w-5/6 lg:w-2/3 xl:w-1/3 xl:max-w-xl">
+            <span class="mb-4 flex text-xl font-bold">กรุณาเลือกวิธีชำระเงิน</span>
+            <div class="flex flex-col">
+                <button
+                    class="btnPayWithQRCode btnPay py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                    ชำระผ่าน QR Code
+                </button>
+                {{#if storeConfig.useCreditCard}}
+                <button class="btnPayWithCard btnCod py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                    บัตรเดบิต/เครดิต
+                </button>
+                {{/if}}
+                {{#if storeConfig.useCashOnDelivery}}
+                <button class="btnPayWithCod btnCod py-2 px-4 sm:px-8 my-2 rounded-full font-light whitespace-no-wrap">
+                    ชำระเงินปลายทาง
+                </button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div
+        class="modal reserve-product-modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="flex justify-between items-center pb-3">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                        ยืนยันการสั่งจองสินค้า
+                    </h3>
+                </div>
+                <div class="mt-0 loading p-4" id="loading">
+                    <p class="text-md leading-5 text-gray-500">
+                        กำลังทำบันทึกข้อมูล...
+                    </p>
+                </div>
+                <div class="cart-content">
+                    <div class="mt-2">
+                        <p class="text-md leading-5 text-gray-500 txt-content">
+                            คุณต้องการสั่งจองสินค้ารายการนี้ใช่หรือไม่?
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 mt-6 px-4 py-3 sm:px-0 sm:flex sm:flex-row-reverse">
+                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                            <button type="button"
+                                class="btn-confirm-reserve-product inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 text-base leading-6 font-medium text-white shadow-sm focus:outline-none btn-reserve-product transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                ยืนยัน
+                            </button>
+                        </span>
+                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                            <button type="button"
+                                class="modal-reserve-product-close inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                ยกเลิก
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="../js/cart.js?v={{ timestamp }}"></script>
+<script type="text/javascript" src="../js/payment.js?v={{ timestamp }}"></script>
+<script type="text/javascript" src="../js/reserve-product.js?v={{ timestamp }}"></script>
+{{#if storeConfig}}
+{{#if storeConfig.useCashOnDelivery}}
+<script type="text/javascript" src="../js/cod.js?v={{ timestamp }}"></script>
+{{/if}}
+{{/if}}
+<script>
+    const HOST = window.location.origin;
+    const URL_PARAMS = new URLSearchParams(window.location.search);
+    const CART_ID = URL_PARAMS.get('cartID');	
+</script>
+
+</html>
